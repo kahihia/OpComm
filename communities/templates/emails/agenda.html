@@ -73,7 +73,7 @@
             {% endif %}
             <div style="padding:12px 6px">
                 {% if community.allow_links_in_emails %}
-                    <p>({% trans "click links for more details. to vote on proposals from the mail just click for/against buttons under the proposal" %})</p>
+                    <p><b>({% trans "Do not forward this mail. Forwarding this mail to others will allow them to comment on your behalf" %})</b></p>
                 {% endif %}
 
                 {% for obj in issue_container %}

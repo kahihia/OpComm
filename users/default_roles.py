@@ -38,7 +38,6 @@ class DefaultRoles(object):
         'communities.viewupcoming_draft',
         'issues.view_referendum_results',
         'issues.view_update_status',
-        'issues.view_straw_vote_result',
         'issues.add_proposal',
     ]
 
@@ -71,6 +70,7 @@ class DefaultRoles(object):
         'issues.acceptopen_proposal',
         'meetings.add_meeting',  # == Close Meeting
         'issues.edit_referendum',
+        'issues.view_straw_vote_result',
         'issues.chairman_vote',
         'users.show_member_profile',
     ]

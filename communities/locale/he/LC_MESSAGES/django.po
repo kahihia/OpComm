@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-28 20:08+0200\n"
-"PO-Revision-Date: 2018-01-02 09:38+0200\n"
+"POT-Creation-Date: 2018-01-03 23:31+0200\n"
+"PO-Revision-Date: 2018-01-03 23:32+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -17,6 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
+
+#: forms.py:12 templates/emails/_protocol.html:40
+#: templates/emails/agenda.html:56
+msgid "Scheduled at"
+msgstr "מועד"
 
 #: forms.py:31
 msgid "Title"
@@ -284,11 +289,11 @@ msgstr "סדר יום"
 msgid "History"
 msgstr "היסטוריה"
 
-#: templates/_community_panel.html:6 templates/communities/base_meeting.html:17
+#: templates/_community_panel.html:6 templates/communities/base_meeting.html:32
 msgid "Updates"
 msgstr "עדכונים"
 
-#: templates/_community_panel.html:7 templates/communities/base_meeting.html:19
+#: templates/_community_panel.html:7 templates/communities/base_meeting.html:34
 msgid "Meetings"
 msgstr "פגישות"
 
@@ -342,34 +347,38 @@ msgstr "דף הבית"
 msgid "Open Committee"
 msgstr "קהילה פתוחה"
 
-#: templates/base.html:42
+#: templates/base.html:45
 msgid "Page title"
 msgstr "כותרת עמוד"
 
-#: templates/base.html:52
+#: templates/base.html:55
 msgid "Attention"
 msgstr ""
 
-#: templates/base.html:59 templates/communities/publish_upcoming.html:25
+#: templates/base.html:62 templates/communities/publish_upcoming.html:25
 #: templates/dialog.html:25
 msgid "Close"
 msgstr "סגור"
 
-#: templates/base.html:77
+#: templates/base.html:80
 msgid "Back to top"
 msgstr "חזור למעלה"
 
-#: templates/communities/_issue.html:40
-msgid "Issue in discussion"
-msgstr "נושא בדיון"
-
-#: templates/communities/base_meeting.html:30
+#: templates/communities/base_meeting.html:20
+#: templates/communities/base_meeting.html:47
 #: templates/communities/upcoming.html:36
 #: templates/communities/upcoming.html:84
 msgid "Next update"
 msgstr "העדכון הבא"
 
-#: templates/communities/base_meeting.html:32
+#: templates/communities/base_meeting.html:22
+#: templates/communities/upcoming.html:10
+#: templates/communities/upcoming.html:38
+#: templates/communities/upcoming.html:86 templates/emails/agenda.txt:1
+msgid "Upcoming meeting"
+msgstr "הפגישה הקרובה"
+
+#: templates/communities/base_meeting.html:49
 msgid "Upcoming Meeting"
 msgstr "הפגישה הקרובה"
 
@@ -765,12 +774,6 @@ msgstr "סגירת סדר היום להתייחסויות חדשות"
 msgid "Upcoming update"
 msgstr "העדכון הבא"
 
-#: templates/communities/upcoming.html:10
-#: templates/communities/upcoming.html:38
-#: templates/communities/upcoming.html:86 templates/emails/agenda.txt:1
-msgid "Upcoming meeting"
-msgstr "הפגישה הקרובה"
-
 #: templates/communities/upcoming.html:22
 msgid "All updates"
 msgstr "כל העדכונים"
@@ -868,10 +871,6 @@ msgstr "לצפיה באתר"
 msgid "Meeting details"
 msgstr "פרטי הפגישה"
 
-#: templates/emails/_protocol.html:40 templates/emails/agenda.html:56
-msgid "Scheduled at"
-msgstr "מועד"
-
 #: templates/emails/_protocol.html:41 templates/emails/agenda.html:60
 msgid "Not set yet"
 msgstr "טרם נקבע"
@@ -931,11 +930,9 @@ msgstr "הנושאים שיועלו לדיון"
 
 #: templates/emails/agenda.html:76
 msgid ""
-"click links for more details. to vote on proposals from the mail just click "
-"for/against buttons under the proposal"
-msgstr ""
-"למידע נוסף יש ללחוץ על הקישורים. להצבעה מתוך המייל לחצו על כפורי \"בעד\" או "
-"\"נגד\" שמתחת להתייחסות"
+"Do not forward this mail. Forwarding this mail to others will allow them to "
+"comment on your behalf"
+msgstr "אין להעביר מייל זה. שליחתו לאחרים תאפשר להם להגיב בשמך"
 
 #: templates/emails/agenda.html:146
 msgid "For"
@@ -1113,6 +1110,16 @@ msgstr "מספר עמוד צריך להיות 1 או יותר."
 #: views.py:358
 msgid "No such page!"
 msgstr "דף לא קיים!"
+
+#~ msgid "Issue in discussion"
+#~ msgstr "נושא בדיון"
+
+#~ msgid ""
+#~ "click links for more details. to vote on proposals from the mail just "
+#~ "click for/against buttons under the proposal"
+#~ msgstr ""
+#~ "למידע נוסף יש ללחוץ על הקישורים. להצבעה מתוך המייל לחצו על כפורי \"בעד\" "
+#~ "או \"נגד\" שמתחת להתייחסות"
 
 #~ msgid "Participants"
 #~ msgstr "משתתפים"
