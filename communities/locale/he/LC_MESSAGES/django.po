@@ -784,7 +784,7 @@ msgstr "כל הפגישות"
 
 #: templates/communities/upcoming.html:97
 msgid "Login to vote"
-msgstr "הכנס בכדי להצביע"
+msgstr "התחבר בכדי להשתתף בדיון"
 
 #: templates/communities/upcoming.html:123
 msgid "Open voting"
@@ -922,7 +922,7 @@ msgstr "טיוטה"
 
 #: templates/emails/agenda.html:44
 msgid "Enter site and vote on proposals"
-msgstr "כניסה לאתר והצבעה על ההתייחסויות"
+msgstr "כניסה לאתר לקריאת התייחסות ולהשתתפות בדיון"
 
 #: templates/emails/agenda.html:72
 msgid "Issues "
