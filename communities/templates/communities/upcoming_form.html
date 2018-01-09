@@ -13,7 +13,7 @@
     {{ block.super }}
     <script>
         $('#id_upcoming_meeting_scheduled_at_0').blur(function(event) {
-            var cur_end_vote_date = $('#id_voting_ends_at_0').val()
+            var cur_end_vote_date = $('#id_voting_ends_at_0').val();
             var date_str = $(this).val();
             if( !cur_end_vote_date ||
                 (new Date(date_str) < new Date(cur_end_vote_date))) {            
@@ -25,6 +25,14 @@
                 $('#id_voting_ends_at_0').val(date_str);
                 $('#id_voting_ends_at_1').val("00:00");
             }
-        })
+        });
+        var curDate = $('#id_upcoming_meeting_scheduled_at_0').val();
+        $(".datepicker").datepicker($.datepicker.regional["he"]);
+        $(".datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
+        $(".datepicker").datepicker("option", "defaultDate", new Date(
+            parseInt(curDate.substring(0,4)),
+            parseInt(curDate.substring(5,7)),
+            parseInt(curDate.substring(8,10))
+        ));
     </script>
 {% endblock %}

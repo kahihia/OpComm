@@ -11,8 +11,8 @@ class EditUpcomingMeetingForm(forms.ModelForm):
     upcoming_meeting_scheduled_at = OCSplitDateTimeField(
         label=_('Scheduled at'),
         widget=OCSplitDateTime(
-            date_attrs={'type': 'date', 'class': 'form-control'},
-            time_attrs={'type': 'time', 'class': 'form-control'},
+            date_attrs={'type': 'text', 'class': 'form-control datepicker'},
+            time_attrs={'type': 'time', 'class': 'form-control timepicker'},
             attrs={'class': 'form-control'}
         ))
 
