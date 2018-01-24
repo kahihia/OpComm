@@ -2615,6 +2615,21 @@ label[for=id_proposal-confidential_reason] {
     font-size: 20px;
 }
 
+.proposal-comment .proposal-comment-list h3[data-toggle="collapse"] {
+    cursor: pointer;
+}
+
+.proposal-comment .proposal-comment-list h3[data-toggle="collapse"]::after {
+    content: "\2195";
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    font-size: 16px;
+    vertical-align: bottom;
+    line-height: 20px;
+    padding-right: 10px;
+}
+
 .single-comment {
     margin: 0 0 .5em;
     padding: 0 0 .5em;

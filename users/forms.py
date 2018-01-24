@@ -87,7 +87,7 @@ class OCPasswordResetConfirmForm(SetPasswordForm):
 
 
 class ImportInvitationsForm(forms.Form):
-    csv_file = forms.FileField(required=True)
+    csv_file = forms.FileField(required=True, widget=forms.FileInput(attrs={'class': 'form-control'}))
 
     def __init__(self, *args, **kwargs):
         super(ImportInvitationsForm, self).__init__(*args, **kwargs)

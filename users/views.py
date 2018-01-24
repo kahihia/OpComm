@@ -275,9 +275,6 @@ class ImportInvitationsView(MembershipMixin, FormView):
     form_class = ImportInvitationsForm
     template_name = 'users/import_invitations.html'
 
-    def get(self, request, *args, **kwargs):
-        return self.render_to_response(self.get_context_data(import_invitation_form=self.get_form(self.form_class)))
-
     def form_valid(self, form):
         msg = 'def message'
         def_enc = 'windows-1255'
@@ -322,9 +319,9 @@ class ImportInvitationsView(MembershipMixin, FormView):
                         if v == role:
                             role = k
                 except:
-                    role = roles.keys()[0]
+                    role = list(roles.keys())[0]
                 if not role in roles.keys():
-                    role = roles.keys()[0]
+                    role = list(roles.keys())[0]
 
                 v_err = self.validate_invitation(email)
                 if v_err:

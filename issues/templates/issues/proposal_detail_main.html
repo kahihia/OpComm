@@ -158,11 +158,15 @@
             <div class="proposal-comment clear">
                 <div class="proposal-comment-list{% if not object.get_comments %} hide{% endif %}">
                     {% if object.get_comments %}
-                        <h3>{% trans 'Comments' %}</h3>
+                        <h3 data-toggle="collapse" href="#proposalComments_{{ object.id }}" aria-expanded="false" aria-controls="proposalComments_{{ object.id }}">
+                            {% trans 'Comments' %} ({{ object.get_comments|length }})
+                        </h3>
+                        <div class="collapse" id="proposalComments_{{ object.id }}">
+                            {% for arg in object.get_comments %}
+                                {% include 'issues/_proposal_comment.html' %}
+                            {% endfor %}
+                        </div>
                     {% endif %}
-                    {% for arg in object.get_comments %}
-                        {% include 'issues/_proposal_comment.html' %}
-                    {% endfor %}
                 </div>
                 {% if cperms.issues.comment_proposal %}
                     <form class="proposal-comment-form" method="post"
