@@ -76,13 +76,15 @@
 {% endblock %}
 
 {% block extrahead %}
-    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/typeahead.js-bootstrap.css"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/typeahead.js-bootstrap.css' %}" />
     <link href="{% static 'jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.css' %}" rel="stylesheet" />
+    {% comment %}<link href="{% static 'css/jquery.timepicker.css' %}" rel="stylesheet" />{% endcomment %}
 {% endblock %}
 
 {% block jquiscript %}
     <script src="{{ STATIC_URL }}jquery-ui/js/jquery-ui-1.10.2.custom.js"></script>
     <script src="{% static 'jquery-ui/js/datepicker-he.js' %}"></script>
+    {% comment %}<script src="{% static 'js/jquery.timepicker.min.js' %}"></script>{% endcomment %}
 {% endblock %}
 
 {% block scripts %}
@@ -97,6 +99,14 @@
             $('input.issue-search').bind('input', function () {
                 searchIssues($(this).val().trim(), $(this));
             });
+            {% comment %}
+            $('.timepicker').timepicker('option', {
+                'minTime': '6:00am',
+                'maxTime': '10:00pm',
+                'timeFormat': 'H:i',
+                'step': '15'
+            });
+            {% endcomment %}
         });
     </script>
     {% block additional_scripts %}{% endblock %}

@@ -14,7 +14,8 @@ class EditUpcomingMeetingForm(forms.ModelForm):
             date_attrs={'type': 'text', 'class': 'form-control datepicker'},
             time_attrs={'type': 'time', 'class': 'form-control timepicker'},
             attrs={'class': 'form-control'}
-        ))
+        ),
+        required=False)
 
     class Meta:
         model = Community

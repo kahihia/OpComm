@@ -1,4 +1,5 @@
-import pdb
+import codecs
+import csv
 
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
@@ -24,7 +25,6 @@ from users import models
 from .default_roles import DefaultGroups
 from users.forms import InvitationForm, QuickSignupForm, ImportInvitationsForm
 from users.models import Invitation, OCUser, Membership
-import json
 
 
 def cmp_to_key(mycmp):
@@ -148,7 +148,8 @@ class UnsubscribeView(View):
             raise Http404
         user.opt_in = False
         user.save()
-        return HttpResponse(_('Email address [{}] has been successfully removed from out list'.format(user.email.lower())))
+        return HttpResponse(
+            _('Email address [{}] has been successfully removed from out list'.format(user.email.lower())))
 
 
 class AcceptInvitationView(DetailView):
@@ -276,69 +277,38 @@ class ImportInvitationsView(MembershipMixin, FormView):
     template_name = 'users/import_invitations.html'
 
     def form_valid(self, form):
-        msg = 'def message'
-        def_enc = 'windows-1255'
-        uploaded = form.cleaned_data['csv_file']
-
-        # CHOICES is a tuple of role names: (name, _(name))
+        uploaded_file = self.request.FILES['csv_file']
+        uploaded_csvfile = csv.DictReader(codecs.iterdecode(uploaded_file, 'utf-8'),
+                                          fieldnames=['name', 'email', 'role'])
         roles = dict(DefaultGroups.CHOICES)
         sent = 0
-        final_rows = []
-        partial = ''
-        composite = False
-        for chunk in uploaded.chunks():
-            rows = chunk.split('\n')
-            for i, row in enumerate(rows):
-                if row.startswith('"'):
-                    composite = True
-                    partial = row[1:]
-                elif composite:
-                    partial += '\n' + row
-                    if '"' in row:
-                        composite = False
-                        final_rows.append(partial[:partial.rindex('"')])
-                else:
-                    final_rows.append(row)
+        for row in uploaded_csvfile:
+            role = list(roles.keys())[0]
+            name = row['name']
+            email = row['email']
+            _role = row['role']
+            try:
+                for k, v in roles.items():
+                    if v == _role:
+                        role = k
+            except:
+                role = list(roles.keys())[0]
 
-        for i, row in enumerate(final_rows):
-            words = row.split(',')
-            if i == 0:
-                msg = row
-                try:
-                    msg = msg.decode(def_enc)
-                except UnicodeDecodeError:
-                    def_enc = 'utf-8'
-                    print('UTF-8')
-                    msg = msg.decode(def_enc)
-            elif len(words) > 1:
-                name = words[0].decode(def_enc)
-                email = words[1].decode(def_enc)
-                try:
-                    role = words[2].strip().decode(def_enc)
-                    for k, v in roles.items():
-                        if v == role:
-                            role = k
-                except:
-                    role = list(roles.keys())[0]
-                if not role in roles.keys():
-                    role = list(roles.keys())[0]
+            if OCUser.objects.filter(email=email).exists():
+                continue
 
-                v_err = self.validate_invitation(email)
-                if v_err:
-                    continue
-                invitation = Invitation.objects.create(
-                    community=self.community,
-                    name=name,
-                    email=email,
-                    created_by=self.request.user,
-                    default_group_name=role,
-                    message=msg)
-                try:
-                    invitation.send(sender=self.request.user, recipient_name=name)
-                    # time.sleep(1)
-                    sent += 1
-                except:
-                    pass
+            user = OCUser.objects.create_user(
+                email=email,
+                display_name=name,
+                password='opcomm'
+            )
+            membership = Membership.objects.create(
+                community=self.community,
+                user=user,
+                default_group_name=role,
+                invited_by=self.request.user
+            )
+            sent += 1
 
         messages.success(self.request, _('%d Invitations sent') % (sent,))
         return redirect(reverse('members', kwargs={'community_id': self.community.id}))
@@ -397,5 +367,4 @@ def oc_password_reset(request, is_admin_site=False,
     }
     if extra_context is not None:
         context.update(extra_context)
-    return TemplateResponse(request, template_name, context,
-                            current_app=current_app)
+    return TemplateResponse(request, template_name, context, current_app=current_app)
