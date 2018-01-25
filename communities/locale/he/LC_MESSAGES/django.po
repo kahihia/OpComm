@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 23:31+0200\n"
-"PO-Revision-Date: 2018-01-03 23:32+0200\n"
+"POT-Creation-Date: 2018-01-25 13:50+0200\n"
+"PO-Revision-Date: 2018-01-25 13:54+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -23,15 +23,15 @@ msgstr ""
 msgid "Scheduled at"
 msgstr "מועד"
 
-#: forms.py:31
+#: forms.py:32
 msgid "Title"
 msgstr "כותרת"
 
-#: forms.py:34
+#: forms.py:35
 msgid "Background"
 msgstr "רקע"
 
-#: forms.py:81
+#: forms.py:82
 msgid "Send to"
 msgstr "נמענים"
 
@@ -45,7 +45,7 @@ msgstr "למשתתפים בפגישה בלבד"
 
 #: models.py:29 models.py:35
 msgid "All members"
-msgstr "לכל חברי הקהילה"
+msgstr "לכל חברי הועדה"
 
 #: models.py:40 models.py:488 templates/communities/participants_form.html:90
 msgid "Name"
@@ -194,8 +194,8 @@ msgid "The title to give this reason."
 msgstr "כותרת עבור סיבה זו"
 
 #: templates/403.html:5
-msgid "DemOS 403"
-msgstr ""
+msgid "OpenCommittee 403"
+msgstr "ועדה פתוחה 403"
 
 #: templates/403.html:16
 msgid "Sorry"
@@ -213,8 +213,8 @@ msgid "Login"
 msgstr "כניסה"
 
 #: templates/404.html:5
-msgid "DemOS 404"
-msgstr ""
+msgid "OpenCommittee 404"
+msgstr "ועדה פתוחה 404"
 
 #: templates/404.html:24 templates/404.html:40 templates/404.html:56
 #: templates/404.html:72 templates/404.html:88 templates/500.html:34
@@ -267,8 +267,8 @@ msgid "You can go to"
 msgstr ""
 
 #: templates/500.html:4
-msgid "DemOS 500"
-msgstr ""
+msgid "OpenCommittee 500"
+msgstr "ועדה פתוחה 500"
 
 #: templates/500.html:37
 msgid "The server is playing up."
@@ -289,11 +289,11 @@ msgstr "סדר יום"
 msgid "History"
 msgstr "היסטוריה"
 
-#: templates/_community_panel.html:6 templates/communities/base_meeting.html:32
+#: templates/_community_panel.html:6 templates/communities/base_meeting.html:31
 msgid "Updates"
 msgstr "עדכונים"
 
-#: templates/_community_panel.html:7 templates/communities/base_meeting.html:34
+#: templates/_community_panel.html:7 templates/communities/base_meeting.html:33
 msgid "Meetings"
 msgstr "פגישות"
 
@@ -312,8 +312,8 @@ msgid "Members"
 msgstr "חברים"
 
 #: templates/_navbar.html:11 templates/_navbar.html:36
-msgid "DemOS"
-msgstr ""
+msgid "OpenCommittee"
+msgstr "ועדה פתוחה"
 
 #: templates/_navbar.html:24 templates/_navbar.html:52
 msgid "General search text..."
@@ -325,19 +325,19 @@ msgstr "ניהול המערכת"
 
 #: templates/_user_panel.html:7
 msgid "All communities"
-msgstr "כל הקהילות"
+msgstr "כל הוועדות"
 
 #: templates/_user_panel.html:10
 msgid "Log out"
 msgstr "יציאה"
 
 #: templates/admin/base_site.html:5
-msgid "Open Community admin"
-msgstr "אדמין קהילה פתוחה"
+msgid "Open Committee admin"
+msgstr "אדמין ועדה פתוחה"
 
 #: templates/admin/base_site.html:8
-msgid "Open Community Administration"
-msgstr "אדמין קהילה פתוחה"
+msgid "Open Committee Administration"
+msgstr "אדמין ועדה פתוחה"
 
 #: templates/admin/base_site.html:12
 msgid "Home"
@@ -345,7 +345,7 @@ msgstr "דף הבית"
 
 #: templates/base.html:9
 msgid "Open Committee"
-msgstr "קהילה פתוחה"
+msgstr "ועדה פתוחה"
 
 #: templates/base.html:45
 msgid "Page title"
@@ -364,27 +364,27 @@ msgstr "סגור"
 msgid "Back to top"
 msgstr "חזור למעלה"
 
-#: templates/communities/base_meeting.html:20
-#: templates/communities/base_meeting.html:47
+#: templates/communities/base_meeting.html:19
+#: templates/communities/base_meeting.html:46
 #: templates/communities/upcoming.html:36
 #: templates/communities/upcoming.html:84
 msgid "Next update"
 msgstr "העדכון הבא"
 
-#: templates/communities/base_meeting.html:22
+#: templates/communities/base_meeting.html:21
 #: templates/communities/upcoming.html:10
 #: templates/communities/upcoming.html:38
 #: templates/communities/upcoming.html:86 templates/emails/agenda.txt:1
 msgid "Upcoming meeting"
 msgstr "הפגישה הקרובה"
 
-#: templates/communities/base_meeting.html:49
+#: templates/communities/base_meeting.html:48
 msgid "Upcoming Meeting"
 msgstr "הפגישה הקרובה"
 
 #: templates/communities/community_list.html:17
 msgid "My communities"
-msgstr "הקהילות שלי"
+msgstr "ועדות במעקב"
 
 #: templates/communities/community_list.html:32
 msgid "Plesae login to view your communities"
@@ -392,7 +392,7 @@ msgstr "בכדי לצפות בקהילות שלך, עליך להכנס למער�
 
 #: templates/communities/community_list.html:43
 msgid "All Communities"
-msgstr "כל הקהילות"
+msgstr "כל הוועדות"
 
 #: templates/communities/community_search.html:9 templates/search/search.html:9
 msgid "Search"
@@ -451,8 +451,8 @@ msgid "Edit summary"
 msgstr "ערוך סיכום"
 
 #: templates/communities/landing.html:6
-msgid "DemOS - operating system for democracies"
-msgstr "קהילה פתוחה - מערכת לשקיפות והשתתפות בפעילות ועד נבחר"
+msgid "OpenCommittee - operating system for democracies"
+msgstr "ועדה פתוחה - מערכת לשקיפות והשתתפות בפעילות ועד נבחר"
 
 #: templates/communities/landing.html:52 templates/communities/landing.html:88
 msgid "top"

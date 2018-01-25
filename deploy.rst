@@ -31,7 +31,7 @@ Le'ts install a send-only mail server as well::
 
     apt-get install postfix
     # select Internet Site and your domain
-    # make sure that myhostname = opencommunity.org.il here:
+    # make sure that myhostname = opencommittee.co.il here:
     vi /etc/postfix/main.cf
     # and reload your server
     /etc/init.d/postfix reload
@@ -46,7 +46,7 @@ Le'ts install a send-only mail server as well::
 Now log in as `oc` either via ssh or by running `su - oc` and execute::
 
     # clone the repo to your home dir...
-    git clone https://github.com/hasadna/OpenCommunity.git
+    git clone https://github.com/yaniv14/OpenComm.git
 
     # ...go inside...
     cd OpenCommunity
@@ -69,14 +69,14 @@ It should look like this::
 
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-            'NAME': 'opencommunity',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'opencommittee',
         }
     }
-    _host = 'www.opencommunity.org.il'
+    _host = 'www.opencommittee.co.il'
     HOST_URL = "http://%s" % _host
     ALLOWED_HOSTS = [_host]
-    FROM_EMAIL = "noreply@opencommunity.org.il"
+    FROM_EMAIL = "noreply@opencommittee.co.il"
 
 Let's make a directory for our uploads::
 
@@ -99,16 +99,16 @@ Let's set up the database::
 
 Let's set up a gunicorn server, back as root::
 
-    mkdir /var/log/opencommunity/
+    mkdir /var/log/opencommittee/
 
-    cp /home/oc/OpenCommunity/conf/nginx.conf /etc/nginx/sites-available/opencommunity
-    ln -s /etc/nginx/sites-available/opencommunity /etc/nginx/sites-enabled/opencommunity
+    cp /home/oc/OpenComm/conf/nginx.conf /etc/nginx/sites-available/opencommittee
+    ln -s /etc/nginx/sites-available/opencommittee /etc/nginx/sites-enabled/opencommittee
 
-    cp /home/oc/OpenCommunity/conf/supervisor.conf /etc/supervisor/conf.d/opencommunity.conf
+    cp /home/oc/OpenComm/conf/supervisor.conf /etc/supervisor/conf.d/opencommittee.conf
 
     # restart services
     service nginx start
     service supervisor stop
     service supervisor start
 
-Now go to <http://opencommunity.org.il/>
+Now go to <http://opencommittee.co.il/>

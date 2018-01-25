@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-28 20:08+0200\n"
+"POT-Creation-Date: 2018-01-25 13:50+0200\n"
 "PO-Revision-Date: 2014-10-26 11:04+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,10 @@ msgstr "שלח אל"
 #: forms.py:21
 msgid "The selected issues will be archived"
 msgstr "הנושאים המסומנים יועברו לארכיון"
+
+#: forms.py:26 models.py:71
+msgid "Held at"
+msgstr "מועד קיום הפגישה"
 
 #: forms.py:50
 msgid "Issue was not modified in this meeting"
@@ -73,10 +77,6 @@ msgstr "נוצר ב"
 #: models.py:69
 msgid "Created by"
 msgstr "נוצר על ידי"
-
-#: models.py:71
-msgid "Held at"
-msgstr "מועד קיום הפגישה"
 
 #: models.py:73
 msgid "Title"
