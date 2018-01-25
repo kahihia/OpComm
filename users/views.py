@@ -6,6 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth.views import PasswordResetConfirmView
 from django.contrib.sites.shortcuts import get_current_site
 from django.http.response import HttpResponse, HttpResponseBadRequest, Http404, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect
@@ -23,7 +24,7 @@ from ocd import settings
 from ocd.base_views import CommunityMixin
 from users import models
 from .default_roles import DefaultGroups
-from users.forms import InvitationForm, QuickSignupForm, ImportInvitationsForm
+from users.forms import InvitationForm, QuickSignupForm, ImportInvitationsForm, OCPasswordResetConfirmForm
 from users.models import Invitation, OCUser, Membership
 
 
@@ -367,4 +368,8 @@ def oc_password_reset(request, is_admin_site=False,
     }
     if extra_context is not None:
         context.update(extra_context)
-    return TemplateResponse(request, template_name, context, current_app=current_app)
+    return TemplateResponse(request, template_name, context)
+
+
+class OCPasswordResetConfirmView(PasswordResetConfirmView):
+    form_class = OCPasswordResetConfirmForm

@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.auth.views import LogoutView, PasswordResetDoneView, PasswordResetConfirmView, \
-    PasswordResetCompleteView
+from django.contrib.auth.views import LogoutView, PasswordResetDoneView, PasswordResetCompleteView
 from django.urls import path, include, reverse_lazy, re_path
 from django.contrib import admin
 from django.views.i18n import JavaScriptCatalog
@@ -9,7 +8,7 @@ from django.views.i18n import JavaScriptCatalog
 import users
 from meetings.views import MeetingCreateView
 from . import views
-from users.forms import OCPasswordResetForm, OCPasswordResetConfirmForm
+from users.forms import OCPasswordResetForm
 from users.models import CODE_LENGTH
 from users.views import AcceptInvitationView, UnsubscribeView
 import communities.views
@@ -33,9 +32,8 @@ urlpatterns = [
          {'post_reset_redirect': '/user/password/reset/done/', 'password_reset_form': OCPasswordResetForm},
          name="password_reset"),
     path('user/password/reset/done/', PasswordResetDoneView.as_view()),
-    path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(),
-         {'post_reset_redirect': '/user/password/done/', 'set_password_form': OCPasswordResetConfirmForm}),
-    path('user/password/done/', PasswordResetCompleteView.as_view()),
+    path('reset/<uidb64>/<token>/', users.views.OCPasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('user/password/done/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('admin/', admin.site.urls),
     path('django-rq/', include('django_rq.urls')),
     path('jsi18n/', JavaScriptCatalog.as_view(packages=['issues', 'communities']), name='javascript-catalog'),
