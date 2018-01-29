@@ -24,6 +24,7 @@ class DefaultRoles(object):
         'issues.viewopen_proposal',
         'issues.viewcomment_proposal',
         'communities.viewupcoming_community',
+        'meeting.view_attachment',
     ]
 
     permissions[OBSERVER] = permissions[VIEWER] + [
@@ -51,6 +52,8 @@ class DefaultRoles(object):
         'issues.editopen_issue',
         'issues.editopen_proposal',
         'issues.edittask_proposal',
+        'meeting.add_attachment',
+        'meeting.remove_attachment',
     ]
 
     permissions[OPERATOR] = permissions[CONTRIBUTOR] + [

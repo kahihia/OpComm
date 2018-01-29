@@ -1,6 +1,7 @@
 from django import forms
+from django.conf import settings
 
-from communities.models import Community, SendToOption
+from communities.models import Community, SendToOption, MeetingAttachment
 from datetime import datetime, date, time
 from django.utils.translation import ugettext_lazy as _
 from ocd.formfields import HTMLArea, OCSplitDateTime, OCCheckboxSelectMultiple, OCTextInput, OCSplitDateTimeField
@@ -143,3 +144,39 @@ class CommunitySearchForm(ModelSearchForm):
     #         return self.no_query_found()
     #
     #     return sqs
+
+
+class AddMeetingAttachmentBaseForm(forms.ModelForm):
+    class Meta:
+        model = MeetingAttachment
+        fields = (
+            'title',
+            'file',
+        )
+
+        widgets = {
+            'title': OCTextInput,
+        }
+
+    def clean_file(self):
+        file_obj = self.cleaned_data['file']
+
+        if len(file_obj.name.split('.')) == 1:
+            raise forms.ValidationError(_("File type is not allowed!"))
+
+        if file_obj.name.split('.')[-1].lower() not in settings.UPLOAD_ALLOWED_EXTS:
+            raise forms.ValidationError(_("File type is not allowed!"))
+
+        return file_obj
+
+    def clean_title(self):
+        title = self.cleaned_data['title']
+
+        if len(title.strip()) == 0:
+            raise forms.ValidationError(_("Title cannot be empty"))
+
+        return title
+
+
+class AddMeetingAttachmentForm(AddMeetingAttachmentBaseForm):
+    submit_button_text = _('Upload')

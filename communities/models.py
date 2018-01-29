@@ -1,13 +1,17 @@
 import logging
+
+import os
 from django.conf import settings
 from django.db import models, transaction
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
+from django.utils.text import get_valid_filename
 from django.utils.translation import ugettext, ugettext_lazy as _
 from issues.models import ProposalStatus, IssueStatus, VoteResult
 from meetings.models import MeetingParticipant, Meeting
 from ocd.base_models import HTMLField, UIDMixin
+from ocd.storages import uploads_storage
 from users.default_roles import DefaultGroups
 from users.models import OCUser, Membership
 import issues.models as issues_models
@@ -154,6 +158,9 @@ class Community(UIDMixin):
         else:
             rv = None
         return rv
+
+    def get_upcoming_attachments(self):
+        return self.meeting_attachments.filter(meeting__isnull=True)
 
     def available_issues_by_rank(self):
         return self.issues.filter(active=True,
@@ -460,6 +467,72 @@ class Community(UIDMixin):
             }
 
         return [as_agenda_item(x) for x in payload]
+
+
+def meeting_attachment_path(instance, filename):
+    filename = get_valid_filename(os.path.basename(filename))
+    return os.path.join(instance.community.uid, filename)
+
+
+class MeetingAttachment(UIDMixin):
+    community = models.ForeignKey(Community, related_name="meeting_attachments", on_delete=models.CASCADE)
+    meeting = models.ForeignKey(Meeting, related_name="meeting_attachments", on_delete=models.CASCADE, blank=True,
+                                null=True)
+    file = models.FileField(_("File"), storage=uploads_storage, max_length=200, upload_to=meeting_attachment_path)
+    title = models.CharField(_("Title"), max_length=100)
+    active = models.BooleanField(default=True)
+    ordinal = models.PositiveIntegerField(null=True, blank=True)
+    created_at = models.DateTimeField(_("File created at"), auto_now_add=True)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                   verbose_name=_("Created by"),
+                                   on_delete=models.PROTECT,
+                                   related_name="meeting_files_created")
+
+    def get_icon(self):
+        file_icon_map = {
+            'doc': 'doc',
+            'docx': 'doc',
+            'rtf': 'doc',
+            'jpg': 'img',
+            'jpeg': 'img',
+            'gif': 'img',
+            'png': 'img',
+            'tiff': 'img',
+            'xls': 'xl',
+            'xlsx': 'xl',
+            'csv': 'xl',
+            'pdf': 'pdf',
+            'ppt': 'ppt',
+            'pptx': 'ppt',
+            'm4a': 'vid',
+            'wma': 'vid',
+            'mp4': 'vid',
+            'mov': 'vid',
+            'avi': 'vid',
+            'wmv': 'vid',
+            'aac': 'snd',
+            'fla': 'snd',
+            'wav': 'snd',
+            'mp3': 'snd',
+            'flac': 'snd',
+            'txt': 'txt',
+        }
+        ext = os.path.splitext(self.file.name)[1][1:] or ''
+        try:
+            icon = file_icon_map[ext.lower()]
+        except KeyError:
+            icon = 'file'
+        return icon
+
+    class Meta:
+        ordering = ('created_at',)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return "meeting_attachment_download", (
+            str(self.community.pk),
+            str(self.pk)
+        )
 
 
 class CommunityConfidentialReason(models.Model):

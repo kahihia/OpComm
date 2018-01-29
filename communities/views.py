@@ -1,5 +1,6 @@
 import datetime
 import json
+import mimetypes
 import pdb
 
 from django.conf import settings
@@ -7,23 +8,23 @@ from django.contrib import messages
 from django.core.paginator import Paginator, InvalidPage
 from django.db.models.aggregates import Max
 from django.http.response import HttpResponseBadRequest, HttpResponseRedirect, Http404
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import View, ListView, TemplateView
 from django.views.generic.detail import DetailView, SingleObjectMixin
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 
 from communities import models
 from communities.forms import EditUpcomingMeetingForm, \
     PublishUpcomingMeetingForm, UpcomingMeetingParticipantsForm, \
-    EditUpcomingMeetingSummaryForm
-from communities.models import SendToOption
+    EditUpcomingMeetingSummaryForm, AddMeetingAttachmentForm
+from communities.models import SendToOption, Community
 from communities.notifications import send_mail
 from issues.models import IssueStatus, Issue, Proposal
 from meetings.models import Meeting
-from ocd.base_views import ProtectedMixin, AjaxFormView
+from ocd.base_views import ProtectedMixin, AjaxFormView, CommunityMixin
 from ocd.base_managers import ConfidentialSearchQuerySet
 from users.permissions import has_community_perm
 from django.views.generic.base import RedirectView
@@ -395,3 +396,42 @@ class CommunitySearchView(CommunityModelMixin, DetailView):
         d = super(CommunitySearchView, self).get_context_data(**kwargs)
         d['query'] = self.get_term()
         return d
+
+
+class MeetingAttachmentDownloadView(CommunityMixin, SingleObjectMixin, View):
+    model = models.MeetingAttachment
+
+    def get_required_permission(self):
+        return 'meeting.view_attachment'
+
+    def get(self, request, *args, **kwargs):
+        o = self.get_object()
+        filename = o.file.name.split('/')[-1]
+        mime_type = mimetypes.guess_type(filename, True)[0] or "text/plain"
+        response = HttpResponse(o.file, content_type=mime_type)
+        response['Content-Disposition'] = 'attachment; filename=%s' % filename.encode('utf-8')
+        return response
+
+
+class MeetingAttachmentCreateView(AjaxFormView, CreateView):
+    model = models.MeetingAttachment
+    form_class = AddMeetingAttachmentForm
+
+    required_permission = 'meeting.add_attachment'
+    reload_on_success = True
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        form.instance.community = get_object_or_404(Community, pk=self.kwargs['pk'])
+        return super(MeetingAttachmentCreateView, self).form_valid(form)
+
+
+class MeetingAttachmentDeleteView(AjaxFormView, CommunityMixin, DeleteView):
+    model = models.MeetingAttachment
+    required_permission = 'meeting.add_attachment'
+
+    def delete(self, request, *args, **kwargs):
+        o = self.get_object()
+        o.file.delete(save=False)
+        o.delete()
+        return HttpResponse("")

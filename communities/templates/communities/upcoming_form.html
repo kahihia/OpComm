@@ -34,5 +34,8 @@
             parseInt(curDate.substring(5,7)),
             parseInt(curDate.substring(8,10))
         ));
+        if (curDate) {
+            $(".datepicker").attr("placeholder", curDate.substring(8,10) + '/' + curDate.substring(5,7) + '/' + curDate.substring(0,4));
+        }
     </script>
 {% endblock %}

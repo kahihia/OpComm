@@ -18,6 +18,7 @@ urlpatterns = [
          name="delete_participant"),
     path('protocol-preview/', views.ProtocolDraftPreviewView.as_view(), name='preview_ongoing_protocol'),
     path('search/', views.CommunitySearchView.as_view(), name='community_search'),
+    path('meeting-attachment/', views.MeetingAttachmentCreateView.as_view(), name="add_meeting_attachment"),
 
     # FOR TESTING ONLY!
     path('upcoming/sum_votes/', views.SumVotesView.as_view(), name="sum_votes"),

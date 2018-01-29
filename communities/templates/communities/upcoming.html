@@ -69,6 +69,9 @@
 					{% if cperms.community.editupcoming_community %}
 						<i class="fa fa-edit"></i> <a data-rel="form" href="{% url "upcoming_edit" community.id %}" style="color: #6C6C6E;display: inline-block; text-align: left;"><span>{% trans "Edit" %}</span></a>
 					{% endif %}
+					{% if cperms.meeting.add_attachment %}
+						<i class="fa fa-paperclip"></i> <a id="add-attachment" data-rel="form" href="{% url 'add_meeting_attachment' object.id %}" title='{% trans "Attach files" %}' style="color: #6C6C6E;">{% trans "Attach files" %}</a>
+					{% endif %}
 				</div>
 			{% endif %}
 		{% endif %}
@@ -155,10 +158,22 @@
 				{% endif %}
 
 				<h5 style="clear: both;border-top: 1px solid;padding-top: 10px;">
-				{% if object.upcoming_meeting_comments %}
-				    {{object.upcoming_meeting_comments|userhtml}}
-				{% endif %}
+                    {% if object.upcoming_meeting_comments %}
+                        {{object.upcoming_meeting_comments|userhtml}}
+                    {% endif %}
 				</h5>
+                {% if object.get_upcoming_attachments.count and cperms.meeting.view_attachment %}
+                    <ul style="clear: both; margin:0; list-style-type: none;">
+                        {% for att in object.get_upcoming_attachments.all %}
+                            <li class="meeting-attachments">
+                                <a href="{{ att.get_absolute_url }}" class="file_ext {{ att.get_icon }}">{{att.title}}</a>
+                                {% if cperms.meeting.remove_attachment %}
+                                    <a id="remove-attachment" href="{% url 'meeting_attachment_delete' object.id att.id %}" data-rel="form"><img src="{% static 'images/icon-remove.gif' %}"/></a>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
 			</div>
 
 			<div id="agenda-container" class="agenda-list clear">

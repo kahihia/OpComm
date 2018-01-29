@@ -113,6 +113,9 @@ class Meeting(UIDMixin):
             return []
         return filter(None, [s.strip() for s in self.guests.splitlines()])
 
+    def get_attachments(self):
+        return self.meeting_attachments.all()
+
     def get_title_or_date(self):
         return self.title or date_format(self.held_at)
 

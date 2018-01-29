@@ -1,8 +1,5 @@
 {% extends "communities/base_meeting.html" %}
-{% load i18n %}
-{% load humanize %}
-{% load letter_tag %}
-{% load opencommunity community_tags %}
+{% load i18n humanize letter_tag opencommunity community_tags static %}
 
 {% block title %}
 	<title>{{ object.community.name }} - {{ object.title|default:_("Summary") }}</title>
@@ -76,6 +73,20 @@ id="meeting-detail"
                 {{object.summary|userhtml}}
             {% endif %}
             </h5>
+            {% if object.get_attachments.count and cperms.meeting.view_attachment %}
+                <ul style="clear: both; margin:0; list-style-type: none;">
+                    {% for att in object.get_attachments.all %}
+                        <li class="meeting-attachments">
+                            <a href="{{ att.get_absolute_url }}" class="file_ext {{ att.get_icon }}">{{att.title}}</a>
+                            {% comment %}
+                            {% if cperms.meeting.remove_attachment %}
+                                <a id="remove-attachment" href="{% url 'meeting_attachment_delete' object.community.id att.id %}" data-rel="form"><img src="{% static 'images/icon-remove.gif' %}"/></a>
+                            {% endif %}
+                            {% endcomment %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
 
         <div class="history_meetings">

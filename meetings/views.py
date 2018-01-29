@@ -5,6 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.generic.base import RedirectView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
+
+from communities.models import MeetingAttachment
 from issues.views import CommunityMixin
 from issues.models import Issue, IssueStatus
 from meetings import models
@@ -103,6 +105,10 @@ class MeetingCreateView(AjaxFormView, MeetingMixin, CreateView):
     def form_valid(self, form):
         # archive selected issues
         m = self.community.close_meeting(form.instance, self.request.user, self.community)
+        # Assign meeting to attachments
+        attachments = MeetingAttachment.objects.filter(meeting__isnull=True)
+        if attachments:
+            attachments.update(meeting=m)
         Issue.objects.filter(id__in=form.cleaned_data['issues']).update(
             completed=True, status=IssueStatus.ARCHIVED)
         total = send_mail(self.community, 'protocol', self.request.user,

@@ -11,13 +11,18 @@ from . import views
 from users.forms import OCPasswordResetForm
 from users.models import CODE_LENGTH
 from users.views import AcceptInvitationView, UnsubscribeView
-import communities.views
+from communities.views import MeetingAttachmentDeleteView, MeetingAttachmentDownloadView, About, CommunityList
 
 urlpatterns = [
     # path('', communities.views.LandingPage.as_view(), name='landing'),
     # path('communities/', communities.views.CommunityList.as_view(), name='home'),
-    path('', communities.views.CommunityList.as_view(), name='home'),
-    path('about/', communities.views.About.as_view(), name='about'),
+    path('', CommunityList.as_view(), name='home'),
+    path('about/', About.as_view(), name='about'),
+    path('<int:community_id>/remove-meeting-attachment/<int:pk>/', MeetingAttachmentDeleteView.as_view(),
+         name="meeting_attachment_delete"),
+    path('<int:community_id>/download-meeting-attachment/<int:pk>/',
+         MeetingAttachmentDownloadView.as_view(),
+         name="meeting_attachment_download"),
     path('<int:pk>/', include('communities.urls')),
     path('<int:community_id>/upcoming/close/', MeetingCreateView.as_view(), name="upcoming_close"),
     path('<int:community_id>/members/', include('users.urls')),
