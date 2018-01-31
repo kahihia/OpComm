@@ -420,6 +420,17 @@ class MeetingAttachmentCreateView(AjaxFormView, CreateView):
     required_permission = 'meeting.add_attachment'
     reload_on_success = True
 
+    # def form_valid(self, form):
+    #     # obj = form.save(commit=False)
+    #     for f in self.request.FILES.getlist('file'):
+    #         self.model.objects.create(
+    #             community=get_object_or_404(Community, pk=self.kwargs['pk']),
+    #             created_by=self.request.user,
+    #             file=f,
+    #             title=form.cleaned_data['title']
+    #         )
+    #     return HttpResponse()
+
     def form_valid(self, form):
         form.instance.created_by = self.request.user
         form.instance.community = get_object_or_404(Community, pk=self.kwargs['pk'])

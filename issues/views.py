@@ -372,9 +372,15 @@ class AttachmentCreateView(AjaxFormView, IssueMixin, CreateView):
         return get_object_or_404(models.Issue, community=self.community, pk=self.kwargs['pk'])
 
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        form.instance.issue = self.issue
-        return super(AttachmentCreateView, self).form_valid(form)
+        # obj = form.save(commit=False)
+        for f in self.request.FILES.getlist('file'):
+            self.model.objects.create(
+                issue=self.issue,
+                created_by=self.request.user,
+                file=f,
+                title=form.cleaned_data['title']
+            )
+        return HttpResponse()
 
 
 class AttachmentDeleteView(AjaxFormView, CommunityMixin, DeleteView):

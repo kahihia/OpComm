@@ -85,6 +85,7 @@ class AddAttachmentBaseForm(forms.ModelForm):
 
         widgets = {
             'title': OCTextInput,
+            'file': forms.ClearableFileInput(attrs={'multiple': True}),
         }
 
     def clean_file(self):
