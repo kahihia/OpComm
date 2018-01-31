@@ -14,7 +14,7 @@
 	{% comment %}{% endif %}{% endcomment %}
     <h1 class="pull-left">{{object.title}}</h1>
 	<div>
-	    <h5 style="clear: both;">{% trans "By:" %} {{ object.created_by}}. {{ object.created_at}}</h5>
+	    <h5 style="clear: both;">{% comment %}{% trans "By:" %} {{ object.created_by}}. {% endcomment %}{{ object.created_at}}</h5>
 	</div>
 </div>
 <div class="clearfix"></div>
