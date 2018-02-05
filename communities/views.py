@@ -407,8 +407,14 @@ class MeetingAttachmentDownloadView(CommunityMixin, SingleObjectMixin, View):
     def get(self, request, *args, **kwargs):
         o = self.get_object()
         filename = o.file.name.split('/')[-1]
-        mime_type = mimetypes.guess_type(filename, True)[0] or "text/plain"
-        response = HttpResponse(o.file, content_type=mime_type)
+        # mime_type = mimetypes.guess_type(filename, True)[0] or "text/plain"
+        mime_type, encoding = mimetypes.guess_type(filename)
+        if mime_type is None:
+            mime_type = 'text/plain'
+        response = HttpResponse(o.file)
+        response['Content-Type'] = mime_type
+        if encoding is not None:
+            response['Content-Encoding'] = encoding
         response['Content-Disposition'] = 'attachment; filename=%s' % filename.encode('utf-8')
         return response
 
@@ -416,6 +422,7 @@ class MeetingAttachmentDownloadView(CommunityMixin, SingleObjectMixin, View):
 class MeetingAttachmentCreateView(AjaxFormView, CreateView):
     model = models.MeetingAttachment
     form_class = AddMeetingAttachmentForm
+
 
     required_permission = 'meeting.add_attachment'
     reload_on_success = True
