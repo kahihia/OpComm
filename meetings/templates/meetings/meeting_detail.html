@@ -77,7 +77,8 @@ id="meeting-detail"
                 <ul style="clear: both; margin:0; list-style-type: none;">
                     {% for att in object.get_attachments.all %}
                         <li class="meeting-attachments">
-                            <a href="{{ att.get_absolute_url }}" class="file_ext {{ att.get_icon }}">{{att.title}}</a>
+                            {% comment %}<a href="{{ att.get_absolute_url }}" class="file_ext {{ att.get_icon }}">{{att.title}}</a>{% endcomment %}
+                            <a href="{{ att.file.url }}" class="file_ext {{ att.get_icon }}" target="_blank">{{att.title}}</a>
                             {% comment %}
                             {% if cperms.meeting.remove_attachment %}
                                 <a id="remove-attachment" href="{% url 'meeting_attachment_delete' object.community.id att.id %}" data-rel="form"><img src="{% static 'images/icon-remove.gif' %}"/></a>
