@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block extra-page-id %}
+    id="login-page"
+{% endblock %}
+
+{% block page_header %}
+    {% trans "Quick signup" %}
+{% endblock %}
+
+{% block content %}
+
+    {% blocktrans with s=community.name %}You were invited to {{ s }}.{% endblocktrans %}
+
+    {% if user.id %}
+        <h2>
+            {% trans "You are already logged in as" %} {{ user }}.
+        </h2>
+    {% else %}
+        <h2>
+            {% trans "Quick signup" %}
+        </h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <button name="signup" class="btn btn-oc" value="1">{% trans "Join Open Committee" %}</button>
+        </form>
+    {% endif %}
+{% endblock %}

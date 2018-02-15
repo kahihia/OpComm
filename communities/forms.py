@@ -7,6 +7,8 @@ from django.utils.translation import ugettext_lazy as _
 from ocd.formfields import HTMLArea, OCSplitDateTime, OCCheckboxSelectMultiple, OCTextInput, OCSplitDateTimeField
 from haystack.forms import ModelSearchForm
 
+from users.models import OCUser
+
 
 class EditUpcomingMeetingForm(forms.ModelForm):
     upcoming_meeting_scheduled_at = OCSplitDateTimeField(
@@ -181,3 +183,28 @@ class AddMeetingAttachmentBaseForm(forms.ModelForm):
 
 class AddMeetingAttachmentForm(AddMeetingAttachmentBaseForm):
     submit_button_text = _('Upload')
+
+
+class OCQuickSignupForm(forms.Form):
+    community_id = forms.CharField(widget=forms.HiddenInput)
+    name = forms.CharField(label=_('First & Last name'), required=False,
+                           widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(label=_('Email'), widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2 = forms.CharField(label=_('Password confirmation'),
+                                widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+    def clean_email(self):
+        # Check that the user dont exists
+        email = self.cleaned_data.get("email")
+        if OCUser.objects.filter(email=email.lower()).exists():
+            raise forms.ValidationError(_("Member with that email address already exists"))
+        return email
+
+    def clean_password2(self):
+        # Check that the two password entries match
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError(_("Passwords don't match"))
+        return password2

@@ -5,7 +5,8 @@ def analytics(request):
     """OPENCOMMITTEE_ANALYTICS setup in the request context."""
 
     analytics = {
-        'ga': settings.OPENCOMMITTEE_ANALYTICS.get('ga')
+        'ga': settings.OPENCOMMITTEE_ANALYTICS.get('ga'),
+        'gtag': settings.OPENCOMMITTEE_ANALYTICS.get('gtag')
     }
 
     return {'analytics': analytics}

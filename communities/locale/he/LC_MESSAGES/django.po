@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 13:50+0200\n"
-"PO-Revision-Date: 2018-01-25 13:54+0200\n"
+"POT-Creation-Date: 2018-02-15 13:07+0200\n"
+"PO-Revision-Date: 2018-02-15 13:09+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -18,178 +18,226 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: forms.py:12 templates/emails/_protocol.html:40
+#: forms.py:15 templates/emails/_protocol.html:40
 #: templates/emails/agenda.html:56
 msgid "Scheduled at"
 msgstr "מועד"
 
-#: forms.py:32
+#: forms.py:35 models.py:482
 msgid "Title"
 msgstr "כותרת"
 
-#: forms.py:35
+#: forms.py:38
 msgid "Background"
 msgstr "רקע"
 
-#: forms.py:82
+#: forms.py:85
 msgid "Send to"
 msgstr "נמענים"
 
-#: models.py:26 models.py:33
+#: forms.py:168 forms.py:171
+msgid "File type is not allowed!"
+msgstr "לא ניתן להעלות קבצים מסוג זה"
+
+#: forms.py:179
+msgid "Title cannot be empty"
+msgstr "כותרת חובה"
+
+#: forms.py:185
+msgid "Upload"
+msgstr "העלה קובץ"
+
+#: forms.py:190
+msgid "First & Last name"
+msgstr "שם פרטי ושם משפחה"
+
+#: forms.py:192 templates/communities/participants_form.html:98
+msgid "Email"
+msgstr "אימייל"
+
+#: forms.py:193
+msgid "Password"
+msgstr "סיסמא"
+
+#: forms.py:194
+msgid "Password confirmation"
+msgstr "אימות סיסמא"
+
+#: forms.py:201
+msgid "Member with that email address already exists"
+msgstr "כתובת אימייל כבר בשימוש"
+
+#: forms.py:209
+msgid "Passwords don't match"
+msgstr "סיסמא לא תואמת"
+
+#: models.py:30 models.py:37
 msgid "Me only (review)"
 msgstr "רק לי (לבדיקה)"
 
-#: models.py:27
+#: models.py:31
 msgid "Only attendees"
 msgstr "למשתתפים בפגישה בלבד"
 
-#: models.py:29 models.py:35
+#: models.py:33 models.py:39
 msgid "All members"
 msgstr "לכל חברי הועדה"
 
-#: models.py:40 models.py:488 templates/communities/participants_form.html:90
+#: models.py:44 models.py:561 templates/communities/participants_form.html:90
 msgid "Name"
 msgstr "שם"
 
-#: models.py:41
+#: models.py:45
 msgid "Public community"
 msgstr "פתוחה לציבור"
 
-#: models.py:43
+#: models.py:47
 msgid "Community logo"
 msgstr "לוגו קהילה"
 
-#: models.py:45
+#: models.py:49
 msgid "Community identifier"
 msgstr "מזהה קהילה"
 
-#: models.py:49
+#: models.py:53
 msgid "Meeting started"
 msgstr "הפגישה התחילה"
 
-#: models.py:51
+#: models.py:55
 msgid "Upcoming meeting title"
 msgstr "כותרת הפגישה הקרובה"
 
-#: models.py:55
+#: models.py:59
 msgid "Upcoming meeting scheduled at"
 msgstr "מועד הפגישה הקרובה"
 
-#: models.py:57
+#: models.py:61
 msgid "Upcoming meeting location"
 msgstr "מיקום הפגישה הקרובה"
 
-#: models.py:58
+#: models.py:62
 msgid "Upcoming meeting background"
 msgstr "רקע לפגישה הקרובה"
 
-#: models.py:63
+#: models.py:67
 msgid "Participants in upcoming meeting"
 msgstr "משתתפים בפגישה הקרובה"
 
-#: models.py:66
+#: models.py:70
 msgid "Guests in upcoming meeting"
 msgstr "אורחים בפגישה הקרובה"
 
-#: models.py:67
+#: models.py:71
 msgid "Enter each guest in a separate line"
 msgstr "נא לרשום כל שם בשורה נפרדת"
 
-#: models.py:70
+#: models.py:74
 msgid "Upcoming meeting version"
 msgstr "מספר גרסת נתוני הפגישה הקרובה"
 
-#: models.py:73
+#: models.py:77
 msgid "Upcoming meeting is published"
 msgstr "האם הפגישה הקרובה פורסמה?"
 
-#: models.py:76
+#: models.py:80
 msgid "Upcoming meeting published at"
 msgstr "מועד פרסום הפגישה הקרובה"
 
-#: models.py:78
+#: models.py:82
 msgid "Upcoming meeting summary"
 msgstr "סיכום הפגישה הקרובה"
 
-#: models.py:81
+#: models.py:85
 msgid "Board name"
 msgstr "שם הועד"
 
-#: models.py:81 models.py:178 templates/communities/participants_form.html:23
+#: models.py:85 models.py:185 templates/communities/participants_form.html:23
 msgid "Board"
 msgstr "ועד"
 
-#: models.py:84
+#: models.py:88
 msgid "Straw voting enabled"
 msgstr "אפשר הצבעת קש"
 
-#: models.py:88
+#: models.py:92
 msgid "Issue ranking votes enabled"
 msgstr "אפשר תיעדוף נושאים"
 
-#: models.py:90
+#: models.py:94
 msgid "Straw Vote ends at"
 msgstr "הצבעת שבשבת עד"
 
-#: models.py:93
+#: models.py:97
 msgid "Referendum started"
 msgstr "משאל התחיל"
 
-#: models.py:96
+#: models.py:100
 msgid "Referendum started at"
 msgstr "משאל התחיל ב"
 
-#: models.py:99
+#: models.py:103
 msgid "Referendum ends at"
 msgstr "משאל הסתיים ב"
 
-#: models.py:102
+#: models.py:106
 msgid "Default quorum"
 msgstr ""
 
-#: models.py:106
+#: models.py:110
 msgid "Allow links inside emails"
 msgstr "אפשר קישורים בתוך אימייל"
 
-#: models.py:108
+#: models.py:112
 msgid "Send mails to invitees"
 msgstr "שלח מייל למוזמנים"
 
-#: models.py:112
+#: models.py:116
 msgid "Register missing board members"
 msgstr "רישום חברי ועד חסרים"
 
-#: models.py:115
+#: models.py:119
 msgid "Inform System Manager"
 msgstr "להודיע למנהל המערכת"
 
-#: models.py:118
+#: models.py:122
 msgid "Community without meetings?"
 msgstr "קהילות ללא פגישות?"
 
-#: models.py:121
+#: models.py:125
 msgid "Community"
 msgstr "קהילה"
 
-#: models.py:122
+#: models.py:126
 msgid "Communities"
 msgstr "קהילות"
 
-#: models.py:476
+#: models.py:481
+msgid "File"
+msgstr "קובץ"
+
+#: models.py:485
+msgid "File created at"
+msgstr "נוצר ב"
+
+#: models.py:487
+msgid "Created by"
+msgstr "נוצר על ידי"
+
+#: models.py:549
 msgid "Confidential Reason"
 msgstr "סיבה עבור נושא חסוי"
 
-#: models.py:477
+#: models.py:550
 msgid "Confidential Reasons"
 msgstr "סיבות עבור נושאים חסויים"
 
-#: models.py:484
+#: models.py:557
 msgid ""
 "A reason that can be used for marking items as confidential in your "
 "community."
 msgstr "הגדרת סיבה עבור נושאים חסויים"
 
-#: models.py:490
+#: models.py:563
 msgid "The title to give this reason."
 msgstr "כותרת עבור סיבה זו"
 
@@ -367,14 +415,14 @@ msgstr "חזור למעלה"
 #: templates/communities/base_meeting.html:19
 #: templates/communities/base_meeting.html:46
 #: templates/communities/upcoming.html:36
-#: templates/communities/upcoming.html:84
+#: templates/communities/upcoming.html:87
 msgid "Next update"
 msgstr "העדכון הבא"
 
 #: templates/communities/base_meeting.html:21
 #: templates/communities/upcoming.html:10
 #: templates/communities/upcoming.html:38
-#: templates/communities/upcoming.html:86 templates/emails/agenda.txt:1
+#: templates/communities/upcoming.html:89 templates/emails/agenda.txt:1
 msgid "Upcoming meeting"
 msgstr "הפגישה הקרובה"
 
@@ -668,6 +716,35 @@ msgstr ""
 "ארגון ללא מטרות רווח (ע\"ר) הפועל כחממה לפרויקטים בקוד פתוח לקידום דמוקרטיה "
 "ומעורבות אזרחית בפעילות ממשלתית וציבורית"
 
+#: templates/communities/meetingattachment_confirm_delete.html:5
+msgid "Delete attachment"
+msgstr ""
+
+#: templates/communities/meetingattachment_confirm_delete.html:11
+msgid "Are you sure?"
+msgstr "האם אתה בטוח?"
+
+#: templates/communities/meetingattachment_confirm_delete.html:17
+msgid "No"
+msgstr "לא"
+
+#: templates/communities/meetingattachment_confirm_delete.html:21
+msgid "Yes"
+msgstr "כן"
+
+#: templates/communities/meetingattachment_form.html:9
+msgid "Add attachment"
+msgstr "צרף קובץ"
+
+#: templates/communities/meetingattachment_form.html:22
+#: templates/communities/participants_form.html:189
+msgid "Cancel"
+msgstr "ביטול"
+
+#: templates/communities/meetingattachment_form.html:23
+msgid "Attach"
+msgstr "צרף"
+
 #: templates/communities/participants_form.html:6
 msgid "Select participants"
 msgstr "בחר משתתפים"
@@ -703,29 +780,21 @@ msgstr "משתתפים מפגישות קודמות"
 #: templates/communities/participants_form.html:69
 #: templates/communities/participants_form.html:104
 #: templates/communities/participants_form.html:124
-#: templates/communities/upcoming.html:204
+#: templates/communities/upcoming.html:221
 msgid "Add"
 msgstr "הוספה"
-
-#: templates/communities/participants_form.html:98
-msgid "Email"
-msgstr "אימייל"
 
 #: templates/communities/participants_form.html:138
 msgid "Please select participants for upcoming meeting"
 msgstr "בחר משתתפים לפגישה הקרובה"
 
-#: templates/communities/participants_form.html:189
-msgid "Cancel"
-msgstr "ביטול"
-
 #: templates/communities/participants_form.html:190
-#: templates/communities/upcoming.html:297 templates/dialog.html:26
+#: templates/communities/upcoming.html:314 templates/dialog.html:26
 msgid "Save"
 msgstr "שמירה"
 
 #: templates/communities/publish_upcoming.html:6
-#: templates/communities/upcoming.html:238
+#: templates/communities/upcoming.html:255
 #: templates/emails/protocol_draft.html:3 templates/emails/protocol_draft.txt:1
 msgid "Summary draft"
 msgstr "טיוטת סיכום"
@@ -759,6 +828,24 @@ msgstr "הדפס פרוטוקול"
 msgid "Print draft"
 msgstr "הדפס סדר יום"
 
+#: templates/communities/quick-signup.html:9
+#: templates/communities/quick-signup.html:22
+msgid "Quick signup"
+msgstr "הרשמה מהירה"
+
+#: templates/communities/quick-signup.html:14
+#, python-format
+msgid "You were invited to %(s)s."
+msgstr ""
+
+#: templates/communities/quick-signup.html:18
+msgid "You are already logged in as"
+msgstr "אתה מחובר למערכת בשם"
+
+#: templates/communities/quick-signup.html:29
+msgid "Join Open Committee"
+msgstr "הצטרף למערכת"
+
 #: templates/communities/start_meeting.html:6
 #: templates/communities/start_meeting.html:17
 msgid "Start update"
@@ -766,7 +853,7 @@ msgstr "התחל עדכון"
 
 #: templates/communities/start_meeting.html:8
 #: templates/communities/start_meeting.html:19
-#: templates/communities/upcoming.html:138
+#: templates/communities/upcoming.html:141
 msgid "Start meeting"
 msgstr "סגירת סדר היום להתייחסויות חדשות"
 
@@ -782,78 +869,82 @@ msgstr "כל העדכונים"
 msgid "All meetings"
 msgstr "כל הפגישות"
 
-#: templates/communities/upcoming.html:97
+#: templates/communities/upcoming.html:74
+msgid "Attach files"
+msgstr "צרף קבצים"
+
+#: templates/communities/upcoming.html:100
 msgid "Login to vote"
 msgstr "התחבר בכדי להשתתף בדיון"
 
-#: templates/communities/upcoming.html:123
+#: templates/communities/upcoming.html:126
 msgid "Open voting"
 msgstr "פתח הצבעות"
 
-#: templates/communities/upcoming.html:125
+#: templates/communities/upcoming.html:128
 msgid "Undo start meeting"
 msgstr "עצור פגישה"
 
-#: templates/communities/upcoming.html:136
+#: templates/communities/upcoming.html:139
 msgid "Close voting"
 msgstr "סגור הצבעות"
 
-#: templates/communities/upcoming.html:170
+#: templates/communities/upcoming.html:187
 msgid "No meetings issues"
 msgstr "נושאים"
 
-#: templates/communities/upcoming.html:172
+#: templates/communities/upcoming.html:189
 msgid "Agenda items"
 msgstr "נושאים לסדר היום"
 
-#: templates/communities/upcoming.html:176
+#: templates/communities/upcoming.html:193
 msgid "New issue"
 msgstr "נושא חדש"
 
-#: templates/communities/upcoming.html:181
+#: templates/communities/upcoming.html:198
 msgid "All proposals / Voted"
 msgstr "סך התייחסויות/כמה הצבעתי"
 
-#: templates/communities/upcoming.html:201
+#: templates/communities/upcoming.html:218
 msgid "Type the new issue title"
 msgstr "הקלד כותרת עבור הנושא החדש"
 
-#: templates/communities/upcoming.html:218
+#: templates/communities/upcoming.html:235
 msgid "Comments"
 msgstr "תגובות"
 
-#: templates/communities/upcoming.html:220 templates/emails/_protocol.html:48
+#: templates/communities/upcoming.html:237 templates/emails/_protocol.html:48
 #: templates/emails/protocol.html:3 templates/emails/protocol.txt:1
 #: templates/emails/protocol_title.txt:4
 msgid "Summary"
 msgstr "סיכום הפגישה"
 
-#: templates/communities/upcoming.html:238
+#: templates/communities/upcoming.html:255
 msgid "Publish the agenda"
 msgstr "שליחת סדר היום"
 
-#: templates/communities/upcoming.html:242
+#: templates/communities/upcoming.html:259
 msgid "Close update"
 msgstr "סגור עדכון"
 
-#: templates/communities/upcoming.html:244
+#: templates/communities/upcoming.html:261
 msgid "Close meeting"
 msgstr "סגור פגישה"
 
-#: templates/communities/upcoming.html:256
-#: templates/communities/upcoming.html:272
+#: templates/communities/upcoming.html:273
+#: templates/communities/upcoming.html:289
 msgid "Additional issues"
 msgstr "נושאים נוספים"
 
-#: templates/communities/upcoming.html:258
+#: templates/communities/upcoming.html:275
 msgid "By time"
 msgstr "זמן"
 
-#: templates/communities/upcoming.html:259
+#: templates/communities/upcoming.html:276
 msgid "By priority"
 msgstr "משוקלל"
 
-#: templates/communities/upcoming.html:285
+#: templates/communities/upcoming.html:302
 msgid "Agenda not yet published"
 msgstr "טרם פורסם סדר היום לפגישה הקרובה"
 
@@ -1094,22 +1185,26 @@ msgstr "הצבעה פעילה"
 msgid "Published"
 msgstr "פורסם"
 
-#: views.py:233
+#: views.py:236
 #, python-format
 msgid "Sending to %d users"
 msgstr "שולח ל-%d משתמשים"
 
-#: views.py:346
+#: views.py:349
 msgid "Not a valid number for page."
 msgstr "מספר עמוד לא תקין"
 
-#: views.py:349
+#: views.py:352
 msgid "Pages should be 1 or greater."
 msgstr "מספר עמוד צריך להיות 1 או יותר."
 
-#: views.py:358
+#: views.py:361
 msgid "No such page!"
 msgstr "דף לא קיים!"
+
+#: views.py:488
+msgid "Oops. Something went wrong. Please try again."
+msgstr ""
 
 #~ msgid "Issue in discussion"
 #~ msgstr "נושא בדיון"
@@ -1165,9 +1260,6 @@ msgstr "דף לא קיים!"
 
 #~ msgid "Additional Issues"
 #~ msgstr "נושאים נוספים"
-
-#~ msgid "Create Issue"
-#~ msgstr "צור נושא"
 
 #~ msgid "By rank"
 #~ msgstr "משוקלל"

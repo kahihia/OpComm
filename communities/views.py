@@ -14,18 +14,20 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import View, ListView, TemplateView
 from django.views.generic.detail import DetailView, SingleObjectMixin
-from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView, FormView
 
 from communities import models
 from communities.forms import EditUpcomingMeetingForm, \
     PublishUpcomingMeetingForm, UpcomingMeetingParticipantsForm, \
-    EditUpcomingMeetingSummaryForm, AddMeetingAttachmentForm
+    EditUpcomingMeetingSummaryForm, AddMeetingAttachmentForm, OCQuickSignupForm
 from communities.models import SendToOption, Community
 from communities.notifications import send_mail
 from issues.models import IssueStatus, Issue, Proposal
 from meetings.models import Meeting
-from ocd.base_views import ProtectedMixin, AjaxFormView, CommunityMixin
+from ocd.base_views import ProtectedMixin, AjaxFormView, CommunityMixin, SimpleCommunityMixin
 from ocd.base_managers import ConfidentialSearchQuerySet
+from users.default_roles import DefaultGroups
+from users.models import OCUser, Membership
 from users.permissions import has_community_perm
 from django.views.generic.base import RedirectView
 from django.http.response import HttpResponse
@@ -423,7 +425,6 @@ class MeetingAttachmentCreateView(AjaxFormView, CreateView):
     model = models.MeetingAttachment
     form_class = AddMeetingAttachmentForm
 
-
     required_permission = 'meeting.add_attachment'
     reload_on_success = True
 
@@ -453,3 +454,36 @@ class MeetingAttachmentDeleteView(AjaxFormView, CommunityMixin, DeleteView):
         o.file.delete(save=False)
         o.delete()
         return HttpResponse("")
+
+
+class QuickSignupFormView(SimpleCommunityMixin, FormView):
+    form_class = OCQuickSignupForm
+    template_name = 'communities/quick-signup.html'
+
+    def get_success_url(self):
+        return reverse('community', args=[self.kwargs['pk']])
+
+    def get_initial(self):
+        community = Community.objects.get(pk=self.kwargs['pk'])
+        return {
+            'community_id': community.id
+        }
+
+    def form_valid(self, form):
+        user = OCUser.objects.create_user(
+            form.cleaned_data['email'],
+            form.cleaned_data['name'],
+            form.cleaned_data['password1'],
+        )
+
+        m = Membership.objects.create(
+            user=user,
+            community_id=int(form.cleaned_data['community_id']),
+            default_group_name=DefaultGroups.BOARD,
+        )
+
+        if m:
+            return redirect(m.community.get_absolute_url())
+
+        messages.warning(self.request, _("Oops. Something went wrong. Please try again."))
+        return super().form_invalid(form)

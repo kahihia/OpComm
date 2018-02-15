@@ -25,7 +25,6 @@ class LoginRequiredMixin(object):
 
 
 class ProtectedMixin(object):
-
     required_permission = None
     required_permission_for_post = None
 
@@ -79,7 +78,6 @@ class ProtectedMixin(object):
 
 
 class CommunityMixin(ProtectedMixin):
-
     _community = None
 
     @property
@@ -91,7 +89,25 @@ class CommunityMixin(ProtectedMixin):
     def get_context_data(self, **kwargs):
         context = super(CommunityMixin, self).get_context_data(**kwargs)
         context['community'] = self.community
-        context['is_member'] = Membership.objects.filter(community=self.community, user=self.request.user).exists() if self.request.user.id else False
+        context['is_member'] = Membership.objects.filter(community=self.community,
+                                                         user=self.request.user).exists() if self.request.user.id else False
+        return context
+
+
+class SimpleCommunityMixin(ProtectedMixin):
+    _community = None
+
+    @property
+    def community(self):
+        if not self._community:
+            self._community = get_object_or_404(Community, pk=self.kwargs['pk'])
+        return self._community
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['community'] = self.community
+        context['is_member'] = Membership.objects.filter(community=self.community,
+                                                         user=self.request.user).exists() if self.request.user.id else False
         return context
 
 

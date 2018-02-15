@@ -206,7 +206,8 @@ OPENCOMMITTEE_ANALYTICS = {
     'ga': {
         'id': 'UA-00000000-0',
         'url': 'domain.com'
-    }
+    },
+    'gtag': None
 }
 
 OPENCOMMITTEE_DEFAULT_CONFIDENTIAL_REASONS = [
