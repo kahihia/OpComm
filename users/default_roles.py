@@ -58,6 +58,7 @@ class DefaultRoles(object):
 
     permissions[OPERATOR] = permissions[CONTRIBUTOR] + [
         'issues.add_issuecomment',
+        'issues.add_reference',
         'issues.edittask_proposal',
         'community.editupcoming_community',
         'community.editparticipants_community',
@@ -68,6 +69,7 @@ class DefaultRoles(object):
     ]
 
     permissions[DECIDER] = permissions[OPERATOR] + [
+        'issues.editopen_reference',
         'issues.editopen_issuecomment',
         'community.editagenda_community',
         'issues.acceptopen_proposal',
@@ -82,6 +84,7 @@ class DefaultRoles(object):
         'issues.editopen_issue',
         'issues.editclosed_issue',
         'issues.editclosed_issuecomment',
+        'issues.editclosed_reference',
         'issues.editopen_proposal',
         'issues.editclosed_proposal',
         'issues.acceptclosed_proposal',

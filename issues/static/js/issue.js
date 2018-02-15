@@ -3,7 +3,7 @@
 // Auto save comment form
 function autoSaveComment() {
     var timeoutId;
-    $('.wysihtml5-sandbox').contents().find('body').on('input properychange change', function () {
+    $('#add-comment .wysihtml5-sandbox').contents().find('body').on('input properychange change', function () {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(function () {
             $('#add-comment').ajaxForm({
@@ -29,9 +29,40 @@ function autoSaveComment() {
     });
 }
 
+// Auto save reference form
+function autoSaveReference() {
+    var timeoutId;
+    $('#add-reference .wysihtml5-sandbox').contents().find('body').on('input properychange change', function () {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(function () {
+            $('#add-reference').ajaxForm({
+                beforeSubmit: function (arr, form) {
+                    if (!editor.getValue()) {
+                        return false;
+                    }
+                    $('.add-reference-btn').prop('disabled', true);
+                    $('#reference-status').html(gettext('Saving...'));
+                },
+                data: {
+                    'reference_id': $('#add-reference').data('reference-id'),
+                    'reference': true
+                },
+                success: function (data) {
+                    $('#add-reference').data('reference-id', data.reference_id);
+                    var d = new Date();
+                    $('#reference-status').html(gettext('Saved! Last:') + ' ' + d.toLocaleTimeString('he-IL'));
+                    $('.add-reference-btn').prop('disabled', false);
+                }
+            });
+            $('#add-reference').submit();
+        }, 2000);
+    });
+}
+
 $(function () {
 
     function refreshButtons(commentEmpty) {
+        $('.add-reference-btn').prop('disabled', commentEmpty);
         $('.add-comment-btn').prop('disabled', commentEmpty);
         $('.close-issue-btn').prop('disabled', !commentEmpty);
     }
@@ -46,7 +77,7 @@ $(function () {
 
     // Comments
 
-    $('body').on('click', '.add-comment-btn', function() {
+    $('body').on('click', '.add-comment-btn', function () {
         var nextIssue = $(this).data('next-issue');
         $('#add-comment').ajaxForm({
             beforeSubmit: function (arr, form) {
@@ -58,7 +89,26 @@ $(function () {
                 'comment_id': $('#add-comment').data('comment-id')
             },
             success: function (data) {
-                window.location.href=nextIssue;
+                window.location.href = nextIssue;
+            }
+        });
+    });
+
+    // References
+
+    $('body').on('click', '.add-reference-btn', function () {
+        var nextIssue = $(this).data('next-issue');
+        $('#add-reference').ajaxForm({
+            beforeSubmit: function (arr, form) {
+                if (!editor.getValue()) {
+                    return false;
+                }
+            },
+            data: {
+                'reference_id': $('#add-reference').data('reference-id')
+            },
+            success: function (data) {
+                window.location.href = nextIssue;
             }
         });
     });
@@ -95,11 +145,28 @@ $(function () {
         return false;
     });
 
+    // Delete and undelete reference form
+    $('#references').on('click', '.delete-reference button', function () {
+        var btn = $(this);
+        var form = btn.closest('form');
+        var extra = {};
+        if (btn.attr('name')) {
+            extra[btn.attr('name')] = btn.attr('value');
+        }
+        form.ajaxSubmit({
+            data: extra,
+            success: function (data) {
+                form.closest('li').toggleClass('deleted', data == '0');
+            }
+        });
+        return false;
+    });
+
     // Edit comment Form:
 
     //  - start edit
     $('#comments').on('click', '.edit-comment button', function () {
-        $('li.rich_editor').hide();
+        $('#comments li.rich_editor').hide();
         var btn = $(this);
         var li = btn.closest('li');
         li.addClass('editing');
@@ -112,7 +179,7 @@ $(function () {
 
     // - cancel edit
     $('#comments').on('click', '.cancel-edit-comment button', function () {
-        $('li.rich_editor').show();
+        $('#comments li.rich_editor').show();
         var btn = $(this);
         var li = btn.closest('li');
         li.removeClass('editing');
@@ -122,7 +189,51 @@ $(function () {
 
     // - save edits
     $('#comments').on('click', '.save-comment button', function (ev) {
-        $('li.rich_editor').show();
+        $('#comments li.rich_editor').show();
+        var btn = $(this);
+        var form = btn.closest('form');
+        if (!form.find('textarea').val()) {
+            ev.preventDefault();
+            return false;
+        }
+        form.ajaxSubmit(function (data) {
+            if (!data) {
+                return;
+            }
+            var new_li = $(data.trim());
+            form.closest('li').replaceWith(new_li);
+        });
+        return false;
+    });
+
+    // Edit reference Form:
+
+    //  - start edit
+    $('#references').on('click', '.edit-reference button', function () {
+        $('#references li.rich_editor').hide();
+        var btn = $(this);
+        var li = btn.closest('li');
+        li.addClass('editing');
+        var el = $("<div>Loading...</div>");
+        li.find('.reference-inner').hide().after(el);
+        $.get(btn.data('url'), function (data) {
+            el.html(data).find('.htmlarea textarea').wysihtml5({locale: "he-IL"});
+        });
+    });
+
+    // - cancel edit
+    $('#references').on('click', '.cancel-edit-reference button', function () {
+        $('#references li.rich_editor').show();
+        var btn = $(this);
+        var li = btn.closest('li');
+        li.removeClass('editing');
+        li.find('.reference-inner').show();
+        li.find('.edit-issue-form').parent().remove();
+    });
+
+    // - save edits
+    $('#references').on('click', '.save-reference button', function (ev) {
+        $('#references li.rich_editor').show();
         var btn = $(this);
         var form = btn.closest('form');
         if (!form.find('textarea').val()) {
@@ -173,6 +284,7 @@ $(function () {
 
 });
 
-$(window).load(function() {
+$(window).load(function () {
     autoSaveComment();
+    autoSaveReference();
 });

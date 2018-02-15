@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 13:50+0200\n"
+"POT-Creation-Date: 2018-02-15 15:26+0200\n"
 "PO-Revision-Date: 2017-12-22 09:44+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
@@ -31,19 +31,19 @@ msgstr ""
 "סיסמאות אינם נשמרות כטקסט, אז אין אפשרות לראות את הסיסמא של המשתמש, אבל ניתן "
 "לשנות סיסמא בעזרת <a href=\"password/\">הקישור הזה</a>."
 
-#: default_roles.py:102 default_roles_old.py:102
+#: default_roles.py:108 default_roles_old.py:102
 msgid "member"
 msgstr "חבר"
 
-#: default_roles.py:103 default_roles_old.py:103
+#: default_roles.py:109 default_roles_old.py:103
 msgid "board"
 msgstr "ועד"
 
-#: default_roles.py:104 default_roles_old.py:104
+#: default_roles.py:110 default_roles_old.py:104
 msgid "secretary"
 msgstr "מזכיר"
 
-#: default_roles.py:105 default_roles_old.py:105
+#: default_roles.py:111 default_roles_old.py:105
 msgid "chairman"
 msgstr "יושב ראש"
 
@@ -102,7 +102,7 @@ msgstr "משתמשים"
 msgid "Community"
 msgstr "קהילה"
 
-#: models.py:123 models.py:277
+#: models.py:123 models.py:277 models.py:337
 msgid "User"
 msgstr "משתמש"
 
@@ -110,7 +110,7 @@ msgstr "משתמש"
 msgid "Group"
 msgstr "קבוצה"
 
-#: models.py:129 models.py:265
+#: models.py:129 models.py:265 models.py:338
 msgid "Created at"
 msgstr "נוצר בתאריך"
 
@@ -412,15 +412,15 @@ msgstr "משתמש זה כבר חבר בקהילה"
 msgid "The board"
 msgstr "הועדה"
 
-#: views.py:153
+#: views.py:156
 msgid "Email address [{}] has been successfully removed from out list"
 msgstr "כתובת מייל [{}] הוסרה בהצלחה מרשימת התפוצה שלנו"
 
-#: views.py:220
+#: views.py:223
 msgid "Oops. Something went wrong. Please try again."
 msgstr "אופס. משהו השתבש. אנה נסה שוב."
 
-#: views.py:314
+#: views.py:317
 #, python-format
 msgid "%d Invitations sent"
 msgstr "%d הזמנות נשלחו"

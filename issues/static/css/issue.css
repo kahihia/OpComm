@@ -1,44 +1,53 @@
-.deleted .comment-inner{
-    /*opacity:0.5;*/
-	color: #dadae4;
+.deleted .reference-inner,
+.deleted .comment-inner {
+    color: #dadae4;
     text-decoration: line-through;
 }
 
-.undelete-btn, delete-btn {
+.undelete-btn, .delete-btn {
     float: left;
 }
 
-.undelete-btn{
+.undelete-btn {
     display: none;
 }
 
-.deleted .undelete-btn{
+.deleted .undelete-btn {
     display: inline;
     opacity: 5;
 }
 
-.deleted .delete-btn, .deleted blockquote, .deleted .edit-comment,
-.editing .delete-btn, .editing .edit-comment, .cancel-edit-comment{
+.deleted .delete-btn,
+.deleted blockquote,
+.deleted .edit-comment,
+.deleted .edit-reference,
+.editing .delete-btn,
+.editing .edit-comment,
+.editing .edit-reference,
+.cancel-edit-reference,
+.cancel-edit-comment {
     display: none;
 }
 
+.editing .cancel-edit-reference,
 .editing .cancel-edit-comment {
     display: inline;
 }
-
 
 li[data-accepted="1"] img {
     visibility: hidden;
 }
 
+#add-reference label,
 #add-comment label {
-	display: none;
+    display: none;
     /*display: block;
     background: #666;
 	padding: 5px;
 	color: #fff;*/
 }
 
+#add-reference textarea,
 #add-comment textarea {
     width: 100%;
 }

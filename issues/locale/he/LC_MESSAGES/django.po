@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 13:51+0200\n"
-"PO-Revision-Date: 2018-01-02 09:37+0200\n"
+"POT-Creation-Date: 2018-02-15 15:26+0200\n"
+"PO-Revision-Date: 2018-02-15 15:27+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -18,51 +18,58 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: admin.py:66 models.py:478 templates/issues/_issue_main.html:94
-#: templates/issues/_issue_main.html:101
+#: admin.py:77 models.py:570 templates/issues/_issue_main.html:98
+#: templates/issues/_issue_main.html:105
 #: templates/issues/proposal_detail.html:101 templatetags/voting_tags.py:42
 msgid "Proposals"
 msgstr "התייחסויות"
 
-#: admin.py:70 templates/issues/_issue_main.html:76
-#: templates/issues/_issue_main.html:147
+#: admin.py:82 templates/issues/_issue_main.html:80
+#: templates/issues/_issue_main.html:151
 #: templates/issues/proposal_detail_main.html:164
 msgid "Comments"
 msgstr "תגובות"
 
-#: admin.py:74 templates/issues/issue_detail.html:115
+#: admin.py:87 models.py:321
+msgid "References"
+msgstr "החלטות"
+
+#: admin.py:92 templates/issues/issue_detail.html:115
 #: templates/issues/issue_detail_issue_list.html:31
 msgid "Meetings"
 msgstr "פגישות"
 
-#: admin.py:100 admin.py:137
+#: admin.py:118 admin.py:144 admin.py:181
 msgid "Community"
 msgstr "קהילה"
 
-#: forms.py:94 forms.py:97
+#: forms.py:95 forms.py:98
 msgid "File type is not allowed!"
 msgstr "לא ניתן להעלות קבצים מסוג זה"
 
-#: forms.py:105
+#: forms.py:106
 msgid "Title cannot be empty"
 msgstr "כותרת חובה"
 
-#: forms.py:111
+#: forms.py:112
 msgid "Upload"
 msgstr "העלה קובץ"
 
-#: forms.py:147 templates/issues/proposal_comment_form.html:5
+#: forms.py:148 templates/issues/proposal_comment_form.html:5
 #: templates/issues/proposal_vote_argument_form.html:5
 msgid "Create"
 msgstr "צור חדש"
 
-#: forms.py:155 forms.py:189 forms.py:216 templates/issues/issue_form.html:34
+#: forms.py:156 forms.py:190 forms.py:212 forms.py:239
+#: templates/issues/issue_form.html:34
 #: templates/issues/issuecomment_form.html:9
 #: templates/issues/proposal_form.html:128
+#: templates/issues/reference_form.html:9
 msgid "Save"
 msgstr "שמירה"
 
-#: forms.py:172 forms.py:194 forms.py:205 templates/issues/_issue_main.html:111
+#: forms.py:173 forms.py:195 forms.py:217 forms.py:228
+#: templates/issues/_issue_main.html:115
 msgid "Add"
 msgstr "הוספה"
 
@@ -82,20 +89,21 @@ msgstr "בפגישה הקרובה (הדיון תם)"
 msgid "Archived"
 msgstr "בארכיון"
 
-#: models.py:68 models.py:440
+#: models.py:68 models.py:532
 msgid "Active"
 msgstr "פעיל"
 
-#: models.py:72 models.py:203 models.py:275
+#: models.py:72 models.py:212 models.py:284 models.py:300 models.py:368
 msgid "Created at"
 msgstr "נוצר ב"
 
-#: models.py:74 models.py:205 models.py:214 models.py:277 models.py:305
-#: models.py:445 models.py:697 models.py:726
+#: models.py:74 models.py:214 models.py:223 models.py:286 models.py:302
+#: models.py:309 models.py:370 models.py:397 models.py:537 models.py:789
+#: models.py:818
 msgid "Created by"
 msgstr "נוצר על ידי"
 
-#: models.py:78 models.py:300 models.py:449
+#: models.py:78 models.py:392 models.py:541
 #: templates/issues/assignment_list.html:38
 #: templates/issues/procedure_list.html:59
 msgid "Title"
@@ -105,7 +113,8 @@ msgstr "כותרת"
 msgid "Background"
 msgstr "רקע"
 
-#: models.py:80 models.py:281 templates/issues/_issue_title.html:31
+#: models.py:80 models.py:290 models.py:373
+#: templates/issues/_issue_title.html:32
 msgid "Content"
 msgstr "פירוט"
 
@@ -148,164 +157,168 @@ msgstr "נושא לדיון"
 msgid "Issues"
 msgstr "נושאים לדיון"
 
-#: models.py:212
+#: models.py:221 models.py:307
 msgid "Last Edited at"
 msgstr "עריכה אחרונה"
 
-#: models.py:218 models.py:691
+#: models.py:227 models.py:783
 msgid "Comment"
 msgstr "הערה"
 
-#: models.py:226
+#: models.py:235
 msgid "Issue comment"
 msgstr "הערה על נושא"
 
-#: models.py:227
+#: models.py:236
 msgid "Issue comments"
 msgstr "תגובות על נושאים"
 
-#: models.py:298
+#: models.py:312 models.py:320
+msgid "Reference"
+msgstr "החלטה"
+
+#: models.py:390
 msgid "File"
 msgstr "קובץ"
 
-#: models.py:303
+#: models.py:395
 msgid "File created at"
 msgstr "נוצר ב"
 
-#: models.py:368 models.py:379
+#: models.py:460 models.py:471
 msgid "Con"
 msgstr "נגד"
 
-#: models.py:369
+#: models.py:461
 msgid "Neutral"
 msgstr "נמנע"
 
-#: models.py:370 models.py:380
+#: models.py:462 models.py:472
 msgid "Pro"
 msgstr "בעד"
 
-#: models.py:386 models.py:669 models.py:769
+#: models.py:478 models.py:761 models.py:861
 msgid "User"
 msgstr "משתמש"
 
-#: models.py:388 models.py:671 models.py:772
+#: models.py:480 models.py:763 models.py:864
 msgid "Vote"
 msgstr "הצבעה"
 
-#: models.py:391
+#: models.py:483
 msgid "Voted by chairman"
 msgstr "הצבעה בוצעה על ידי יושב ראש"
 
-#: models.py:400 models.py:681
+#: models.py:492 models.py:773
 msgid "Proposal Vote"
 msgstr "הצבעה על התייחסות"
 
-#: models.py:401 models.py:682
+#: models.py:493 models.py:774
 msgid "Proposal Votes"
 msgstr "הצבעות על התייחסות"
 
-#: models.py:411
+#: models.py:503
 msgid "General"
 msgstr "כללי"
 
-#: models.py:430
+#: models.py:522
 msgid "In discussion"
 msgstr "בדיון"
 
-#: models.py:431
+#: models.py:523
 msgid "Accepted"
 msgstr "ההתייחסות התקבלה"
 
-#: models.py:432
+#: models.py:524
 msgid "Rejected"
 msgstr "ההתייחסות נדחתה"
 
-#: models.py:441 models.py:692 models.py:722
+#: models.py:533 models.py:784 models.py:814
 msgid "Create at"
 msgstr "נוצר ב"
 
-#: models.py:446
+#: models.py:538
 msgid "Type"
 msgstr "סוג"
 
-#: models.py:450
+#: models.py:542
 msgid "Details"
 msgstr "פירוט"
 
-#: models.py:458 templates/issues/_proposal.html:18
+#: models.py:550 templates/issues/_proposal.html:18
 #: templates/issues/proposal_detail_main.html:105
 msgid "Assigned to"
 msgstr "אחראי"
 
-#: models.py:461
+#: models.py:553
 msgid "Assigned to user"
 msgstr "אחראי"
 
-#: models.py:465 templates/issues/_proposal.html:21
+#: models.py:557 templates/issues/_proposal.html:21
 #: templates/issues/proposal_detail_main.html:112
 msgid "Due by"
 msgstr "יעד"
 
-#: models.py:466 templates/issues/assignment_list.html:45
+#: models.py:558 templates/issues/assignment_list.html:45
 msgid "Completed"
 msgstr "הושלם"
 
-#: models.py:467 models.py:784
+#: models.py:559 models.py:876
 msgid "Votes pro"
 msgstr "הצבעות בעד"
 
-#: models.py:469 models.py:785
+#: models.py:561 models.py:877
 msgid "Votes con"
 msgstr "הצבעות נגד"
 
-#: models.py:471 models.py:786
+#: models.py:563 models.py:878
 msgid "Community members"
 msgstr "חברי קהילה"
 
-#: models.py:473 templates/issues/procedure_list.html:38
+#: models.py:565 templates/issues/procedure_list.html:38
 #: templates/issues/proposal_detail_main.html:119
 msgid "Tags"
 msgstr "תגיות"
 
-#: models.py:477 templatetags/voting_tags.py:40
+#: models.py:569 templatetags/voting_tags.py:40
 msgid "Proposal"
 msgstr "התייחסות"
 
-#: models.py:700
+#: models.py:792
 msgid "Proposal comment"
 msgstr "תגובה להתייחסות"
 
-#: models.py:701
+#: models.py:793
 msgid "Proposal comments"
 msgstr "תגובות להתייחסות"
 
-#: models.py:721 templates/issues/_issue_main.html:248
+#: models.py:813 templates/issues/_issue_main.html:286
 #: templates/issues/_vote_arguments.html:99
 #: templates/issues/proposal_detail_main.html:247
 msgid "Argument"
 msgstr "טיעון"
 
-#: models.py:729
+#: models.py:821
 msgid "Proposal vote argument"
 msgstr "טיעון על התייחסות"
 
-#: models.py:730
+#: models.py:822
 msgid "Proposal vote arguments"
 msgstr "טיעונים על התייחסויות"
 
-#: models.py:776
+#: models.py:868
 msgid "Proposal vote argument ranking"
 msgstr "הצבעה על התייחסות"
 
-#: models.py:777
+#: models.py:869
 msgid "Proposal vote arguments ranking"
 msgstr "הצבעות על התייחסויות"
 
-#: models.py:794
+#: models.py:886
 msgid "Vote result"
 msgstr "תוצאות הצבעה"
 
-#: models.py:795
+#: models.py:887
 msgid "Vote results"
 msgstr "תוצאות הצבעות"
 
@@ -353,7 +366,7 @@ msgid "You won't be able to change your vote after adding an argument."
 msgstr "לאחר הוספת טיעון לא ניתן לשנות את בחירתך."
 
 #: templates/issues/_argument_action_modal.html:28
-#: templates/issues/_issue_main.html:256
+#: templates/issues/_issue_main.html:294
 #: templates/issues/_vote_arguments.html:107
 #: templates/issues/issueattachment_form.html:22
 #: templates/issues/proposal_detail_main.html:256
@@ -361,7 +374,7 @@ msgid "Cancel"
 msgstr "ביטול"
 
 #: templates/issues/_argument_action_modal.html:33
-#: templates/issues/_issue_main.html:261
+#: templates/issues/_issue_main.html:299
 #: templates/issues/_vote_arguments.html:112
 #: templates/issues/proposal_detail_main.html:261
 msgid "Confirm"
@@ -378,14 +391,15 @@ msgid "Assigned To"
 msgstr "אחראי"
 
 #: templates/issues/_comment.html:32 templates/issues/_comment.html:41
+#: templates/issues/_reference.html:32 templates/issues/_reference.html:41
 msgid "at"
 msgstr "ב"
 
-#: templates/issues/_comment.html:40
+#: templates/issues/_comment.html:40 templates/issues/_reference.html:40
 msgid "version"
 msgstr "גרסא"
 
-#: templates/issues/_comment.html:41
+#: templates/issues/_comment.html:41 templates/issues/_reference.html:41
 msgid "Last edited by"
 msgstr "נערך לאחרונה על ידי"
 
@@ -408,21 +422,21 @@ msgstr "עריכה"
 msgid "Attach files"
 msgstr "צרף קובץ"
 
-#: templates/issues/_issue_main.html:63
+#: templates/issues/_issue_main.html:67
 #: templates/issues/proposal_detail.html:91
 msgid "Decisions"
 msgstr "התייחסויות"
 
-#: templates/issues/_issue_main.html:108
+#: templates/issues/_issue_main.html:112
 msgid "Type the new proposal title"
 msgstr "כותרת ההתייחסות"
 
-#: templates/issues/_issue_main.html:160
+#: templates/issues/_issue_main.html:164
 #: templates/issues/proposal_detail_main.html:179
 msgid "Add comment"
 msgstr "תגובה חדשה"
 
-#: templates/issues/_issue_main.html:165
+#: templates/issues/_issue_main.html:169
 #: templates/issues/_vote_arguments.html:41
 #: templates/issues/_vote_arguments.html:77 templates/issues/issue_list.html:70
 #: templates/issues/issue_list.html:150
@@ -430,19 +444,23 @@ msgstr "תגובה חדשה"
 msgid "Submit"
 msgstr "שליחה"
 
-#: templates/issues/_issue_main.html:177
+#: templates/issues/_issue_main.html:181
 msgid "Add a proposal"
 msgstr "התייחסות חדשה"
 
-#: templates/issues/_issue_main.html:183
+#: templates/issues/_issue_main.html:187
 msgid "Issue discussion summary"
 msgstr "עיקרי הדיון בנושא"
 
-#: templates/issues/_issue_main.html:206
+#: templates/issues/_issue_main.html:210 templates/issues/_issue_main.html:244
 msgid "Save and go to next issue"
 msgstr "שמור ועבור לנושא הבא"
 
-#: templates/issues/_issue_main.html:243
+#: templates/issues/_issue_main.html:221
+msgid "Reference summary"
+msgstr "סיכום החלטות"
+
+#: templates/issues/_issue_main.html:281
 #: templates/issues/proposal_detail_main.html:242
 msgid "Edit comment"
 msgstr "ערוך תגובה"
@@ -461,11 +479,6 @@ msgstr "עריכה"
 msgid "Delete"
 msgstr "מחיקה"
 
-#: templates/issues/_issue_title.html:19 templates/issues/_proposal.html:12
-#: templates/issues/proposal_detail_main.html:98
-msgid "By:"
-msgstr "מאת:"
-
 #: templates/issues/_more_arguments_box.html:6
 msgid "More / Add"
 msgstr "עוד / הוסף"
@@ -480,6 +493,11 @@ msgstr "הוסף טיעון"
 msgctxt "rule creation date"
 msgid "Date"
 msgstr "תאריך"
+
+#: templates/issues/_proposal.html:12
+#: templates/issues/proposal_detail_main.html:98
+msgid "By:"
+msgstr "מאת:"
 
 #: templates/issues/_proposal_vote_results.html:17
 msgid "Last vote"
@@ -690,6 +708,7 @@ msgid "Attach"
 msgstr "צרף"
 
 #: templates/issues/issuecomment_form.html:7
+#: templates/issues/reference_form.html:7
 msgid "Cencel edit"
 msgstr "בטל עריכה"
 

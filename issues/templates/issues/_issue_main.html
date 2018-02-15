@@ -214,6 +214,40 @@
     </div>
     {% endif %}
 
+    <h2 class="filter-title">
+        {% trans "Reference summary" %}
+    </h2>
+    {% if object.active_references.count or cperms.issues.add_reference and object.community.upcoming_meeting_started and object.is_upcoming %}
+    <div class="referenceswrapper">
+        <ul id="references" class="references">
+            {% for ai in object.agenda_items.all %}
+                {% if ai.references.count %}
+                    {% for r in ai.references %}
+                        {% include "issues/_reference.html" %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            {% for r in object.new_references %}
+                {% include "issues/_reference.html" %}
+            {% endfor %}
+            {% if cperms.issues.add_reference and object.community.upcoming_meeting_started and object.is_upcoming %}
+                <li class="rich_editor filter-upcoming filter">
+                    <span id="reference-status"></span>
+                    <form id="add-reference" method="post" data-reference-id>
+                        {% csrf_token %}
+                        {{reference_form}}
+                        <div class="col-xs-12 text-center rich_editor_box">
+                            <button name="reference" class="add-reference-btn btn btn-oc btn-lg" disabled="1" style="width: auto;" data-next-issue="{{ object.get_next_upcoming_issue_url }}">
+                                {% trans "Save and go to next issue" %}
+                            </button>
+                        </div>
+                    </form>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    {% endif %}
+
     {% comment %}
     {% if cperms.meetings.add_meeting %}
         {% if object.is_current and not object.completed %}

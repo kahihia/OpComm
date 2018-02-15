@@ -1,0 +1,51 @@
+{% load i18n %}
+{% load opencommunity %}
+
+{% if r.active or cperms.issues.editclosed_reference or cperms.issues.editopen_reference and r.is_open  %}
+    {% if r.meeting or cperms.issues.view_proposal_in_discussion %}
+    <li class="filter-{% if r.meeting %}meeting-{{r.meeting.id}}{% else %}upcoming{% endif %} filter{% if not r.active %} deleted{% endif %}">
+
+        {% if cperms.issues.editclosed_reference or cperms.issues.editopen_reference and r.is_open  %}
+            <form class="delete-reference pull-right" method="post" action="{{r.get_delete_url}}">
+                {% csrf_token %}
+                <span class="delete-btn pull-right">
+                    <button class="btn btn-reference"></button>
+                </span>
+                <span class="undelete-btn pull-right">
+                    <button class="btn btn-reference" name="undelete" value="1"></button>
+                </span>
+            </form>
+
+            <span class="edit-reference pull-right">
+                <button class="btn btn-reference" data-id="{{r.id}}" data-url="{{r.get_edit_url}}"></button>
+            </span>
+
+        {% endif %}
+
+        <div class="reference-inner">
+            <p>
+                {% if r.meeting %}
+                    <a class="filter filter-subtitle" href="{{r.meeting.get_absolute_url}}">{{r.meeting.get_title_or_date}}:</a>
+                {% endif %}
+
+                <i>
+                    {{r.created_by}} ({% trans "at" %} {{r.created_at}})
+                </i>
+            </p>
+
+            {{r.content|userhtml}}
+
+            {% if r.last_edited_by %}
+                <i>
+                    {% trans "version" %} {{r.version}},
+                    {% trans "Last edited by" %} {{r.last_edited_by}} {% trans "at" %} {{r.last_edited_at}}
+                </i>
+            {% endif %}
+
+        </div>
+
+    </li>
+
+    {% endif %}
+    
+{% endif %}

@@ -148,6 +148,15 @@ class Issue(UIDMixin, ConfidentialMixin):
     def historical_comments(self):
         return self.comments.filter(active=True).exclude(meeting_id=None)
 
+    def active_references(self):
+        return self.references.filter(active=True)
+
+    def new_references(self):
+        return self.references.filter(meeting_id=None)
+
+    def historical_references(self):
+        return self.references.filter(active=True).exclude(meeting_id=None)
+
     def has_closed_parts(self):
         """ Should be able to be viewed """
 
@@ -283,6 +292,89 @@ class IssueCommentRevision(models.Model):
     @property
     def is_confidential(self):
         return self.comment.issue.is_confidential
+
+
+class Reference(UIDMixin):
+    issue = models.ForeignKey(Issue, related_name="references", on_delete=models.CASCADE)
+    active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(_("Created at"), auto_now_add=True)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                   verbose_name=_("Created by"),
+                                   on_delete=models.CASCADE,
+                                   related_name="reference_created")
+    meeting = models.ForeignKey('meetings.Meeting', null=True, blank=True, on_delete=models.CASCADE)
+    version = models.PositiveIntegerField(default=1)
+    last_edited_at = models.DateTimeField(_("Last Edited at"), auto_now_add=True)
+    last_edited_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, verbose_name=_("Created by"),
+        on_delete=models.CASCADE,
+        related_name="references_last_edited", null=True, blank=True)
+    content = HTMLField(_("Reference"))
+
+    @property
+    def is_confidential(self):
+        return self.issue.is_confidential
+
+    class Meta:
+        ordering = ('created_at',)
+        verbose_name = _("Reference")
+        verbose_name_plural = _("References")
+
+    @property
+    def is_open(self):
+        return self.meeting_id is None
+
+    def update_content(self, expected_version, author, content):
+        """ creates a new revision and updates current comment """
+        if self.version != expected_version:
+            return False
+
+        content = enhance_html(content.strip())
+
+        if self.content == content:
+            return True
+
+        with transaction.atomic():
+            ReferenceRevision.objects.create(reference=self,
+                                             version=expected_version,
+                                             created_at=self.created_at,
+                                             created_by=self.created_by,
+                                             content=self.content)
+            self.version += 1
+            self.last_edited_at = timezone.now()
+            self.last_edited_by = author
+            self.content = content
+            self.save()
+
+        return True
+
+    @models.permalink
+    def get_delete_url(self):
+        return "delete_reference", (self.issue.community.id, self.id)
+
+    @models.permalink
+    def get_edit_url(self):
+        return "edit_reference", (self.issue.community.id, self.id)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return "issue", (str(self.issue.community.pk), str(self.issue.pk),)
+
+
+class ReferenceRevision(models.Model):
+    """ Holds data for historical references """
+    reference = models.ForeignKey(Reference, related_name='revisions', on_delete=models.CASCADE)
+    version = models.PositiveIntegerField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                   verbose_name=_("Created by"),
+                                   on_delete=models.PROTECT,
+                                   related_name="reference_versions_created")
+    content = models.TextField(verbose_name=_("Content"))
+
+    @property
+    def is_confidential(self):
+        return self.reference.issue.is_confidential
 
 
 def issue_attachment_path(instance, filename):

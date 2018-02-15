@@ -191,6 +191,28 @@ class EditIssueCommentForm(CreateIssueCommentForm):
     form_id = None
 
 
+class CreateReferenceForm(forms.ModelForm):
+    submit_label = _('Add')
+    form_id = "add-reference"
+
+    class Meta:
+        model = models.Reference
+        fields = (
+            'content',
+        )
+        widgets = {
+            'content': HTMLArea,
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+
+class EditReferenceForm(CreateReferenceForm):
+    submit_label = _('Save')
+    form_id = None
+
+
 class CreateProposalVoteArgumentForm(forms.ModelForm):
     submit_label = _('Add')
     form_id = "add-argument"

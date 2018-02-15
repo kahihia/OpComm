@@ -1,3 +1,5 @@
+import pdb
+
 from django.conf import settings
 from django.contrib.auth.views import redirect_to_login
 from django.db.models.aggregates import Max
@@ -118,6 +120,7 @@ class IssueDetailView(IssueMixin, DetailView):
         d = super(IssueDetailView, self).get_context_data(**kwargs)
         m_id = self.request.GET.get('m_id', None)
         d['form'] = forms.CreateIssueCommentForm()
+        d['reference_form'] = forms.CreateReferenceForm()
         d['proposal_form'] = forms.CreateProposalForm(community=self.community)
         if m_id:
             d['meeting'] = get_object_or_404(Meeting, id=m_id,
@@ -163,32 +166,38 @@ class IssueDetailView(IssueMixin, DetailView):
 
     def post(self, request, *args, **kwargs):
 
-        form = forms.CreateIssueCommentForm(request.POST)
-        if not form.is_valid():
-            return HttpResponseBadRequest()
+        if request.POST.get('reference'):
+            form = forms.CreateReferenceForm(request.POST)
+            if not form.is_valid():
+                return HttpResponseBadRequest()
 
-        i = self.get_object()
-        comment_id = request.POST.get('comment_id', None)
-        try:
-            c = i.comments.get(pk=int(comment_id))
-            c.content = enhance_html(form.cleaned_data['content'])
-            c.save()
-            return json_response({'comment_id': c.id})
-        except:
-            c = i.comments.create(content=enhance_html(form.cleaned_data['content']),
-                                  created_by=request.user)
-            return json_response({'comment_id': c.id})
-        # if comment_id == '':
-        #     c = i.comments.create(content=enhance_html(form.cleaned_data['content']),
-        #                           created_by=request.user)
-        #
-        #     self.object = i  # this makes the next line work
-        #     context = self.get_context_data(object=i, c=c)
-        #     return render(request, 'issues/_comment.html', context)
-        # else:
-        #     c = i.comments.get(pk=int(comment_id))
-        #     c.content=enhance_html(form.cleaned_data['content'])
-        #     return json_response({'comment_id': c.id})
+            i = self.get_object()
+            reference_id = request.POST.get('reference_id', None)
+            try:
+                r = i.references.get(pk=int(reference_id))
+                r.content = enhance_html(form.cleaned_data['content'])
+                r.save()
+                return json_response({'reference_id': r.id})
+            except:
+                r = i.references.create(content=enhance_html(form.cleaned_data['content']),
+                                        created_by=request.user)
+                return json_response({'reference_id': r.id})
+        else:
+            form = forms.CreateIssueCommentForm(request.POST)
+            if not form.is_valid():
+                return HttpResponseBadRequest()
+
+            i = self.get_object()
+            comment_id = request.POST.get('comment_id', None)
+            try:
+                c = i.comments.get(pk=int(comment_id))
+                c.content = enhance_html(form.cleaned_data['content'])
+                c.save()
+                return json_response({'comment_id': c.id})
+            except:
+                c = i.comments.create(content=enhance_html(form.cleaned_data['content']),
+                                      created_by=request.user)
+                return json_response({'comment_id': c.id})
 
 
 class IssueCommentMixin(CommunityMixin):
@@ -229,6 +238,46 @@ class IssueCommentEditView(IssueCommentMixin, UpdateView):
     def get_form_kwargs(self):
         d = super(IssueCommentEditView, self).get_form_kwargs()
         d['prefix'] = 'ic%d' % self.get_object().id
+        return d
+
+
+class ReferenceMixin(CommunityMixin):
+    model = models.Reference
+
+    def get_required_permission(self):
+        o = self.get_object()
+        return 'issues.editopen_reference' if o.issue.is_upcoming else 'issues.editclosed_reference'
+
+    def get_queryset(self):
+        return models.Reference.objects.filter(issue__community=self.community)
+
+
+class ReferenceDeleteView(ReferenceMixin, DeleteView):
+
+    def post(self, request, *args, **kwargs):
+        o = self.get_object()
+        o.active = 'undelete' in request.POST
+        o.save()
+        return HttpResponse(int(o.active))
+
+
+class ReferenceEditView(ReferenceMixin, UpdateView):
+    form_class = forms.EditReferenceForm
+
+    def form_valid(self, form):
+        r = self.get_object()
+        r.update_content(form.instance.version, self.request.user,
+                         form.cleaned_data['content'])
+
+        context = self.get_context_data(object=r.issue, r=r)
+        return render(self.request, 'issues/_reference.html', context)
+
+    def form_invalid(self, form):
+        return HttpResponse("")
+
+    def get_form_kwargs(self):
+        d = super().get_form_kwargs()
+        d['prefix'] = 'r%d' % self.get_object().id
         return d
 
 

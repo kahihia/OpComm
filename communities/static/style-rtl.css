@@ -88,6 +88,10 @@ p > a {
     word-break: break-word;
 }
 
+.htmlarea iframe {
+    width: 100% !important;
+}
+
 /* Errors */
 
 ul.errorlist {
@@ -347,28 +351,46 @@ ul.errorlist li {
     max-width: 300px;
 }
 
+.edit-reference button,
 .edit-comment button {
     background: url(images/comment_edit_pencil.png) no-repeat;
 }
 
+.delete-reference button,
 .delete-comment button {
     background: url(images/comment_delete_trash.png) no-repeat center;
 }
 
+.delete-reference .undelete-btn button,
 .delete-comment .undelete-btn button {
     background: url(images/comment_undelete.png) no-repeat center;
 }
 
-.btn-comment, .btn-comment:hover, .btn-comment:focus, .btn-comment:active {
+.btn-reference,
+.btn-reference:hover,
+.btn-reference:focus,
+.btn-reference:active,
+.btn-comment,
+.btn-comment:hover,
+.btn-comment:focus,
+.btn-comment:active {
     border-color: transparent;
 }
 
-.btn-comment, .btn-comment:active, .btn-comment[disabled], fieldset[disabled] .btn-comment {
+.btn-reference,
+.btn-reference:active,
+.btn-reference[disabled],
+fieldset[disabled] .btn-reference,
+.btn-comment,
+.btn-comment:active,
+.btn-comment[disabled],
+fieldset[disabled] .btn-comment {
     background-color: transparent;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 
+.btn-reference,
 .btn-comment {
     width: auto;
     height: 20px;
@@ -1171,50 +1193,61 @@ ul.proposals li.prop-content p {
 
 /* Issue detail comments */
 
+.references,
 .comments {
     padding: 0;
     margin-bottom: 1px;
 }
 
+.references .historic_comments > li,
+.references > li,
 .comments .historic_comments > li,
 .comments > li {
     padding: 5px;
-    /*background: #fff;*/
     list-style-type: none;
     margin-bottom: 1px;
     border-bottom: 1px solid #ccc;
 }
 
+.references .historic_comments > li:last-child,
+.references > li:last-child,
 .comments .historic_comments > li:last-child,
 .comments > li:last-child {
     border-bottom: 0;
 }
 
+.references li.editing,
 .comments li.editing {
     background: transparent;
 }
 
+.references li.editing div,
 .comments li.editing div {
     /*padding-left: 26px;*/
 }
 
+.reference-inner,
 .comment-inner {
     color: #6c6c6e;
     font-size: 14px;
 }
 
+.reference-inner a,
 .comment-inner a {
     word-break: break-all;
 }
 
+.reference-inner p,
 .comment-inner p {
     margin-bottom: 0;
 }
 
+.reference-inner .userhtml,
 .comment-inner .userhtml {
     font-size: 15px;
 }
 
+.references li.rich_editor,
 .comments li.rich_editor {
     background: transparent;
     padding: 10px 0 0 0;
