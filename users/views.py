@@ -25,7 +25,7 @@ from ocd.base_views import CommunityMixin
 from users import models
 from .default_roles import DefaultGroups
 from users.forms import InvitationForm, QuickSignupForm, ImportInvitationsForm, OCPasswordResetConfirmForm
-from users.models import Invitation, OCUser, Membership
+from users.models import Invitation, OCUser, Membership, UnsubscribeUser
 
 
 def cmp_to_key(mycmp):
@@ -149,6 +149,9 @@ class UnsubscribeView(View):
             raise Http404
         user.opt_in = False
         user.save()
+
+        UnsubscribeUser.objects.create(user=user)
+
         return HttpResponse(
             _('Email address [{}] has been successfully removed from out list'.format(user.email.lower())))
 

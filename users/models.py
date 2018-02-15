@@ -331,3 +331,11 @@ class Invitation(models.Model):
             self.status = EmailStatus.FAILED
             self.save()
             return False
+
+
+class UnsubscribeUser(models.Model):
+    user = models.ForeignKey(OCUser, verbose_name=_("User"), related_name='unsubscribes', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+
+    def __str__(self):
+        return "%s: %s" % (self.created_at, self.user.display_name)
