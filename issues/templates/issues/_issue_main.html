@@ -107,7 +107,7 @@
                 <form method="post" id="quick-proposal-form" action="{% url 'proposal_create' community.id object.id %}">
                 {% csrf_token %}
                     <div class="input-group">
-                        <input type="text" class="form-control" id="quick-proposal-title" name="proposal-title" placeholder="{% trans 'Type the new proposal title' %}">
+                        <input type="text" class="form-control" id="quick-proposal-title" name="proposal-title" placeholder="{% trans 'Here you can share your opinion or to add relevant information on the subject' %}">
                         <input type="hidden" class="form-control" name="proposal-type" value="3">
                         <span class="input-group-btn">
                             <button id="quick-proposal-add" class="btn btn-oc" type="submit" data-append-to=".open-proposals">{% trans "Add" %}</button>

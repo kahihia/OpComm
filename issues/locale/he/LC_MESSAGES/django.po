@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:26+0200\n"
-"PO-Revision-Date: 2018-02-15 15:27+0200\n"
+"POT-Creation-Date: 2018-02-18 10:29+0200\n"
+"PO-Revision-Date: 2018-02-18 10:29+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -428,8 +428,9 @@ msgid "Decisions"
 msgstr "התייחסויות"
 
 #: templates/issues/_issue_main.html:112
-msgid "Type the new proposal title"
-msgstr "כותרת ההתייחסות"
+msgid ""
+"Here you can share your opinion or to add relevant information on the subject"
+msgstr "זה המקום להביע את דעתכם או להוסיף מידע רלוונטי לנושא"
 
 #: templates/issues/_issue_main.html:164
 #: templates/issues/proposal_detail_main.html:179
@@ -788,6 +789,9 @@ msgstr "התייחסות חדשה"
 #: templates/issues/proposal_form.html:132
 msgid "Are you sure you want to remove the proposal confidentiality"
 msgstr "האם אתה בטוח שברצונך להפוך התייחסות חסויה לגלויה"
+
+#~ msgid "Type the new proposal title"
+#~ msgstr "כותרת ההתייחסות"
 
 #~ msgid "Vote by the"
 #~ msgstr "הצבעה על ידי"
