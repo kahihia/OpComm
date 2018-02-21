@@ -398,6 +398,15 @@ fieldset[disabled] .btn-comment {
     border-radius: 0;
 }
 
+.reference-li {
+    padding: 1px 10px;
+    border-bottom: 1px dashed #eee;
+}
+
+.reference-li:last-child {
+    border-bottom: 0;
+}
+
 /* Navbar */
 
 nav.oc_navbar {

@@ -198,10 +198,10 @@ class CreateReferenceForm(forms.ModelForm):
     class Meta:
         model = models.Reference
         fields = (
-            'content',
+            'reference',
         )
         widgets = {
-            'content': HTMLArea,
+            'reference': HTMLArea,
         }
 
     def __init__(self, *args, **kwargs):

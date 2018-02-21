@@ -121,11 +121,8 @@
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         {% for r in object.references.all %}
-                                            <li>
-                                                <a role="menuitem" href="#" data-toggle="filter"
-                                                   data-show=".filter-meeting-{{ ai.meeting.id }}">
-                                                    {{ r.content|userhtml }}
-                                                </a>
+                                            <li class="reference-li" data-toggle="filter" data-show=".filter-meeting-{{ ai.meeting.id }}">
+                                                {{ r.content|linebreaksbr }}
                                             </li>
                                         {% endfor %}
                                     </ul>

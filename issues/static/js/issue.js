@@ -62,8 +62,8 @@ function autoSaveReference() {
 $(function () {
 
     function refreshButtons(commentEmpty) {
-        $('.add-reference-btn').prop('disabled', commentEmpty);
         $('.add-comment-btn').prop('disabled', commentEmpty);
+        $('.add-reference-btn').prop('disabled', commentEmpty);
         $('.close-issue-btn').prop('disabled', !commentEmpty);
     }
 
@@ -105,7 +105,8 @@ $(function () {
                 }
             },
             data: {
-                'reference_id': $('#add-reference').data('reference-id')
+                'reference_id': $('#add-reference').data('reference-id'),
+                'reference': true
             },
             success: function (data) {
                 window.location.href = nextIssue;

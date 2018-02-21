@@ -309,7 +309,7 @@ class Reference(UIDMixin):
         settings.AUTH_USER_MODEL, verbose_name=_("Created by"),
         on_delete=models.CASCADE,
         related_name="references_last_edited", null=True, blank=True)
-    content = HTMLField(_("Reference"))
+    reference = HTMLField(_("Reference"))
 
     @property
     def is_confidential(self):
@@ -324,14 +324,14 @@ class Reference(UIDMixin):
     def is_open(self):
         return self.meeting_id is None
 
-    def update_content(self, expected_version, author, content):
+    def update_reference(self, expected_version, author, reference):
         """ creates a new revision and updates current comment """
         if self.version != expected_version:
             return False
 
-        content = enhance_html(content.strip())
+        reference = enhance_html(reference.strip())
 
-        if self.content == content:
+        if self.reference == reference:
             return True
 
         with transaction.atomic():
@@ -339,11 +339,11 @@ class Reference(UIDMixin):
                                              version=expected_version,
                                              created_at=self.created_at,
                                              created_by=self.created_by,
-                                             content=self.content)
+                                             content=self.reference)
             self.version += 1
             self.last_edited_at = timezone.now()
             self.last_edited_by = author
-            self.content = content
+            self.reference = reference
             self.save()
 
         return True

@@ -175,11 +175,11 @@ class IssueDetailView(IssueMixin, DetailView):
             reference_id = request.POST.get('reference_id', None)
             try:
                 r = i.references.get(pk=int(reference_id))
-                r.content = enhance_html(form.cleaned_data['content'])
+                r.reference = enhance_html(form.cleaned_data['reference'])
                 r.save()
                 return json_response({'reference_id': r.id})
             except:
-                r = i.references.create(content=enhance_html(form.cleaned_data['content']),
+                r = i.references.create(reference=enhance_html(form.cleaned_data['reference']),
                                         created_by=request.user)
                 return json_response({'reference_id': r.id})
         else:
