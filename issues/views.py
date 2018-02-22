@@ -166,7 +166,7 @@ class IssueDetailView(IssueMixin, DetailView):
 
     def post(self, request, *args, **kwargs):
 
-        if request.POST.get('reference'):
+        if request.POST.get('is_reference'):
             form = forms.CreateReferenceForm(request.POST)
             if not form.is_valid():
                 return HttpResponseBadRequest()
@@ -266,8 +266,7 @@ class ReferenceEditView(ReferenceMixin, UpdateView):
 
     def form_valid(self, form):
         r = self.get_object()
-        r.update_content(form.instance.version, self.request.user,
-                         form.cleaned_data['content'])
+        r.update_reference(form.instance.version, self.request.user, form.cleaned_data['reference'])
 
         context = self.get_context_data(object=r.issue, r=r)
         return render(self.request, 'issues/_reference.html', context)

@@ -8,7 +8,7 @@ function autoSaveComment() {
         timeoutId = setTimeout(function () {
             $('#add-comment').ajaxForm({
                 beforeSubmit: function (arr, form) {
-                    if (!editor.getValue()) {
+                    if (!comment_editor.getValue()) {
                         return false;
                     }
                     $('.add-comment-btn').prop('disabled', true);
@@ -37,7 +37,7 @@ function autoSaveReference() {
         timeoutId = setTimeout(function () {
             $('#add-reference').ajaxForm({
                 beforeSubmit: function (arr, form) {
-                    if (!editor.getValue()) {
+                    if (!reference_editor.getValue()) {
                         return false;
                     }
                     $('.add-reference-btn').prop('disabled', true);
@@ -45,7 +45,7 @@ function autoSaveReference() {
                 },
                 data: {
                     'reference_id': $('#add-reference').data('reference-id'),
-                    'reference': true
+                    'is_reference': true
                 },
                 success: function (data) {
                     $('#add-reference').data('reference-id', data.reference_id);
@@ -59,19 +59,33 @@ function autoSaveReference() {
     });
 }
 
+let comment_editor;
+let reference_editor;
+
 $(function () {
 
-    function refreshButtons(commentEmpty) {
+    function refreshButtons1(commentEmpty) {
         $('.add-comment-btn').prop('disabled', commentEmpty);
+    }
+
+    function refreshButtons2(commentEmpty) {
         $('.add-reference-btn').prop('disabled', commentEmpty);
         $('.close-issue-btn').prop('disabled', !commentEmpty);
     }
 
-    if ($('.htmlarea textarea').length) {
-        var editor = $('.htmlarea textarea').ocdEditor().data('wysihtml5').editor;
+    if ($('#add-comment .htmlarea textarea').length) {
+        comment_editor = $('#add-comment .htmlarea textarea').ocdEditor().data('wysihtml5').editor;
 
-        editor.on('input', function () {
-            refreshButtons(editor.getValue().trim() == '');
+        comment_editor.on('input', function () {
+            refreshButtons1(comment_editor.getValue().trim() == '');
+        });
+    }
+
+    if ($('#add-reference .htmlarea textarea').length) {
+        reference_editor = $('#add-reference .htmlarea textarea').ocdEditor().data('wysihtml5').editor;
+
+        reference_editor.on('input', function () {
+            refreshButtons2(reference_editor.getValue().trim() == '');
         });
     }
 
@@ -81,7 +95,7 @@ $(function () {
         var nextIssue = $(this).data('next-issue');
         $('#add-comment').ajaxForm({
             beforeSubmit: function (arr, form) {
-                if (!editor.getValue()) {
+                if (!comment_editor.getValue()) {
                     return false;
                 }
             },
@@ -100,13 +114,13 @@ $(function () {
         var nextIssue = $(this).data('next-issue');
         $('#add-reference').ajaxForm({
             beforeSubmit: function (arr, form) {
-                if (!editor.getValue()) {
+                if (!reference_editor.getValue()) {
                     return false;
                 }
             },
             data: {
                 'reference_id': $('#add-reference').data('reference-id'),
-                'reference': true
+                'is_reference': true
             },
             success: function (data) {
                 window.location.href = nextIssue;
@@ -287,5 +301,5 @@ $(function () {
 
 $(window).load(function () {
     autoSaveComment();
-    autoSaveReference();
+    // autoSaveReference();
 });
