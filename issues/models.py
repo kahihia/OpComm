@@ -538,7 +538,7 @@ class Proposal(UIDMixin, ConfidentialMixin):
     type = models.PositiveIntegerField(_("Type"), choices=ProposalType.CHOICES, default=ProposalType.GENERAL)
     types = ProposalType
 
-    title = models.CharField(_("Title"), max_length=300)
+    title = models.CharField(_("Title"), max_length=800)
     content = HTMLField(_("Details"), null=True, blank=True)
 
     status = models.IntegerField(choices=ProposalStatus.choices,
