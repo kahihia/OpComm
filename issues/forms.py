@@ -139,6 +139,7 @@ class CreateProposalBaseForm(forms.ModelForm):
 
     def __init__(self, community=None, *args, **kwargs):
         super(CreateProposalBaseForm, self).__init__(*args, **kwargs)
+
     #
     #     self.fields['confidential_reason'].empty_label = _('Not Confidential')
     #     self.fields['confidential_reason'].queryset = community.confidential_reasons.all().order_by('id')
@@ -147,9 +148,9 @@ class CreateProposalBaseForm(forms.ModelForm):
 class CreateProposalForm(CreateProposalBaseForm):
     submit_button_text = _('Create')
 
-    def __init__(self, *args, **kwargs):
-        super(CreateProposalForm, self).__init__(*args, **kwargs)
-        # self.fields['type'].initial = ProposalType.ADMIN
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['type'].initial = ProposalType.ADMIN
 
 
 class EditProposalForm(CreateProposalForm):

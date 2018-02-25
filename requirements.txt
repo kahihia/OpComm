@@ -1,5 +1,5 @@
 # django
-Django==2.0
+Django==2.0.2
 
 # general libs
 pillow==4.3.0

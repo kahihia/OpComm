@@ -483,7 +483,7 @@ class ProposalCreateView(AjaxFormView, ProposalMixin, CreateView):
         form.instance.created_by = self.request.user
         form.instance.issue = self.issue
         if self.reload_on_success:
-            return super(ProposalCreateView, self).form_valid(form)
+            return super().form_valid(form)
         else:
             self.object = form.save()
             return render(self.request, 'issues/_proposal.html',
@@ -493,7 +493,7 @@ class ProposalCreateView(AjaxFormView, ProposalMixin, CreateView):
         return self.issue.get_absolute_url()
 
     def get_form_kwargs(self):
-        d = super(ProposalCreateView, self).get_form_kwargs()
+        d = super().get_form_kwargs()
         d['prefix'] = 'proposal'
         d['community'] = self.community
         d['initial'] = {'issue': self.issue}

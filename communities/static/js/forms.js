@@ -160,7 +160,7 @@ $(function () {
             error: function (resp) {
                 if (resp.status == 403) {
                     $('#quick-proposal-form .input-group').addClass('has-error');
-                    $('#quick-proposal-error').html(gettext('Field cannot be empty'));
+                    $('#quick-proposal-error').html(gettext('You have exceeded the maximum allowed chars of 800'));
                 } else {
                     alert('Server Error! please try again or reload the page.');
                 }
