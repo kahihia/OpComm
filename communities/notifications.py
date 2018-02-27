@@ -79,8 +79,7 @@ def send_mail(community, notification_type, sender, send_to, data=None,
         r = [m.user for m in community.memberships.board() if m.user.opt_in]
 
     elif send_to == SendToOption.ONLY_ATTENDEES:
-        r = [user for user in community.upcoming_meeting_participants.all() if
-             m.user.opt_in]
+        r = [user for user in community.upcoming_meeting_participants.all() if user.opt_in]
 
     else:
         r = []
@@ -230,6 +229,6 @@ def send_mail(community, notification_type, sender, send_to, data=None,
         msg = dict((k, v) for k, v in msg.items() if v)
         message = EmailMultiAlternatives(**msg)
         message.attach_alternative(as_html, 'text/html')
-        message.send()
+        message.send(fail_silently=True)
 
     return len(recipients)
