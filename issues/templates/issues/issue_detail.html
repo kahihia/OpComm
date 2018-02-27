@@ -122,7 +122,7 @@
                                     <ul class="dropdown-menu" role="menu">
                                         {% for r in object.references.all %}
                                             <li class="reference-li" data-toggle="filter" data-show=".filter-meeting-{{ ai.meeting.id }}">
-                                                {{ r.reference|linebreaksbr }}
+                                                {{ r.reference|userhtml }}
                                             </li>
                                         {% endfor %}
                                     </ul>
