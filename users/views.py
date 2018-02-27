@@ -289,6 +289,8 @@ class ImportInvitationsView(MembershipMixin, FormView):
         for row in uploaded_csvfile:
             role = list(roles.keys())[0]
             name = row['name']
+            firstname = row['firstname']
+            lastname = row['lastname']
             email = row['email']
             _role = row['role']
             try:
@@ -301,9 +303,13 @@ class ImportInvitationsView(MembershipMixin, FormView):
             if OCUser.objects.filter(email=email).exists():
                 continue
 
+            if name:
+                fullname = name
+            else:
+                fullname = u'{}{}'.format(firstname, u' {}'.format(lastname) if lastname else '')
             user = OCUser.objects.create_user(
                 email=email,
-                display_name=name,
+                display_name=fullname,
                 password='opcomm'
             )
             membership = Membership.objects.create(
