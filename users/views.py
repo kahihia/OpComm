@@ -283,7 +283,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
     def form_valid(self, form):
         uploaded_file = self.request.FILES['csv_file']
         uploaded_csvfile = csv.DictReader(codecs.iterdecode(uploaded_file, 'utf-8'),
-                                          fieldnames=['name', 'email', 'role'])
+                                          fieldnames=['name', 'email', 'role', 'firstname', 'lastname'])
         roles = dict(DefaultGroups.CHOICES)
         sent = 0
         for row in uploaded_csvfile:
