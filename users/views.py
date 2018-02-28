@@ -292,6 +292,8 @@ class ImportInvitationsView(MembershipMixin, FormView):
             firstname = row['firstname']
             lastname = row['lastname']
             email = row['email']
+            if not email:
+                continue
             _role = row['role']
             try:
                 for k, v in roles.items():
@@ -300,7 +302,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
             except:
                 role = list(roles.keys())[0]
 
-            if OCUser.objects.filter(email=email).exists():
+            if OCUser.objects.filter(email=email.lower()).exists():
                 continue
 
             if name:
@@ -308,7 +310,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
             else:
                 fullname = u'{}{}'.format(firstname, u' {}'.format(lastname) if lastname else '')
             user = OCUser.objects.create_user(
-                email=email,
+                email=email.lower(),
                 display_name=fullname,
                 password='opcomm'
             )
