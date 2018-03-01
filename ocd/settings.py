@@ -229,11 +229,11 @@ else:
 
 QUEUE_NAME = 'default'
 
-RQ_QUEUES = {
-    QUEUE_NAME: REDIS['default'],
-}
-
 try:
     from .local_settings import *
 except ImportError:
     pass
+
+RQ_QUEUES = {
+    QUEUE_NAME: REDIS['default'],
+}

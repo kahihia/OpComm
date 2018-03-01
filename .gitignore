@@ -3,6 +3,6 @@ __pycache__/
 *$py.class
 /ocd/local_settings.py
 /whoosh_index/
-/.idea/
+.idea/
 /uploads/
 #/static/
