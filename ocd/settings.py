@@ -196,7 +196,8 @@ REDIS = {
         'PORT': 6379,
         'DB': 0,
         'PASSWORD': '',
-        'SCHEME': 'redis://'
+        'DEFAULT_TIMEOUT': 360,
+        # 'SCHEME': 'redis://'
     }
 }
 
@@ -228,11 +229,11 @@ else:
 
 QUEUE_NAME = 'default'
 
+RQ_QUEUES = {
+    QUEUE_NAME: REDIS['default'],
+}
+
 try:
     from .local_settings import *
 except ImportError:
     pass
-
-RQ_QUEUES = {
-    QUEUE_NAME: REDIS['default'],
-}
