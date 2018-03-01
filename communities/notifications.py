@@ -3,6 +3,7 @@ import datetime
 import logging
 from itertools import chain
 
+import django_rq
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
@@ -55,8 +56,8 @@ def construct_mock_users(email_list, type):
     return users
 
 
-def send_mail(community, notification_type, sender, send_to, data=None,
-              base_url=None, with_guests=False, language=None):
+def _base_send_mail(community, notification_type, sender, send_to, data=None,
+                    base_url=None, with_guests=False, language=None):
     """Sends mail to community members, and applies object access control.
 
     The type of email being sent is detected from notification_type.
@@ -116,6 +117,9 @@ def send_mail(community, notification_type, sender, send_to, data=None,
             # All pending invites
             elif send_to == SendToOption.ALL_MEMBERS:
                 invitees = [i for i in community.invitations.all()]
+
+            else:
+                invitees = []
 
             w.extend(invitees)
 
@@ -232,3 +236,16 @@ def send_mail(community, notification_type, sender, send_to, data=None,
         message.send(fail_silently=True)
 
     return len(recipients)
+
+
+def _async_send_mail(*args, **kwargs):
+    django_rq.get_queue(settings.QUEUE_NAME).enqueue(
+        _base_send_mail, *args, description=u"Send mail",
+        language=settings.LANGUAGE_CODE, **kwargs)
+    return True
+
+
+if not settings.OPENCOMMITTEE_ASYNC_NOTIFICATIONS:
+    send_mail = _base_send_mail
+else:
+    send_mail = _async_send_mail
