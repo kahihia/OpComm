@@ -122,9 +122,7 @@ class UpcomingMeetingView(CommunityModelMixin, DetailView):
     def get_context_data(self, **kwargs):
         d = super(UpcomingMeetingView, self).get_context_data(**kwargs)
         sorted_issues = {'by_time': [], 'by_rank': []}
-        open_issues = Issue.objects.filter(active=True, \
-                                           community=self.community) \
-            .exclude(status=IssueStatus.ARCHIVED)
+        open_issues = Issue.objects.filter(active=True, community=self.community).exclude(status=IssueStatus.ARCHIVED)
         for i in open_issues.order_by('-created_at'):
             sorted_issues['by_time'].append(i.id)
         for i in open_issues.order_by('-order_by_votes'):
