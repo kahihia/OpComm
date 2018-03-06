@@ -125,6 +125,7 @@
                          </div>
                         {% endif %}
 
+                        {% comment %}
                         {% if obj.proposals.open.count %}
                             <h4 style="margin:0; background: #eee; padding: 2px">
                                 {% trans "Proposals" %}
@@ -166,6 +167,7 @@
                                 {% endfor %}
                             </ul>
                         {% endif %}
+                        {% endcomment %}
                     </article>
 
                 {% endfor %}
