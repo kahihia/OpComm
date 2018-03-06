@@ -9,7 +9,7 @@
     data-id="{{proposal.id}}"
     data-accepted="{{proposal.status}}"></li>
     <li class="{% if proposal.is_confidential %}is_confidential {% endif %}prop-title">
-    	{{proposal.title}} <span class="name-date">({% trans 'By:' %} {{ proposal.created_by }}, <small>{{ proposal.created_at|naturaltime }}</small>)</span>
+    	{{proposal.title}} <span class="name-date">({% trans 'By:' %} {{ proposal.created_by }}{% if proposal.created_by.bio %}, {{ proposal.created_by.bio }}{% endif %}, <small>{{ proposal.created_at|naturaltime }}</small>)</span>
     </li>
     <li class="{% if proposal.is_confidential %}is_confidential {% endif %}prop-content">
         {% if proposal.type == 1 %}

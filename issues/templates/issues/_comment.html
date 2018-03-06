@@ -29,7 +29,7 @@
                 {% endif %}
 
                 <i>
-                    {{c.created_by}} ({% trans "at" %} {{c.created_at}})
+                    {{c.created_by}}{% if c.created_by.bio %}, {{ c.created_by.bio }}{% endif %} ({% trans "at" %} {{c.created_at}})
                 </i>
             </p>
 
@@ -38,7 +38,7 @@
             {% if c.last_edited_by %}
                 <i>
                     {% trans "version" %} {{c.version}},
-                    {% trans "Last edited by" %} {{c.last_edited_by}} {% trans "at" %} {{c.last_edited_at}}
+                    {% trans "Last edited by" %} {{c.last_edited_by}}{% if c.last_edited_by.bio %}, {{ c.last_edited_by.bio }}{% endif %} {% trans "at" %} {{c.last_edited_at}}
                 </i>
             {% endif %}
 

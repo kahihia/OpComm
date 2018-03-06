@@ -28,7 +28,7 @@ class OCUserManager(BaseUserManager):
     def get_by_natural_key(self, username):
         return self.get(email__iexact=username)
 
-    def create_user(self, email, display_name=None, password=None, **kwargs):
+    def create_user(self, email, display_name=None, bio='', password=None, **kwargs):
         """
         Creates and saves a User with the given email, display name and
         password.
@@ -42,6 +42,7 @@ class OCUserManager(BaseUserManager):
         user = self.model(
             email=OCUserManager.normalize_email(email),
             display_name=display_name,
+            bio=bio,
             **kwargs
         )
 
@@ -68,6 +69,7 @@ class OCUser(AbstractBaseUser, PermissionsMixin):
     uid = models.CharField(max_length=32, unique=True, default=create_uuid)
     email = models.EmailField(_('email address'), max_length=255, unique=True, db_index=True)
     display_name = models.CharField(_("Your name"), max_length=200)
+    bio = models.CharField(_("Bio"), max_length=200, blank=True)
     opt_in = models.BooleanField(_('Allow emails?'), default=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(_('staff status'), default=False,
