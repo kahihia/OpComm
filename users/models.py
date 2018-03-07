@@ -341,3 +341,7 @@ class UnsubscribeUser(models.Model):
 
     def __str__(self):
         return "%s: %s" % (self.created_at, self.user.display_name)
+
+    class Meta:
+        verbose_name = _("Unsubscriber")
+        verbose_name_plural = _("Unsubscribers")

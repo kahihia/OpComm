@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 15:26+0200\n"
-"PO-Revision-Date: 2017-12-22 09:44+0200\n"
+"POT-Creation-Date: 2018-03-07 21:48+0200\n"
+"PO-Revision-Date: 2018-03-07 21:49+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -66,123 +66,127 @@ msgstr "סיסמא לא תואמת"
 msgid "Upload CSV file to import"
 msgstr "העלאת קובץ csv"
 
-#: models.py:69
+#: models.py:70
 msgid "email address"
 msgstr "כתובת דואל"
 
-#: models.py:70
+#: models.py:71
 msgid "Your name"
 msgstr "שמך"
 
-#: models.py:71
+#: models.py:72
+msgid "Bio"
+msgstr ""
+
+#: models.py:73
 msgid "Allow emails?"
 msgstr "אפשר קבלת מיילים?"
 
-#: models.py:73
+#: models.py:75
 msgid "staff status"
 msgstr "חבר בצוות האתר"
 
-#: models.py:74
+#: models.py:76
 msgid "Designates whether the user can log into this admin site."
 msgstr "יכול להכנס לאדמין"
 
-#: models.py:75
+#: models.py:77
 msgid "date joined"
 msgstr "תאריך הצטרפות"
 
-#: models.py:83
+#: models.py:85
 msgid "user"
 msgstr "משתמש"
 
-#: models.py:84
+#: models.py:86
 msgid "users"
 msgstr "משתמשים"
 
-#: models.py:121 models.py:261
+#: models.py:123 models.py:263
 msgid "Community"
 msgstr "קהילה"
 
-#: models.py:123 models.py:277 models.py:337
+#: models.py:125 models.py:279 models.py:339
 msgid "User"
 msgstr "משתמש"
 
-#: models.py:125 models.py:280
+#: models.py:127 models.py:282
 msgid "Group"
 msgstr "קבוצה"
 
-#: models.py:129 models.py:265 models.py:338
+#: models.py:131 models.py:267 models.py:340
 msgid "Created at"
 msgstr "נוצר בתאריך"
 
-#: models.py:131
+#: models.py:133
 msgid "Invited by"
 msgstr "הוזמן על ידי"
 
-#: models.py:136
+#: models.py:138
 msgid "In position since"
 msgstr "מכהן מתאריך"
 
-#: models.py:141
+#: models.py:143
 msgid "Community Member"
 msgstr "חבר קהילה"
 
-#: models.py:142
+#: models.py:144
 msgid "Community Members"
 msgstr "חברי קהילה"
 
-#: models.py:253
+#: models.py:255
 msgid "Pending"
 msgstr "ממתין למשלוח"
 
-#: models.py:254
+#: models.py:256
 msgid "Sent"
 msgstr "נשלח"
 
-#: models.py:255
+#: models.py:257
 msgid "Failed"
 msgstr "נכשל"
 
-#: models.py:267
+#: models.py:269
 msgid "Created by"
 msgstr "נוצר על ידי"
 
-#: models.py:271
+#: models.py:273
 msgid "Name"
 msgstr "שם"
 
-#: models.py:272 templates/users/member_profile.html:24
+#: models.py:274 templates/users/member_profile.html:24
 msgid "Email"
 msgstr "דואל"
 
-#: models.py:273
+#: models.py:275
 msgid "Message"
 msgstr "הודעה"
 
-#: models.py:283
+#: models.py:285
 msgid "Status"
 msgstr "סטאטוס"
 
-#: models.py:284
+#: models.py:286
 msgid "Times Sent"
 msgstr "מספר הפעמים שההזמנה נשלחה"
 
-#: models.py:285
+#: models.py:287
 msgid "Error count"
 msgstr "מספר הפעימים שהמשלוח נכשל"
 
-#: models.py:286
+#: models.py:288
 msgid "Sent at"
 msgstr "נשלח לאחרונה ב"
 
-#: models.py:291
+#: models.py:293
 msgid "Invitation"
 msgstr "הזמנה"
 
-#: models.py:292
+#: models.py:294
 msgid "Invitations"
 msgstr "הזמנות"
 
-#: models.py:294
+#: models.py:296
 #, python-format
 msgid ""
 "The system will allow you to take part in the decision making process of %s. "
@@ -194,10 +198,18 @@ msgstr ""
 "אחרי אישור ההצטרפות ניתן לראות את הנושאים לדיון, את סדר היום לשבוע הקרוב, את "
 "ההתייחסויות לנושאים, וגם להביע התייחסות לנושאים."
 
-#: models.py:310
+#: models.py:312
 #, python-format
 msgid "Invitation to %s"
 msgstr "הזמנה לקהילה %s"
+
+#: models.py:346
+msgid "Unsubscriber"
+msgstr "ביטול מרשימת תפוצה"
+
+#: models.py:347
+msgid "Unsubscribers"
+msgstr "ביטולים מרשימת תפוצה"
 
 #: templates/emails/invitation.txt:2
 msgid "Hello"
@@ -420,7 +432,7 @@ msgstr "כתובת מייל [{}] הוסרה בהצלחה מרשימת התפוצ
 msgid "Oops. Something went wrong. Please try again."
 msgstr "אופס. משהו השתבש. אנה נסה שוב."
 
-#: views.py:317
+#: views.py:327
 #, python-format
 msgid "%d Invitations sent"
 msgstr "%d הזמנות נשלחו"

@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.models import Group
-from users.models import OCUser, Membership, Invitation
+from users.models import OCUser, Membership, Invitation, UnsubscribeUser
 
 
 class UserCreationForm(forms.ModelForm):
@@ -112,4 +112,9 @@ class InvitationAdmin(admin.ModelAdmin):
     ordering = ('community', 'last_sent_at')
 
 
+class UnsubscribeUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'created_at')
+
+
 admin.site.register(Invitation, InvitationAdmin)
+admin.site.register(UnsubscribeUser, UnsubscribeUserAdmin)
