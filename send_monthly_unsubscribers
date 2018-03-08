@@ -1,0 +1,5 @@
+#/bin/bash
+set -e
+. /home/oc/.virtualenvs/oc/bin/activate
+PATH=/home/oc/.virtualenvs/oc/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+python manage.py send_monthly_unsubscribers

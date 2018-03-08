@@ -122,9 +122,7 @@ class UpcomingMeetingView(CommunityModelMixin, DetailView):
     def get_context_data(self, **kwargs):
         d = super(UpcomingMeetingView, self).get_context_data(**kwargs)
         sorted_issues = {'by_time': [], 'by_rank': []}
-        open_issues = Issue.objects.filter(active=True, \
-                                           community=self.community) \
-            .exclude(status=IssueStatus.ARCHIVED)
+        open_issues = Issue.objects.filter(active=True, community=self.community).exclude(status=IssueStatus.ARCHIVED)
         for i in open_issues.order_by('-created_at'):
             sorted_issues['by_time'].append(i.id)
         for i in open_issues.order_by('-order_by_votes'):
@@ -203,7 +201,7 @@ class PublishUpcomingView(AjaxFormView, CommunityModelMixin, UpdateView):
     template_name = "communities/publish_upcoming.html"
 
     def get_form(self):
-        form = super(PublishUpcomingView, self).get_form(self.form_class)
+        form = super().get_form(self.form_class)
         c = self.get_object()
         if not c.upcoming_meeting_started:
             form.fields['send_to'].choices = SendToOption.publish_choices
@@ -211,7 +209,7 @@ class PublishUpcomingView(AjaxFormView, CommunityModelMixin, UpdateView):
         return form
 
     def form_valid(self, form):
-        resp = super(PublishUpcomingView, self).form_valid(form)
+        resp = super().form_valid(form)
 
         c = self.object
 

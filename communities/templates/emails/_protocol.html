@@ -51,6 +51,21 @@
                             </div>
                         {% endif %}
                     </div>
+                    {% if community.get_upcoming_attachments.count %}
+                        <div class="meeting_attachments">
+                            <p>{% trans 'Related files' %}:</p>
+                            <ul>
+                                {% for att in community.get_upcoming_attachments.all %}
+                                    <li>
+                                        <a href="{{ base_url }}{{ att.file.url }}" class="file_ext">
+                                            <img height="16" src="
+                                                    {{ base_url }}{{ STATIC_URL }}images/icons/{{ att.get_icon }}.png"/> {{ att.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
                 </div>
 
                 {% comment %}
@@ -133,7 +148,7 @@
                             <ul>
                                 {% for att in a.attachments.all %}
                                     <li>
-                                        <a href="{{ base_url }}{{ att.get_absolute_url }}" class="file_ext">
+                                        <a href="{{ base_url }}{{ att.file.url }}" class="file_ext">
                                             <img height="16" src="
                                                     {{ base_url }}{{ STATIC_URL }}images/icons/{{ att.get_icon }}.png"/> {{ att.title }}
                                         </a>

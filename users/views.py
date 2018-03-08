@@ -283,7 +283,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
     def form_valid(self, form):
         uploaded_file = self.request.FILES['csv_file']
         uploaded_csvfile = csv.DictReader(codecs.iterdecode(uploaded_file, 'utf-8'),
-                                          fieldnames=['name', 'email', 'role', 'firstname', 'lastname'])
+                                          fieldnames=['name', 'email', 'role', 'firstname', 'lastname', 'bio'])
         roles = dict(DefaultGroups.CHOICES)
         sent = 0
         for row in uploaded_csvfile:
@@ -291,6 +291,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
             name = row['name']
             firstname = row['firstname']
             lastname = row['lastname']
+            bio = row['bio'] or ''
             email = row['email']
             if not email:
                 continue
@@ -312,6 +313,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
             user = OCUser.objects.create_user(
                 email=email.lower(),
                 display_name=fullname,
+                bio=bio,
                 password='opcomm'
             )
             membership = Membership.objects.create(

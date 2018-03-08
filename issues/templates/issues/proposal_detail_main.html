@@ -94,7 +94,7 @@
 	                <i class="fa fa-file"></i> {% trans "General" %}
 		    	{% endif %}
 		    	{% endcomment %}
-                        <i class="fa fa-user"></i> {% trans "By:" %} {{ object.created_by }}. {{ object.created_at|date:"d/m/Y" }}&nbsp;&nbsp;
+                        <i class="fa fa-user"></i> {% trans "By:" %} {{ object.created_by }}{% if object.created_by.bio %}, {{ object.created_by.bio }}{% endif %}. {{ object.created_at|date:"d/m/Y" }}&nbsp;&nbsp;
                     </h5>
                 </div>
                 {% if object.type == 1 %}

@@ -12,8 +12,9 @@ class CloseMeetingForm(forms.ModelForm):
     send_to_options = list(SendToOption.choices[2:])
 
     # On QA servers, allow users to prevent sending of protocols
-    if settings.QA_SERVER:
-        send_to_options.insert(0, SendToOption.choices[0])
+    # if settings.QA_SERVER:
+    #     send_to_options.insert(0, SendToOption.choices[0])
+    send_to_options.insert(0, SendToOption.choices[0])
 
     send_to = forms.TypedChoiceField(label=_("Send to"), coerce=int,
                                      choices=send_to_options,

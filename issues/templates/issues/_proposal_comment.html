@@ -1,7 +1,7 @@
 {% load i18n voting_tags humanize %}
 <div class="single-comment" data-id="{{ arg.id }}">
     <div class="name-date">
-        {{ arg.created_by }} <span>{{ arg.created_at|naturaltime }}</span>
+        {{ arg.created_by }}{% if arg.created_by.bio %}, {{ arg.created_by.bio }}{% endif %} <span>{{ arg.created_at|naturaltime }}</span>
     </div>
     <p class="arg-comment">{{ arg.comment }}</p>
     <div class="arguments-opt">
