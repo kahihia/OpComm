@@ -126,9 +126,10 @@ class Issue(UIDMixin, ConfidentialMixin):
     @models.permalink
     def get_next_upcoming_issue_url(self):
         try:
-            next = Issue.objects.filter(community=self.community, status=2).filter(
-                order_in_upcoming_meeting__gt=self.order_in_upcoming_meeting).order_by('order_in_upcoming_meeting')[0]
-            return ("issue", (str(self.community.pk), str(next.pk),))
+            next = Issue.objects.filter(community=self.community, status=2, active=True).filter(
+                order_in_upcoming_meeting__gt=self.order_in_upcoming_meeting).order_by(
+                'order_in_upcoming_meeting').first()
+            return "issue", (str(self.community.pk), str(next.pk),)
         except:
             return "community", (str(self.community.pk),)
 
