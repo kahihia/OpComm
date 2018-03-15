@@ -469,9 +469,10 @@ class QuickSignupFormView(SimpleCommunityMixin, FormView):
 
     def form_valid(self, form):
         user = OCUser.objects.create_user(
-            form.cleaned_data['email'],
-            form.cleaned_data['name'],
-            form.cleaned_data['password1'],
+            email=form.cleaned_data['email'],
+            display_name=form.cleaned_data['name'],
+            bio=form.cleaned_data['bio'],
+            password=form.cleaned_data['password1'],
         )
 
         m = Membership.objects.create(
