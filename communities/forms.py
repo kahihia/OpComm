@@ -190,7 +190,7 @@ class OCQuickSignupForm(forms.Form):
     name = forms.CharField(label=_('First & Last name'), required=False,
                            widget=forms.TextInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(label=_('Email'), widget=forms.EmailInput(attrs={'class': 'form-control'}))
-    bio = forms.CharField(label=_('Role'), widget=forms.EmailInput(attrs={'class': 'form-control'}), required=False)
+    bio = forms.CharField(label=_('Role'), widget=forms.TextInput(attrs={'class': 'form-control'}), required=False)
     password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(label=_('Password confirmation'),
                                 widget=forms.PasswordInput(attrs={'class': 'form-control'}))
