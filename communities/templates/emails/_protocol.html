@@ -128,18 +128,29 @@
                     </h3>
 
                     {% if a.comments.count %}
-                        {% if a.comments.count %}
-                            {% for c in a.comments.all %}
-                                <p style="padding:0; margin: 3px;">
-                                    {{ c.content|safe }}
-                                    {% comment %}
-                                <i style="font-size: smaller">
-                                    ({{c.created_by}} {% trans "at" %} {{c.created_at}})
-                                </i>
-                                {% endcomment %}
-                                </p>
-                            {% endfor %}
-                        {% endif %}
+                        {% for c in a.comments.all %}
+                            <p style="padding:0; margin: 3px;">
+                                {{ c.content|safe }}
+                                {% comment %}
+                            <i style="font-size: smaller">
+                                ({{c.created_by}} {% trans "at" %} {{c.created_at}})
+                            </i>
+                            {% endcomment %}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if a.references.count %}
+                        {% for c in a.references.all %}
+                            <p style="padding:0; margin: 3px;">
+                                {{ c.reference|safe }}
+                                {% comment %}
+                            <i style="font-size: smaller">
+                                ({{c.created_by}} {% trans "at" %} {{c.created_at}})
+                            </i>
+                            {% endcomment %}
+                            </p>
+                        {% endfor %}
                     {% endif %}
 
                     {% if a.attachments.all %}
