@@ -5,6 +5,7 @@ import pdb
 
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator, InvalidPage
 from django.db.models.aggregates import Max
 from django.http.response import HttpResponseBadRequest, HttpResponseRedirect, Http404
@@ -482,6 +483,9 @@ class QuickSignupFormView(SimpleCommunityMixin, FormView):
         )
 
         if m:
+            u = authenticate(self.request, username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
+            if user is not None:
+                login(self.request, u)
             return redirect(m.community.get_absolute_url())
 
         messages.warning(self.request, _("Oops. Something went wrong. Please try again."))
