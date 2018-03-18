@@ -7,7 +7,8 @@
 
         {% if community.logo %}
             <div style="width: 100%; text-align: center;">
-                <img src="{{ base_url }}{{ MEDIA_URL }}{{ community.logo }}" style="margin: 0 auto;max-width: 100%;height: auto;"/>
+                <img src="{{ base_url }}{{ MEDIA_URL }}{{ community.logo }}"
+                     style="margin: 0 auto;max-width: 100%;height: auto;"/>
             </div>
         {% endif %}
         <h1 style="margin:0 0 1em 0; text-align: center; padding: 4px">
@@ -59,6 +60,7 @@
                                     <li>
                                         <a href="{{ base_url }}{{ att.file.url }}" class="file_ext">
                                             <img height="16" src="
+
                                                     {{ base_url }}{{ STATIC_URL }}images/icons/{{ att.get_icon }}.png"/> {{ att.title }}
                                         </a>
                                     </li>
@@ -127,8 +129,9 @@
                         {% endif %}
                     </h3>
 
-                    {% if a.comments.count %}
-                        {% for c in a.comments.all %}
+                    {% if a.issue.comments.count %}
+                        <h4>{% trans 'Issue discussion summary' %}</h4>
+                        {% for c in a.issue.comments.all %}
                             <p style="padding:0; margin: 3px;">
                                 {{ c.content|safe }}
                                 {% comment %}
@@ -140,8 +143,9 @@
                         {% endfor %}
                     {% endif %}
 
-                    {% if a.references.count %}
-                        {% for c in a.references.all %}
+                    {% if a.issue.references.count %}
+                        <h4>{% trans 'Reference summary' %}</h4>
+                        {% for c in a.issue.references.all %}
                             <p style="padding:0; margin: 3px;">
                                 {{ c.reference|safe }}
                                 {% comment %}
@@ -161,6 +165,7 @@
                                     <li>
                                         <a href="{{ base_url }}{{ att.file.url }}" class="file_ext">
                                             <img height="16" src="
+
                                                     {{ base_url }}{{ STATIC_URL }}images/icons/{{ att.get_icon }}.png"/> {{ att.title }}
                                         </a>
                                     </li>
