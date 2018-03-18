@@ -407,6 +407,14 @@ fieldset[disabled] .btn-comment {
     border-bottom: 0;
 }
 
+.add-new-comment {
+    color: #333;
+    text-decoration: underline;
+    line-height: 30px;
+    padding-right: 10px;
+    font-size: 16px;
+}
+
 /* Navbar */
 
 nav.oc_navbar {

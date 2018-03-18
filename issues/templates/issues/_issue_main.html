@@ -155,11 +155,14 @@
                             {% endif %}
                         </div>
                         {% if cperms.issues.comment_proposal %}
-                            <form class="proposal-comment-form" method="post" action="{% url 'create_proposal_comment' proposal.issue.community_id proposal.id %}">
+                            <a class="add-new-comment" data-toggle="collapse" href="#addCommentForm" aria-expanded="false" aria-controls="addCommentForm">
+                                <i class="fa fa-plus"></i> {% trans 'Add new comment' %}
+                            </a>
+                            <form id="addCommentForm" class="proposal-comment-form collapse" method="post" action="{% url 'create_proposal_comment' proposal.issue.community_id proposal.id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <label for="id_comment_{{ proposal.id }}" class="control-label">{% trans "Add comment" %}:</label>
-                                    <textarea class="form-control" rows="2" id="id_comment_{{ proposal.id }}" name="comment"></textarea>
+                                    <textarea class="form-control" rows="1" id="id_comment_{{ proposal.id }}" name="comment"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <button type="button" class="btn btn-oc proposal-comment-modal-btn create-proposal-comment-btn">
