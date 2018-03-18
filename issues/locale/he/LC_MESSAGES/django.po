@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 14:09+0200\n"
-"PO-Revision-Date: 2018-02-18 10:29+0200\n"
+"POT-Creation-Date: 2018-03-18 09:47+0200\n"
+"PO-Revision-Date: 2018-03-18 09:47+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -63,7 +63,7 @@ msgid "Create"
 msgstr "צור חדש"
 
 #: issues/forms.py:157 issues/forms.py:191 issues/forms.py:213
-#: issues/forms.py:240 issues/templates/issues/_issue_main.html:247
+#: issues/forms.py:240 issues/templates/issues/_issue_main.html:250
 #: issues/templates/issues/issue_form.html:34
 #: issues/templates/issues/issuecomment_form.html:9
 #: issues/templates/issues/proposal_form.html:128
@@ -298,7 +298,7 @@ msgstr "תגובה להתייחסות"
 msgid "Proposal comments"
 msgstr "תגובות להתייחסות"
 
-#: issues/models.py:814 issues/templates/issues/_issue_main.html:289
+#: issues/models.py:814 issues/templates/issues/_issue_main.html:292
 #: issues/templates/issues/_vote_arguments.html:99
 #: issues/templates/issues/proposal_detail_main.html:247
 msgid "Argument"
@@ -372,7 +372,7 @@ msgid "You won't be able to change your vote after adding an argument."
 msgstr "לאחר הוספת טיעון לא ניתן לשנות את בחירתך."
 
 #: issues/templates/issues/_argument_action_modal.html:28
-#: issues/templates/issues/_issue_main.html:297
+#: issues/templates/issues/_issue_main.html:300
 #: issues/templates/issues/_vote_arguments.html:107
 #: issues/templates/issues/issueattachment_form.html:22
 #: issues/templates/issues/proposal_detail_main.html:256
@@ -380,7 +380,7 @@ msgid "Cancel"
 msgstr "ביטול"
 
 #: issues/templates/issues/_argument_action_modal.html:33
-#: issues/templates/issues/_issue_main.html:302
+#: issues/templates/issues/_issue_main.html:305
 #: issues/templates/issues/_vote_arguments.html:112
 #: issues/templates/issues/proposal_detail_main.html:261
 msgid "Confirm"
@@ -443,12 +443,16 @@ msgid ""
 "Here you can share your opinion or to add relevant information on the subject"
 msgstr "זה המקום להביע את דעתכם או להוסיף מידע רלוונטי לנושא"
 
-#: issues/templates/issues/_issue_main.html:164
+#: issues/templates/issues/_issue_main.html:162
+msgid "Add new comment"
+msgstr "הוסף תגובה חדשה"
+
+#: issues/templates/issues/_issue_main.html:167
 #: issues/templates/issues/proposal_detail_main.html:179
 msgid "Add comment"
 msgstr "תגובה חדשה"
 
-#: issues/templates/issues/_issue_main.html:169
+#: issues/templates/issues/_issue_main.html:172
 #: issues/templates/issues/_vote_arguments.html:41
 #: issues/templates/issues/_vote_arguments.html:77
 #: issues/templates/issues/issue_list.html:70
@@ -457,19 +461,19 @@ msgstr "תגובה חדשה"
 msgid "Submit"
 msgstr "שליחה"
 
-#: issues/templates/issues/_issue_main.html:181
+#: issues/templates/issues/_issue_main.html:184
 msgid "Add a proposal"
 msgstr "התייחסות חדשה"
 
-#: issues/templates/issues/_issue_main.html:187
+#: issues/templates/issues/_issue_main.html:190
 msgid "Issue discussion summary"
 msgstr "עיקרי הדיון בנושא"
 
-#: issues/templates/issues/_issue_main.html:224
+#: issues/templates/issues/_issue_main.html:227
 msgid "Reference summary"
 msgstr "סיכום החלטות"
 
-#: issues/templates/issues/_issue_main.html:284
+#: issues/templates/issues/_issue_main.html:287
 #: issues/templates/issues/proposal_detail_main.html:242
 msgid "Edit comment"
 msgstr "ערוך תגובה"
