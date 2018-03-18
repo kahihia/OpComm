@@ -129,9 +129,9 @@
                         {% endif %}
                     </h3>
 
-                    {% if a.issue.comments.count %}
+                    {% if a.issue.active_comments.count %}
                         <h4>{% trans 'Issue discussion summary' %}</h4>
-                        {% for c in a.issue.comments.all %}
+                        {% for c in a.issue.active_comments.all %}
                             <p style="padding:0; margin: 3px;">
                                 {{ c.content|safe }}
                                 {% comment %}
@@ -143,9 +143,9 @@
                         {% endfor %}
                     {% endif %}
 
-                    {% if a.issue.references.count %}
+                    {% if a.issue.active_references.count %}
                         <h4>{% trans 'Reference summary' %}</h4>
-                        {% for c in a.issue.references.all %}
+                        {% for c in a.issue.active_references %}
                             <p style="padding:0; margin: 3px;">
                                 {{ c.reference|safe }}
                                 {% comment %}

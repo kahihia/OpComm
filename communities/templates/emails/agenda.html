@@ -120,23 +120,25 @@
                             </div>
                         {% endif %}
 
-                        {% if obj.issue.comments.count %}
+                        {% comment %}
+                        {% if obj.issue.active_comments.count %}
                             <h4>{% trans 'Issue discussion summary' %}</h4>
-                            {% for c in obj.issue.comments.all %}
+                            {% for c in obj.issue.active_comments %}
                                 <p style="padding:0; margin: 3px;">
                                     {{ obj.content|safe }}
                                 </p>
                             {% endfor %}
                         {% endif %}
 
-                        {% if obj.issue.references.count %}
+                        {% if obj.issue.active_references.count %}
                             <h4>{% trans 'Reference summary' %}</h4>
-                            {% for c in obj.issue.references.all %}
+                            {% for c in obj.issue.active_references.all %}
                                 <p style="padding:0; margin: 3px;">
                                     {{ c.reference|safe }}
                                 </p>
                             {% endfor %}
                         {% endif %}
+                        {% endcomment %}
 
                         {% if obj.issue.current_attachments.count and community.allow_links_in_emails %}
                             <div class="issue_attachments">
