@@ -217,7 +217,7 @@
 
 
     {% endblock %}
-    <img src="{% url 'email_pixel' 'pixel' %}?uid={{ recipient.id }}" />
+    <img src="{{ base_url }}{% url 'email_pixel' 'pixel' %}?uid={{ recipient.id }}" />
 </div>
 
 <style>

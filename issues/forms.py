@@ -180,7 +180,7 @@ class CreateIssueCommentForm(forms.ModelForm):
             'content',
         )
         widgets = {
-            'content': HTMLArea,
+            'content': HTMLArea(attrs={'cols': '40', 'rows': '8'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -202,7 +202,7 @@ class CreateReferenceForm(forms.ModelForm):
             'reference',
         )
         widgets = {
-            'reference': HTMLArea,
+            'reference': HTMLArea(attrs={'cols': '40', 'rows': '8'}),
         }
 
     def __init__(self, *args, **kwargs):

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-18 09:47+0200\n"
-"PO-Revision-Date: 2018-03-15 14:11+0200\n"
+"POT-Creation-Date: 2018-04-22 11:02+0300\n"
+"PO-Revision-Date: 2018-04-22 11:02+0300\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -18,599 +18,576 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: communities/forms.py:15 communities/templates/emails/_protocol.html:40
-#: communities/templates/emails/agenda.html:56
+#: forms.py:15 templates/emails/_protocol.html:41
+#: templates/emails/agenda.html:60
 msgid "Scheduled at"
 msgstr "מועד"
 
-#: communities/forms.py:35 communities/models.py:482
+#: forms.py:35 models.py:482
 msgid "Title"
 msgstr "כותרת"
 
-#: communities/forms.py:38
+#: forms.py:38
 msgid "Background"
 msgstr "רקע"
 
-#: communities/forms.py:85
+#: forms.py:85
 msgid "Send to"
 msgstr "נמענים"
 
-#: communities/forms.py:168 communities/forms.py:171
+#: forms.py:168 forms.py:171
 msgid "File type is not allowed!"
 msgstr "לא ניתן להעלות קבצים מסוג זה"
 
-#: communities/forms.py:179
+#: forms.py:179
 msgid "Title cannot be empty"
 msgstr "כותרת חובה"
 
-#: communities/forms.py:185
+#: forms.py:185
 msgid "Upload"
 msgstr "העלה קובץ"
 
-#: communities/forms.py:190
+#: forms.py:190
 msgid "First & Last name"
 msgstr "שם פרטי ושם משפחה"
 
-#: communities/forms.py:192
-#: communities/templates/communities/participants_form.html:98
+#: forms.py:192 templates/communities/participants_form.html:98
 msgid "Email"
 msgstr "אימייל"
 
-#: communities/forms.py:193
+#: forms.py:193
 msgid "Role"
 msgstr "תיאור תפקיד / שיוך ארגוני"
 
-#: communities/forms.py:194
+#: forms.py:194
 msgid "Password"
 msgstr "סיסמא"
 
-#: communities/forms.py:195
+#: forms.py:195
 msgid "Password confirmation"
 msgstr "אימות סיסמא"
 
-#: communities/forms.py:202
+#: forms.py:202
 msgid "Member with that email address already exists"
 msgstr "כתובת אימייל כבר בשימוש"
 
-#: communities/forms.py:210
+#: forms.py:210
 msgid "Passwords don't match"
 msgstr "סיסמא לא תואמת"
 
-#: communities/models.py:30 communities/models.py:37
+#: models.py:30 models.py:37
 msgid "Me only (review)"
 msgstr "רק לי (לבדיקה)"
 
-#: communities/models.py:31
+#: models.py:31
 msgid "Only attendees"
 msgstr "למשתתפים בפגישה בלבד"
 
-#: communities/models.py:33 communities/models.py:39
+#: models.py:33 models.py:39
 msgid "All members"
 msgstr "לכל חברי הועדה"
 
-#: communities/models.py:44 communities/models.py:561
-#: communities/templates/communities/participants_form.html:90
+#: models.py:44 models.py:561 templates/communities/participants_form.html:90
 msgid "Name"
 msgstr "שם"
 
-#: communities/models.py:45
+#: models.py:45
 msgid "Public community"
 msgstr "פתוחה לציבור"
 
-#: communities/models.py:47
+#: models.py:47
 msgid "Community logo"
 msgstr "לוגו קהילה"
 
-#: communities/models.py:49
+#: models.py:49
 msgid "Community identifier"
 msgstr "מזהה קהילה"
 
-#: communities/models.py:53
+#: models.py:53
 msgid "Meeting started"
 msgstr "הפגישה התחילה"
 
-#: communities/models.py:55
+#: models.py:55
 msgid "Upcoming meeting title"
 msgstr "כותרת הפגישה הקרובה"
 
-#: communities/models.py:59
+#: models.py:59
 msgid "Upcoming meeting scheduled at"
 msgstr "מועד הפגישה הקרובה"
 
-#: communities/models.py:61
+#: models.py:61
 msgid "Upcoming meeting location"
 msgstr "מיקום הפגישה הקרובה"
 
-#: communities/models.py:62
+#: models.py:62
 msgid "Upcoming meeting background"
 msgstr "רקע לפגישה הקרובה"
 
-#: communities/models.py:67
+#: models.py:67
 msgid "Participants in upcoming meeting"
 msgstr "משתתפים בפגישה הקרובה"
 
-#: communities/models.py:70
+#: models.py:70
 msgid "Guests in upcoming meeting"
 msgstr "אורחים בפגישה הקרובה"
 
-#: communities/models.py:71
+#: models.py:71
 msgid "Enter each guest in a separate line"
 msgstr "נא לרשום כל שם בשורה נפרדת"
 
-#: communities/models.py:74
+#: models.py:74
 msgid "Upcoming meeting version"
 msgstr "מספר גרסת נתוני הפגישה הקרובה"
 
-#: communities/models.py:77
+#: models.py:77
 msgid "Upcoming meeting is published"
 msgstr "האם הפגישה הקרובה פורסמה?"
 
-#: communities/models.py:80
+#: models.py:80
 msgid "Upcoming meeting published at"
 msgstr "מועד פרסום הפגישה הקרובה"
 
-#: communities/models.py:82
+#: models.py:82
 msgid "Upcoming meeting summary"
 msgstr "סיכום הפגישה הקרובה"
 
-#: communities/models.py:85
+#: models.py:85
 msgid "Board name"
 msgstr "שם הועד"
 
-#: communities/models.py:85 communities/models.py:185
-#: communities/templates/communities/participants_form.html:23
+#: models.py:85 models.py:185 templates/communities/participants_form.html:23
 msgid "Board"
 msgstr "ועד"
 
-#: communities/models.py:88
+#: models.py:88
 msgid "Straw voting enabled"
 msgstr "אפשר הצבעת קש"
 
-#: communities/models.py:92
+#: models.py:92
 msgid "Issue ranking votes enabled"
 msgstr "אפשר תיעדוף נושאים"
 
-#: communities/models.py:94
+#: models.py:94
 msgid "Straw Vote ends at"
 msgstr "הצבעת שבשבת עד"
 
-#: communities/models.py:97
+#: models.py:97
 msgid "Referendum started"
 msgstr "משאל התחיל"
 
-#: communities/models.py:100
+#: models.py:100
 msgid "Referendum started at"
 msgstr "משאל התחיל ב"
 
-#: communities/models.py:103
+#: models.py:103
 msgid "Referendum ends at"
 msgstr "משאל הסתיים ב"
 
-#: communities/models.py:106
+#: models.py:106
 msgid "Default quorum"
 msgstr ""
 
-#: communities/models.py:110
+#: models.py:110
 msgid "Allow links inside emails"
 msgstr "אפשר קישורים בתוך אימייל"
 
-#: communities/models.py:112
+#: models.py:112
 msgid "Send mails to invitees"
 msgstr "שלח מייל למוזמנים"
 
-#: communities/models.py:116
+#: models.py:116
 msgid "Register missing board members"
 msgstr "רישום חברי ועד חסרים"
 
-#: communities/models.py:119
+#: models.py:119
 msgid "Inform System Manager"
 msgstr "להודיע למנהל המערכת"
 
-#: communities/models.py:122
+#: models.py:122
 msgid "Community without meetings?"
 msgstr "קהילות ללא פגישות?"
 
-#: communities/models.py:125
+#: models.py:125
 msgid "Community"
 msgstr "קהילה"
 
-#: communities/models.py:126
+#: models.py:126
 msgid "Communities"
 msgstr "קהילות"
 
-#: communities/models.py:481
+#: models.py:481
 msgid "File"
 msgstr "קובץ"
 
-#: communities/models.py:485
+#: models.py:485
 msgid "File created at"
 msgstr "נוצר ב"
 
-#: communities/models.py:487
+#: models.py:487
 msgid "Created by"
 msgstr "נוצר על ידי"
 
-#: communities/models.py:549
+#: models.py:549
 msgid "Confidential Reason"
 msgstr "סיבה עבור נושא חסוי"
 
-#: communities/models.py:550
+#: models.py:550
 msgid "Confidential Reasons"
 msgstr "סיבות עבור נושאים חסויים"
 
-#: communities/models.py:557
+#: models.py:557
 msgid ""
 "A reason that can be used for marking items as confidential in your "
 "community."
 msgstr "הגדרת סיבה עבור נושאים חסויים"
 
-#: communities/models.py:563
+#: models.py:563
 msgid "The title to give this reason."
 msgstr "כותרת עבור סיבה זו"
 
-#: communities/templates/403.html:5
+#: templates/403.html:5
 msgid "OpenCommittee 403"
 msgstr "ועדה פתוחה 403"
 
-#: communities/templates/403.html:16
+#: templates/403.html:16
 msgid "Sorry"
 msgstr ""
 
-#: communities/templates/403.html:19
+#: templates/403.html:19
 msgid "You don't have permission to view that page"
 msgstr ""
 
-#: communities/templates/403.html:21 communities/templates/_navbar.html:43
-#: communities/templates/_user_panel.html:12
-#: communities/templates/communities/community_list.html:34
-#: communities/templates/communities/landing.html:67
-#: communities/templates/communities/landing.html:103
-#: communities/templates/login.html:9 communities/templates/login.html:27
+#: templates/403.html:21 templates/_navbar.html:43
+#: templates/_user_panel.html:12 templates/communities/community_list.html:34
+#: templates/communities/landing.html:67 templates/communities/landing.html:103
+#: templates/login.html:9 templates/login.html:27
 msgid "Login"
 msgstr "כניסה"
 
-#: communities/templates/404.html:5
+#: templates/404.html:5
 msgid "OpenCommittee 404"
 msgstr "ועדה פתוחה 404"
 
-#: communities/templates/404.html:24 communities/templates/404.html:40
-#: communities/templates/404.html:56 communities/templates/404.html:72
-#: communities/templates/404.html:88 communities/templates/500.html:34
+#: templates/404.html:24 templates/404.html:40 templates/404.html:56
+#: templates/404.html:72 templates/404.html:88 templates/500.html:34
 msgid "Oops..."
 msgstr "אופס..."
 
-#: communities/templates/404.html:27
+#: templates/404.html:27
 msgid "We couldn't find the requested community"
 msgstr ""
 
-#: communities/templates/404.html:29 communities/templates/404.html:45
-#: communities/templates/404.html:61 communities/templates/404.html:77
+#: templates/404.html:29 templates/404.html:45 templates/404.html:61
+#: templates/404.html:77
 msgid "You can go to the"
 msgstr ""
 
-#: communities/templates/404.html:30 communities/templates/404.html:94
-#: communities/templates/500.html:39
+#: templates/404.html:30 templates/404.html:94 templates/500.html:39
 msgid "Main page"
 msgstr "עמוד הראשי"
 
-#: communities/templates/404.html:43
+#: templates/404.html:43
 msgid "We couldn't find exactly what you were looking for"
 msgstr ""
 
-#: communities/templates/404.html:46
+#: templates/404.html:46
 msgid "Community page"
 msgstr "עמוד קהילה"
 
-#: communities/templates/404.html:59
+#: templates/404.html:59
 msgid "We couldn't find the requested issue"
 msgstr ""
 
-#: communities/templates/404.html:62
+#: templates/404.html:62
 msgid "Issues page"
 msgstr "עמוד נושאים"
 
-#: communities/templates/404.html:75
+#: templates/404.html:75
 msgid "We couldn't find the requested procedure"
 msgstr ""
 
-#: communities/templates/404.html:78
+#: templates/404.html:78
 msgid "Procedures page"
 msgstr "עמוד נהלים"
 
-#: communities/templates/404.html:91
+#: templates/404.html:91
 msgid "We couldn't find the page you were looking for"
 msgstr ""
 
-#: communities/templates/404.html:93 communities/templates/500.html:39
+#: templates/404.html:93 templates/500.html:39
 msgid "You can go to"
 msgstr ""
 
-#: communities/templates/500.html:4
+#: templates/500.html:4
 msgid "OpenCommittee 500"
 msgstr "ועדה פתוחה 500"
 
-#: communities/templates/500.html:37
+#: templates/500.html:37
 msgid "The server is playing up."
 msgstr ""
 
-#: communities/templates/_community_bar.html:5
-#: communities/templates/communities/community_search.html:15
-#: communities/templates/search/search.html:15
-#: communities/templates/search/search.html:19
-#: communities/templates/search/search.html:23
+#: templates/_community_bar.html:5
+#: templates/communities/community_search.html:15
+#: templates/search/search.html:15 templates/search/search.html:19
+#: templates/search/search.html:23
 msgid "Issues"
 msgstr "נושאים"
 
-#: communities/templates/_community_bar.html:8
-#: communities/templates/emails/agenda.html:21
+#: templates/_community_bar.html:8 templates/emails/agenda.html:23
 msgid "Agenda"
 msgstr "סדר יום"
 
-#: communities/templates/_community_bar.html:11
+#: templates/_community_bar.html:11
 msgid "History"
 msgstr "היסטוריה"
 
-#: communities/templates/_community_panel.html:6
-#: communities/templates/communities/base_meeting.html:31
+#: templates/_community_panel.html:6 templates/communities/base_meeting.html:31
 msgid "Updates"
 msgstr "עדכונים"
 
-#: communities/templates/_community_panel.html:7
-#: communities/templates/communities/base_meeting.html:33
+#: templates/_community_panel.html:7 templates/communities/base_meeting.html:33
 msgid "Meetings"
 msgstr "פגישות"
 
-#: communities/templates/_community_panel.html:15
+#: templates/_community_panel.html:15
 msgid "Rules"
 msgstr "נהלים"
 
-#: communities/templates/_community_panel.html:19
+#: templates/_community_panel.html:19
 msgid "Tasks"
 msgstr "משימות"
 
-#: communities/templates/_community_panel.html:27
-#: communities/templates/communities/participants_form.html:26
-#: communities/templates/communities/participants_form.html:160
+#: templates/_community_panel.html:27
+#: templates/communities/participants_form.html:26
+#: templates/communities/participants_form.html:160
 msgid "Members"
 msgstr "חברים"
 
-#: communities/templates/_navbar.html:11 communities/templates/_navbar.html:36
+#: templates/_navbar.html:11 templates/_navbar.html:36
 msgid "OpenCommittee"
 msgstr "ועדה פתוחה"
 
-#: communities/templates/_navbar.html:24 communities/templates/_navbar.html:52
+#: templates/_navbar.html:24 templates/_navbar.html:52
 msgid "General search text..."
 msgstr "חיפוש..."
 
-#: communities/templates/_user_panel.html:4
+#: templates/_user_panel.html:4
 msgid "Admin"
 msgstr "ניהול המערכת"
 
-#: communities/templates/_user_panel.html:7
+#: templates/_user_panel.html:7
 msgid "All communities"
 msgstr "כל הוועדות"
 
-#: communities/templates/_user_panel.html:10
+#: templates/_user_panel.html:10
 msgid "Log out"
 msgstr "יציאה"
 
-#: communities/templates/admin/base_site.html:5
+#: templates/admin/base_site.html:5
 msgid "Open Committee admin"
 msgstr "אדמין ועדה פתוחה"
 
-#: communities/templates/admin/base_site.html:8
+#: templates/admin/base_site.html:8
 msgid "Open Committee Administration"
 msgstr "אדמין ועדה פתוחה"
 
-#: communities/templates/admin/base_site.html:12
+#: templates/admin/base_site.html:12
 msgid "Home"
 msgstr "דף הבית"
 
-#: communities/templates/base.html:9
+#: templates/base.html:9
 msgid "Open Committee"
 msgstr "ועדה פתוחה"
 
-#: communities/templates/base.html:45
+#: templates/base.html:45
 msgid "Page title"
 msgstr "כותרת עמוד"
 
-#: communities/templates/base.html:55
+#: templates/base.html:55
 msgid "Attention"
 msgstr ""
 
-#: communities/templates/base.html:62
-#: communities/templates/communities/publish_upcoming.html:25
-#: communities/templates/dialog.html:25
+#: templates/base.html:62 templates/communities/publish_upcoming.html:25
+#: templates/dialog.html:25
 msgid "Close"
 msgstr "סגור"
 
-#: communities/templates/base.html:80
+#: templates/base.html:80
 msgid "Back to top"
 msgstr "חזור למעלה"
 
-#: communities/templates/communities/base_meeting.html:19
-#: communities/templates/communities/base_meeting.html:46
-#: communities/templates/communities/upcoming.html:36
-#: communities/templates/communities/upcoming.html:87
+#: templates/communities/base_meeting.html:19
+#: templates/communities/base_meeting.html:46
+#: templates/communities/upcoming.html:36
+#: templates/communities/upcoming.html:87
 msgid "Next update"
 msgstr "העדכון הבא"
 
-#: communities/templates/communities/base_meeting.html:21
-#: communities/templates/communities/upcoming.html:10
-#: communities/templates/communities/upcoming.html:38
-#: communities/templates/communities/upcoming.html:89
-#: communities/templates/emails/agenda.txt:1
+#: templates/communities/base_meeting.html:21
+#: templates/communities/upcoming.html:10
+#: templates/communities/upcoming.html:38
+#: templates/communities/upcoming.html:89 templates/emails/agenda.txt:1
 msgid "Upcoming meeting"
 msgstr "הפגישה הקרובה"
 
-#: communities/templates/communities/base_meeting.html:48
+#: templates/communities/base_meeting.html:48
 msgid "Upcoming Meeting"
 msgstr "הפגישה הקרובה"
 
-#: communities/templates/communities/community_list.html:17
+#: templates/communities/community_list.html:17
 msgid "My communities"
 msgstr "ועדות במעקב"
 
-#: communities/templates/communities/community_list.html:32
+#: templates/communities/community_list.html:32
 msgid "Plesae login to view your communities"
 msgstr "בכדי לצפות בקהילות שלך, עליך להכנס למערכת"
 
-#: communities/templates/communities/community_list.html:43
+#: templates/communities/community_list.html:43
 msgid "All Communities"
 msgstr "כל הוועדות"
 
-#: communities/templates/communities/community_search.html:9
-#: communities/templates/search/search.html:9
+#: templates/communities/community_search.html:9 templates/search/search.html:9
 msgid "Search"
 msgstr "חפש"
 
-#: communities/templates/communities/community_search.html:14
-#: communities/templates/search/search.html:14
-#: communities/templates/search/search.html:18
-#: communities/templates/search/search.html:22
+#: templates/communities/community_search.html:14
+#: templates/search/search.html:14 templates/search/search.html:18
+#: templates/search/search.html:22
 msgid "All"
 msgstr "הכל"
 
-#: communities/templates/communities/community_search.html:16
-#: communities/templates/search/search.html:16
-#: communities/templates/search/search.html:20
-#: communities/templates/search/search.html:24
+#: templates/communities/community_search.html:16
+#: templates/search/search.html:16 templates/search/search.html:20
+#: templates/search/search.html:24
 msgid "Proposals"
 msgstr "התייחסויות"
 
-#: communities/templates/communities/community_search.html:20
-#: communities/templates/search/search.html:33
+#: templates/communities/community_search.html:20
+#: templates/search/search.html:33
 msgid "Results"
 msgstr "תוצאות"
 
-#: communities/templates/communities/community_search.html:33
-#: communities/templates/emails/_protocol.html:198
-#: communities/templates/search/search.html:48
+#: templates/communities/community_search.html:33
+#: templates/emails/_protocol.html:212 templates/search/search.html:48
 msgid "Assigned to"
 msgstr "אחראי"
 
-#: communities/templates/communities/community_search.html:36
-#: communities/templates/emails/_protocol.html:202
-#: communities/templates/search/search.html:51
+#: templates/communities/community_search.html:36
+#: templates/emails/_protocol.html:216 templates/search/search.html:51
 msgid "Due by"
 msgstr "יעד"
 
-#: communities/templates/communities/community_search.html:47
-#: communities/templates/search/search.html:62
+#: templates/communities/community_search.html:47
+#: templates/search/search.html:62
 msgid "No results found."
 msgstr "לא נמצאו תוצאות."
 
-#: communities/templates/communities/community_search.html:52
-#: communities/templates/communities/community_search.html:57
-#: communities/templates/communities/community_search.html:62
-#: communities/templates/search/search.html:67
+#: templates/communities/community_search.html:52
+#: templates/communities/community_search.html:57
+#: templates/communities/community_search.html:62
+#: templates/search/search.html:67
 msgid "Previous"
 msgstr "הקודם"
 
-#: communities/templates/communities/community_search.html:54
-#: communities/templates/communities/community_search.html:59
-#: communities/templates/communities/community_search.html:64
-#: communities/templates/search/search.html:72
+#: templates/communities/community_search.html:54
+#: templates/communities/community_search.html:59
+#: templates/communities/community_search.html:64
+#: templates/search/search.html:72
 msgid "Next"
 msgstr "הבא"
 
-#: communities/templates/communities/edit_summary.html:5
+#: templates/communities/edit_summary.html:5
 msgid "Edit summary"
 msgstr "ערוך סיכום"
 
-#: communities/templates/communities/landing.html:6
+#: templates/communities/landing.html:6
 msgid "OpenCommittee - operating system for democracies"
 msgstr "ועדה פתוחה - מערכת לשקיפות והשתתפות בפעילות ועד נבחר"
 
-#: communities/templates/communities/landing.html:52
-#: communities/templates/communities/landing.html:88
+#: templates/communities/landing.html:52 templates/communities/landing.html:88
 msgid "top"
 msgstr "לראש העמוד"
 
-#: communities/templates/communities/landing.html:55
-#: communities/templates/communities/landing.html:91
+#: templates/communities/landing.html:55 templates/communities/landing.html:91
 msgid "The Problem"
 msgstr "הבעיה"
 
-#: communities/templates/communities/landing.html:58
-#: communities/templates/communities/landing.html:94
-#: communities/templates/communities/landing.html:217
+#: templates/communities/landing.html:58 templates/communities/landing.html:94
+#: templates/communities/landing.html:217
 msgid "The Solution"
 msgstr "הפתרון"
 
-#: communities/templates/communities/landing.html:61
-#: communities/templates/communities/landing.html:97
-#: communities/templates/communities/landing.html:245
+#: templates/communities/landing.html:61 templates/communities/landing.html:97
+#: templates/communities/landing.html:245
 msgid "Our Tool"
 msgstr "הכלי שלנו"
 
-#: communities/templates/communities/landing.html:64
-#: communities/templates/communities/landing.html:100
+#: templates/communities/landing.html:64 templates/communities/landing.html:100
 msgid "Our Team"
 msgstr "הצוות"
 
-#: communities/templates/communities/landing.html:84
+#: templates/communities/landing.html:84
 msgid "Menu"
 msgstr "תפריט"
 
-#: communities/templates/communities/landing.html:122
+#: templates/communities/landing.html:122
 msgid "An operating system for democracies"
 msgstr "מערכת לשקיפות והשתתפות בפעילות ועד נבחר"
 
-#: communities/templates/communities/landing.html:125
+#: templates/communities/landing.html:125
 msgid "that strengthens communities by"
 msgstr "חיזוק הקהילה באמצעות"
 
-#: communities/templates/communities/landing.html:131
+#: templates/communities/landing.html:131
 msgid "Engaging Crowds"
 msgstr "שיתוף ציבור"
 
-#: communities/templates/communities/landing.html:134
+#: templates/communities/landing.html:134
 msgid "Empowering Individuals"
 msgstr "העצמת בעלי תפקידים"
 
-#: communities/templates/communities/landing.html:137
+#: templates/communities/landing.html:137
 msgid "Decentralizing Democracy"
 msgstr "דמוקרטיה מבוזרת"
 
-#: communities/templates/communities/landing.html:140
+#: templates/communities/landing.html:140
 msgid "Facilitating Leaders"
 msgstr "גיבוי המנהיגות הנבחרת"
 
-#: communities/templates/communities/landing.html:143
-#: communities/templates/communities/landing.html:254
+#: templates/communities/landing.html:143
+#: templates/communities/landing.html:254
 msgid "Converging Discussions"
 msgstr "דיונים מתכנסים"
 
-#: communities/templates/communities/landing.html:148
+#: templates/communities/landing.html:148
 msgid "Learn More"
 msgstr "קראו עוד"
 
-#: communities/templates/communities/landing.html:168
+#: templates/communities/landing.html:168
 msgid "What Went Wrong"
 msgstr "מה השתבש"
 
-#: communities/templates/communities/landing.html:171
+#: templates/communities/landing.html:171
 msgid "In many communities democracy suffers from many ailments"
 msgstr "ניהול קהילה דמוקרטית מציב קשיים ואתגרים לא פשוטים"
 
-#: communities/templates/communities/landing.html:175
+#: templates/communities/landing.html:175
 msgid "The root cause of which is the"
 msgstr "הסיבה העיקרית לתופעה זו היא"
 
-#: communities/templates/communities/landing.html:175
+#: templates/communities/landing.html:175
 msgid "alienation"
 msgstr "ניכור"
 
-#: communities/templates/communities/landing.html:175
+#: templates/communities/landing.html:175
 msgid "between the elected board and the public, where the public is"
 msgstr "בין ועד מנהל נבחר ובין הציבור, מכיוון שהציבור מוצא את עצמו מחוץ למעגל"
 
-#: communities/templates/communities/landing.html:175
+#: templates/communities/landing.html:175
 msgid "excluded"
 msgstr "קבלת ההתייחסות"
 
-#: communities/templates/communities/landing.html:175
+#: templates/communities/landing.html:175
 msgid ""
 "from the decision-making process and can only elect its governors and "
 "protest in between elections"
@@ -618,18 +595,18 @@ msgstr ""
 "והוא נשאר רק עם האפשרות לבחור בחברי הוועד ולמחות בין בחירות לבחירות כאשר "
 "ההתייחסות המתקבלות אינן לשביעות רצונו"
 
-#: communities/templates/communities/landing.html:220
+#: templates/communities/landing.html:220
 msgid "Participatory decision making in democratic communities"
 msgstr "מנגנון קבלת התייחסות משתף בקהילות דמוקרטיות"
 
-#: communities/templates/communities/landing.html:223
+#: templates/communities/landing.html:223
 msgid ""
 "We aim to return democracy to its fundamental principle – public "
 "participation in the decision making process"
 msgstr ""
 "אנחנו שואפים להחזיר את הדמוקרטיה לשורשיה - שיתוף הציבור בתהליך קבלת ההתייחסות"
 
-#: communities/templates/communities/landing.html:226
+#: templates/communities/landing.html:226
 msgid ""
 "We develop an online platform that enables democratic communities, big and "
 "small, to increase transparency and levels of participation and increase "
@@ -638,37 +615,37 @@ msgstr ""
 "לכן פיתחנו כלי אינטרנטי שמאפשר לקהילות דמוקרטיות, גדולות וקטנות, לחזק את "
 "השקיפות ואת רמת המעורבות ובכך להגדיל את ההון החברתי שלהן"
 
-#: communities/templates/communities/landing.html:247
+#: templates/communities/landing.html:247
 msgid ""
 "The complete platform will accompany the process of decision making as it "
 "progresses"
 msgstr "הפלטפורמה תלווה את תהליך קבלת ההתייחסות לכל אורכו"
 
-#: communities/templates/communities/landing.html:257
+#: templates/communities/landing.html:257
 msgid "Agenda Setting"
 msgstr "קביעת סדר יום"
 
-#: communities/templates/communities/landing.html:260
+#: templates/communities/landing.html:260
 msgid "Solution suggestion"
 msgstr "הצעת פתרונות"
 
-#: communities/templates/communities/landing.html:263
+#: templates/communities/landing.html:263
 msgid "Prioritization"
 msgstr "יצירת סדרי עדיפויות"
 
-#: communities/templates/communities/landing.html:266
+#: templates/communities/landing.html:266
 msgid "Voting"
 msgstr "הצבעות"
 
-#: communities/templates/communities/landing.html:269
+#: templates/communities/landing.html:269
 msgid "Publication monitoring"
 msgstr "מעקב ציבורי"
 
-#: communities/templates/communities/landing.html:291
+#: templates/communities/landing.html:291
 msgid "The Proccess"
 msgstr "התהליך"
 
-#: communities/templates/communities/landing.html:299
+#: templates/communities/landing.html:299
 msgid ""
 "The platform enables adjustments to the levels of exposure. The adjustments "
 "enable a gradual process according to the development and increase of trust "
@@ -677,11 +654,11 @@ msgstr ""
 "המערכת מאפשרת שליטה ברמת השקיפות על פי החלטת הוועד. שליטה זו מאפשרת יצירת "
 "תהליך הדרגתי בהתאם להתפתחויות ורמת האמון הקיים בין הוועד ובין הקהילה"
 
-#: communities/templates/communities/landing.html:303
+#: templates/communities/landing.html:303
 msgid "Transparency"
 msgstr "שקיפות"
 
-#: communities/templates/communities/landing.html:305
+#: templates/communities/landing.html:305
 msgid ""
 "The board uses the platform to manage issues, meeting agenda and decisions, "
 "and keeps the community informed with no extra effort"
@@ -689,11 +666,11 @@ msgstr ""
 "הוועד משתמש במערכת לניהול נושאים, סדר יום של פגישות והתייחסות, וכך משאיר את "
 "הקהילה מיודעת ומחוברת ללא השקעת מאמץ נוסף"
 
-#: communities/templates/communities/landing.html:310
+#: templates/communities/landing.html:310
 msgid "Consultation"
 msgstr "התייעצות"
 
-#: communities/templates/communities/landing.html:312
+#: templates/communities/landing.html:312
 msgid ""
 "Community members can participate in non-binding discussion, polls and "
 "voting to share their preference with the board"
@@ -701,11 +678,11 @@ msgstr ""
 "חברי הקהילה מוזמנים להשתתף בדיון לא מחייב, סקרים והצבעות וכך לחלוק עם הוועד "
 "את העדפותיהם"
 
-#: communities/templates/communities/landing.html:317
+#: templates/communities/landing.html:317
 msgid "Collaboration"
 msgstr "שיתוף"
 
-#: communities/templates/communities/landing.html:319
+#: templates/communities/landing.html:319
 msgid ""
 "Community members raise issues (initiatives), introduce proposals, impact "
 "the agenda, and vote on proposals (referendum)"
@@ -713,11 +690,11 @@ msgstr ""
 "חברי הקהילה מסוגלים להעלות נושאים לדיון (יוזמות), להציג התייחסויות, להשפיע "
 "על סדר היום ולהצביע עבור התייחסות"
 
-#: communities/templates/communities/landing.html:324
+#: templates/communities/landing.html:324
 msgid "Empowerment"
 msgstr "העצמה"
 
-#: communities/templates/communities/landing.html:326
+#: templates/communities/landing.html:326
 msgid ""
 "The community is the true sovereign and has full power over decision making "
 "(as done by jury and public committees)"
@@ -725,15 +702,15 @@ msgstr ""
 "הקהילה היא הריבון האמיתי, ובידיה הכוח המלא על קבלת ההתייחסות (כפי שנעשה על "
 "ידי חבר מושבעים ועל ידי ועדות ציבוריות)"
 
-#: communities/templates/communities/landing.html:348
+#: templates/communities/landing.html:348
 msgid "The project runs within the framework of the"
 msgstr "הפרויקט פועל במסגרת"
 
-#: communities/templates/communities/landing.html:348
+#: templates/communities/landing.html:348
 msgid "Public Knowledge Workshop"
 msgstr "הסדנא לידע ציבורי"
 
-#: communities/templates/communities/landing.html:350
+#: templates/communities/landing.html:350
 msgid ""
 "a non-profit incubator for open code to promote democracy and citizen "
 "involvement in government activities"
@@ -741,392 +718,387 @@ msgstr ""
 "ארגון ללא מטרות רווח (ע\"ר) הפועל כחממה לפרויקטים בקוד פתוח לקידום דמוקרטיה "
 "ומעורבות אזרחית בפעילות ממשלתית וציבורית"
 
-#: communities/templates/communities/meetingattachment_confirm_delete.html:5
+#: templates/communities/meetingattachment_confirm_delete.html:5
 msgid "Delete attachment"
 msgstr ""
 
-#: communities/templates/communities/meetingattachment_confirm_delete.html:11
+#: templates/communities/meetingattachment_confirm_delete.html:11
 msgid "Are you sure?"
 msgstr "האם אתה בטוח?"
 
-#: communities/templates/communities/meetingattachment_confirm_delete.html:17
+#: templates/communities/meetingattachment_confirm_delete.html:17
 msgid "No"
 msgstr "לא"
 
-#: communities/templates/communities/meetingattachment_confirm_delete.html:21
+#: templates/communities/meetingattachment_confirm_delete.html:21
 msgid "Yes"
 msgstr "כן"
 
-#: communities/templates/communities/meetingattachment_form.html:9
+#: templates/communities/meetingattachment_form.html:9
 msgid "Add attachment"
 msgstr "צרף קובץ"
 
-#: communities/templates/communities/meetingattachment_form.html:22
-#: communities/templates/communities/participants_form.html:189
+#: templates/communities/meetingattachment_form.html:22
+#: templates/communities/participants_form.html:189
 msgid "Cancel"
 msgstr "ביטול"
 
-#: communities/templates/communities/meetingattachment_form.html:23
+#: templates/communities/meetingattachment_form.html:23
 msgid "Attach"
 msgstr "צרף"
 
-#: communities/templates/communities/participants_form.html:6
+#: templates/communities/participants_form.html:6
 msgid "Select participants"
 msgstr "בחר משתתפים"
 
-#: communities/templates/communities/participants_form.html:6
+#: templates/communities/participants_form.html:6
 msgid "List"
 msgstr "רשימה"
 
-#: communities/templates/communities/participants_form.html:7
+#: templates/communities/participants_form.html:7
 msgid "List of participants"
 msgstr "רשימת משתתפים בפגישה"
 
-#: communities/templates/communities/participants_form.html:7
-#: communities/templates/communities/upcoming.html:71
+#: templates/communities/participants_form.html:7
+#: templates/communities/upcoming.html:71
 msgid "Edit"
 msgstr "עריכה"
 
-#: communities/templates/communities/participants_form.html:29
-#: communities/templates/communities/participants_form.html:172
+#: templates/communities/participants_form.html:29
+#: templates/communities/participants_form.html:172
 msgid "Guests"
 msgstr "אורחים"
 
-#: communities/templates/communities/participants_form.html:44
-#: communities/templates/communities/participants_form.html:83
+#: templates/communities/participants_form.html:44
+#: templates/communities/participants_form.html:83
 msgid "Delete"
 msgstr "מחיקה"
 
-#: communities/templates/communities/participants_form.html:59
-#: communities/templates/communities/participants_form.html:114
+#: templates/communities/participants_form.html:59
+#: templates/communities/participants_form.html:114
 msgid "Previous participants"
 msgstr "משתתפים מפגישות קודמות"
 
-#: communities/templates/communities/participants_form.html:69
-#: communities/templates/communities/participants_form.html:104
-#: communities/templates/communities/participants_form.html:124
-#: communities/templates/communities/upcoming.html:221
+#: templates/communities/participants_form.html:69
+#: templates/communities/participants_form.html:104
+#: templates/communities/participants_form.html:124
+#: templates/communities/upcoming.html:221
 msgid "Add"
 msgstr "הוספה"
 
-#: communities/templates/communities/participants_form.html:138
+#: templates/communities/participants_form.html:138
 msgid "Please select participants for upcoming meeting"
 msgstr "בחר משתתפים לפגישה הקרובה"
 
-#: communities/templates/communities/participants_form.html:190
-#: communities/templates/communities/upcoming.html:314
-#: communities/templates/dialog.html:26
+#: templates/communities/participants_form.html:190
+#: templates/communities/upcoming.html:314 templates/dialog.html:26
 msgid "Save"
 msgstr "שמירה"
 
-#: communities/templates/communities/publish_upcoming.html:6
-#: communities/templates/communities/upcoming.html:255
-#: communities/templates/emails/protocol_draft.html:3
-#: communities/templates/emails/protocol_draft.txt:1
+#: templates/communities/publish_upcoming.html:6
+#: templates/communities/upcoming.html:255
+#: templates/emails/protocol_draft.html:3 templates/emails/protocol_draft.txt:1
 msgid "Summary draft"
 msgstr "טיוטת סיכום"
 
-#: communities/templates/communities/publish_upcoming.html:8
-#: communities/templates/communities/publish_upcoming.html:26
+#: templates/communities/publish_upcoming.html:8
+#: templates/communities/publish_upcoming.html:26
 msgid "Publish"
 msgstr "פרסם"
 
-#: communities/templates/communities/publish_upcoming.html:17
+#: templates/communities/publish_upcoming.html:17
 msgid "Preview details"
 msgstr "הצגת פירוט"
 
-#: communities/templates/communities/publish_upcoming.html:19
+#: templates/communities/publish_upcoming.html:19
 msgid "Preview protocol"
 msgstr "הצגת פרוטוקול"
 
-#: communities/templates/communities/publish_upcoming.html:22
+#: templates/communities/publish_upcoming.html:22
 msgid "Preview draft"
 msgstr "הצגת סדר יום"
 
-#: communities/templates/communities/publish_upcoming.html:32
+#: templates/communities/publish_upcoming.html:32
 msgid "Print details"
 msgstr "הדפס פירוט"
 
-#: communities/templates/communities/publish_upcoming.html:34
+#: templates/communities/publish_upcoming.html:34
 msgid "Print protocol"
 msgstr "הדפס פרוטוקול"
 
-#: communities/templates/communities/publish_upcoming.html:37
+#: templates/communities/publish_upcoming.html:37
 msgid "Print draft"
 msgstr "הדפס סדר יום"
 
-#: communities/templates/communities/quick-signup.html:9
-#: communities/templates/communities/quick-signup.html:22
+#: templates/communities/quick-signup.html:9
+#: templates/communities/quick-signup.html:22
 msgid "Quick signup"
 msgstr "הרשמה מהירה"
 
-#: communities/templates/communities/quick-signup.html:14
+#: templates/communities/quick-signup.html:14
 #, python-format
 msgid "You were invited to %(s)s."
 msgstr ""
 
-#: communities/templates/communities/quick-signup.html:18
+#: templates/communities/quick-signup.html:18
 msgid "You are already logged in as"
 msgstr "אתה מחובר למערכת בשם"
 
-#: communities/templates/communities/quick-signup.html:29
+#: templates/communities/quick-signup.html:29
 msgid "Join Open Committee"
 msgstr "הצטרף למערכת"
 
-#: communities/templates/communities/start_meeting.html:6
-#: communities/templates/communities/start_meeting.html:17
+#: templates/communities/start_meeting.html:6
+#: templates/communities/start_meeting.html:17
 msgid "Start update"
 msgstr "התחל עדכון"
 
-#: communities/templates/communities/start_meeting.html:8
-#: communities/templates/communities/start_meeting.html:19
-#: communities/templates/communities/upcoming.html:141
+#: templates/communities/start_meeting.html:8
+#: templates/communities/start_meeting.html:19
+#: templates/communities/upcoming.html:141
 msgid "Start meeting"
 msgstr "סגירת סדר היום להתייחסויות חדשות"
 
-#: communities/templates/communities/upcoming.html:8
+#: templates/communities/upcoming.html:8
 msgid "Upcoming update"
 msgstr "העדכון הבא"
 
-#: communities/templates/communities/upcoming.html:22
+#: templates/communities/upcoming.html:22
 msgid "All updates"
 msgstr "כל העדכונים"
 
-#: communities/templates/communities/upcoming.html:24
+#: templates/communities/upcoming.html:24
 msgid "All meetings"
 msgstr "כל הפגישות"
 
-#: communities/templates/communities/upcoming.html:74
+#: templates/communities/upcoming.html:74
 msgid "Attach files"
 msgstr "צרף קבצים"
 
-#: communities/templates/communities/upcoming.html:100
+#: templates/communities/upcoming.html:100
 msgid "Login to vote"
 msgstr "התחבר בכדי להשתתף בדיון"
 
-#: communities/templates/communities/upcoming.html:126
+#: templates/communities/upcoming.html:126
 msgid "Open voting"
 msgstr "פתח הצבעות"
 
-#: communities/templates/communities/upcoming.html:128
+#: templates/communities/upcoming.html:128
 msgid "Undo start meeting"
 msgstr "עצור פגישה"
 
-#: communities/templates/communities/upcoming.html:139
+#: templates/communities/upcoming.html:139
 msgid "Close voting"
 msgstr "סגור הצבעות"
 
-#: communities/templates/communities/upcoming.html:187
+#: templates/communities/upcoming.html:187
 msgid "No meetings issues"
 msgstr "נושאים"
 
-#: communities/templates/communities/upcoming.html:189
+#: templates/communities/upcoming.html:189
 msgid "Agenda items"
 msgstr "נושאים לסדר היום"
 
-#: communities/templates/communities/upcoming.html:193
+#: templates/communities/upcoming.html:193
 msgid "New issue"
 msgstr "נושא חדש"
 
-#: communities/templates/communities/upcoming.html:198
+#: templates/communities/upcoming.html:198
 msgid "All proposals / Voted"
 msgstr "סך התייחסויות/כמה הצבעתי"
 
-#: communities/templates/communities/upcoming.html:218
+#: templates/communities/upcoming.html:218
 msgid "Type the new issue title"
 msgstr "הקלד כותרת עבור הנושא החדש"
 
-#: communities/templates/communities/upcoming.html:235
+#: templates/communities/upcoming.html:235
 msgid "Comments"
 msgstr "תגובות"
 
-#: communities/templates/communities/upcoming.html:237
-#: communities/templates/emails/_protocol.html:48
-#: communities/templates/emails/protocol.html:3
-#: communities/templates/emails/protocol.txt:1
-#: communities/templates/emails/protocol_title.txt:4
+#: templates/communities/upcoming.html:237 templates/emails/_protocol.html:49
+#: templates/emails/protocol.html:3 templates/emails/protocol.txt:1
+#: templates/emails/protocol_title.txt:4
 msgid "Summary"
 msgstr "סיכום הפגישה"
 
-#: communities/templates/communities/upcoming.html:255
+#: templates/communities/upcoming.html:255
 msgid "Publish the agenda"
 msgstr "שליחת סדר היום"
 
-#: communities/templates/communities/upcoming.html:259
+#: templates/communities/upcoming.html:259
 msgid "Close update"
 msgstr "סגור עדכון"
 
-#: communities/templates/communities/upcoming.html:261
+#: templates/communities/upcoming.html:261
 msgid "Close meeting"
 msgstr "סגור פגישה"
 
-#: communities/templates/communities/upcoming.html:273
-#: communities/templates/communities/upcoming.html:289
+#: templates/communities/upcoming.html:273
+#: templates/communities/upcoming.html:289
 msgid "Additional issues"
 msgstr "נושאים נוספים"
 
-#: communities/templates/communities/upcoming.html:275
+#: templates/communities/upcoming.html:275
 msgid "By time"
 msgstr "זמן"
 
-#: communities/templates/communities/upcoming.html:276
+#: templates/communities/upcoming.html:276
 msgid "By priority"
 msgstr "משוקלל"
 
-#: communities/templates/communities/upcoming.html:302
+#: templates/communities/upcoming.html:302
 msgid "Agenda not yet published"
 msgstr "טרם פורסם סדר היום לפגישה הקרובה"
 
-#: communities/templates/communities/upcoming_form.html:5
+#: templates/communities/upcoming_form.html:5
 msgid "Edit the agenda"
 msgstr "עריכת סדר יום"
 
-#: communities/templates/emails/_protocol.html:32
-#: communities/templates/emails/agenda.html:46
-#: communities/templates/emails/agenda.txt:3
-#: communities/templates/emails/protocol.txt:3
-#: communities/templates/emails/protocol_draft.txt:3
+#: templates/emails/_protocol.html:33 templates/emails/agenda.html:50
+#: templates/emails/agenda.txt:3 templates/emails/protocol.txt:3
+#: templates/emails/protocol_draft.txt:3
 msgid "View online"
 msgstr "לצפיה באתר"
 
-#: communities/templates/emails/_protocol.html:37
-#: communities/templates/emails/agenda.html:53
+#: templates/emails/_protocol.html:38 templates/emails/agenda.html:57
 msgid "Meeting details"
 msgstr "פרטי הפגישה"
 
-#: communities/templates/emails/_protocol.html:41
-#: communities/templates/emails/agenda.html:60
+#: templates/emails/_protocol.html:42 templates/emails/agenda.html:64
 msgid "Not set yet"
 msgstr "טרם נקבע"
 
-#: communities/templates/emails/_protocol.html:44
-#: communities/templates/emails/agenda.html:59
+#: templates/emails/_protocol.html:45 templates/emails/agenda.html:63
 msgid "Location"
 msgstr "מיקום"
 
-#: communities/templates/emails/_protocol.html:56
-#: communities/templates/emails/_protocol.html:161
-#: communities/templates/emails/agenda.html:69
-#: communities/templates/emails/agenda.html:117
+#: templates/emails/_protocol.html:57 templates/emails/_protocol.html:174
+#: templates/emails/agenda.html:73 templates/emails/agenda.html:146
 msgid "Related files"
 msgstr "קבצים קשורים"
 
-#: communities/templates/emails/_protocol.html:110
-msgid "Issues & Decisions"
-msgstr "נושאים והתייחסות"
-
-#: communities/templates/emails/_protocol.html:122
-#: communities/templates/emails/_protocol.html:126
-#: communities/templates/emails/_protocol.html:189
-#: communities/templates/emails/_protocol.html:194
-#: communities/templates/emails/_protocol.html:223
-#: communities/templates/emails/_protocol.html:228
-#: communities/templates/emails/agenda.html:100
+#: templates/emails/_protocol.html:127 templates/emails/_protocol.html:131
+#: templates/emails/_protocol.html:203 templates/emails/_protocol.html:208
+#: templates/emails/_protocol.html:237 templates/emails/_protocol.html:242
+#: templates/emails/agenda.html:107
 msgid "Confidential"
 msgstr "חסוי"
 
-#: communities/templates/emails/_protocol.html:178
+#: templates/emails/_protocol.html:137
+#, fuzzy
+#| msgid "Discussion Summary"
+msgid "Issue discussion summary"
+msgstr "סיכום הדיון"
+
+#: templates/emails/_protocol.html:144
+msgid "Read more"
+msgstr "קרא עוד..."
+
+#: templates/emails/_protocol.html:158
+#, fuzzy
+#| msgid "Referendum started"
+msgid "Reference summary"
+msgstr "משאל התחיל"
+
+#: templates/emails/_protocol.html:192
 msgid "Accepted proposals"
 msgstr "התייחסויות שהתקבלו"
 
-#: communities/templates/emails/_protocol.html:215
+#: templates/emails/_protocol.html:229
 msgid "Rejected proposals"
 msgstr "התייחסויות שנדחו"
 
-#: communities/templates/emails/_protocol.html:247
-#: communities/templates/emails/agenda.html:180
+#: templates/emails/_protocol.html:261 templates/emails/agenda.html:212
 msgid "Unsubscribe from mailing list"
 msgstr "הסר מרשימת תפוצה"
 
-#: communities/templates/emails/agenda.html:34
+#: templates/emails/agenda.html:36
 msgid "Published at"
 msgstr "פורסם ב -"
 
-#: communities/templates/emails/agenda.html:35
-#: communities/templates/emails/agenda_title.txt:3
-#: communities/templatetags/community_tags.py:40
+#: templates/emails/agenda.html:37 templates/emails/agenda_title.txt:3
+#: templatetags/community_tags.py:40
 msgid "Version"
 msgstr "גרסא"
 
-#: communities/templates/emails/agenda.html:37
-#: communities/templatetags/community_tags.py:61
+#: templates/emails/agenda.html:39 templatetags/community_tags.py:61
 msgid "Draft"
 msgstr "טיוטה"
 
-#: communities/templates/emails/agenda.html:44
+#: templates/emails/agenda.html:47
 msgid "Enter site and vote on proposals"
 msgstr "כניסה לאתר לקריאת התייחסות ולהשתתפות בדיון"
 
-#: communities/templates/emails/agenda.html:87
+#: templates/emails/agenda.html:92
 msgid "Issues "
 msgstr "הנושאים שיועלו לדיון"
 
-#: communities/templates/emails/agenda.html:91
+#: templates/emails/agenda.html:97
 msgid ""
 "Do not forward this mail. Forwarding this mail to others will allow them to "
 "comment on your behalf"
 msgstr "אין להעביר מייל זה. שליחתו לאחרים תאפשר להם להגיב בשמך"
 
-#: communities/templates/emails/agenda_title.txt:3
+#: templates/emails/agenda_title.txt:3
 msgid "Upcoming agenda for"
 msgstr "סדר יום לפגישה שתתקיים ב"
 
-#: communities/templates/emails/agenda_title.txt:3
+#: templates/emails/agenda_title.txt:3
 msgid "Upcoming agenda"
 msgstr "סדר יום לפגישה הקרובה"
 
-#: communities/templates/emails/protocol_draft_title.txt:3
+#: templates/emails/protocol_draft_title.txt:3
 msgid "Meeting summary draft"
 msgstr "טיוטת סיכום פגישה"
 
-#: communities/templates/login.html:22
+#: templates/login.html:22
 msgid "Remember me"
 msgstr "זכור אותי"
 
-#: communities/templates/login.html:25
+#: templates/login.html:25
 msgid "forgot password"
 msgstr "שכחתי סיסמה"
 
-#: communities/templates/registration/password_reset_complete.html:4
+#: templates/registration/password_reset_complete.html:4
 msgid "Password reset complete"
 msgstr "איפוס סיסמא הושלם"
 
-#: communities/templates/registration/password_reset_complete.html:9
+#: templates/registration/password_reset_complete.html:9
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr "סיסמא הוגדרה בהצלחה, כעת תוכל להכנס למערכת."
 
-#: communities/templates/registration/password_reset_complete.html:13
+#: templates/registration/password_reset_complete.html:13
 msgid "Log in"
 msgstr "כניסה"
 
-#: communities/templates/registration/password_reset_confirm.html:10
-#: communities/templates/registration/password_reset_form.html:4
+#: templates/registration/password_reset_confirm.html:10
+#: templates/registration/password_reset_form.html:4
 msgid "Password reset"
 msgstr "איפוס סיסמא"
 
-#: communities/templates/registration/password_reset_confirm.html:13
+#: templates/registration/password_reset_confirm.html:13
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr "הזינו בבקשה את הסיסמה החדשה שלך פעמיים אז נוכל לאמת שהקלדת אותו כראוי."
 
-#: communities/templates/registration/password_reset_confirm.html:20
+#: templates/registration/password_reset_confirm.html:20
 msgid "New password:"
 msgstr "סיסמה חדשה:"
 
-#: communities/templates/registration/password_reset_confirm.html:25
+#: templates/registration/password_reset_confirm.html:25
 msgid "Confirm password:"
 msgstr "אימות סיסמא:"
 
-#: communities/templates/registration/password_reset_confirm.html:28
+#: templates/registration/password_reset_confirm.html:28
 msgid "Change my password"
 msgstr "שנה סיסמא"
 
-#: communities/templates/registration/password_reset_confirm.html:33
+#: templates/registration/password_reset_confirm.html:33
 msgid "Password reset unsuccessful"
 msgstr "איפוס סיסמא נכשל"
 
-#: communities/templates/registration/password_reset_confirm.html:36
+#: templates/registration/password_reset_confirm.html:36
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
@@ -1134,111 +1106,114 @@ msgstr ""
 "הקישור לאיפוס הסיסמא אינו תקין, כנראה בגלל שכבר השתמשו בו. אנא בקש איפוס "
 "סיסמא חדש."
 
-#: communities/templates/registration/password_reset_confirm.html:39
+#: templates/registration/password_reset_confirm.html:39
 msgid "Reset password"
 msgstr "אפס סיסמא"
 
-#: communities/templates/registration/password_reset_done.html:4
-#: communities/templates/registration/password_reset_done.html:6
+#: templates/registration/password_reset_done.html:4
+#: templates/registration/password_reset_done.html:6
 msgid "Password reset successful"
 msgstr "איפוס סיסמה הצליח"
 
-#: communities/templates/registration/password_reset_done.html:11
+#: templates/registration/password_reset_done.html:11
 msgid ""
 "We've emailed you instructions for setting your password to the email "
 "address you submitted. You should be receiving it shortly."
 msgstr "הוראות לאיפוס סיסמא נשלחו למייל שציינת. המייל אמור להגיע בקרוב."
 
-#: communities/templates/registration/password_reset_email.html:3
+#: templates/registration/password_reset_email.html:3
 msgid "Hello"
 msgstr "שלום"
 
-#: communities/templates/registration/password_reset_email.html:5
+#: templates/registration/password_reset_email.html:5
 msgid "Please go to the following page and choose a new password:"
 msgstr ""
 
-#: communities/templates/registration/password_reset_email.html:9
+#: templates/registration/password_reset_email.html:9
 msgid "Your username/email, in case you've forgotten:"
 msgstr ""
 
-#: communities/templates/registration/password_reset_email.html:11
+#: templates/registration/password_reset_email.html:11
 msgid "Thanks for using our site!"
 msgstr ""
 
-#: communities/templates/registration/password_reset_form.html:8
+#: templates/registration/password_reset_form.html:8
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
 msgstr "שכחת סיסמא? הכנס את כתובת המייל שלך ונשלח לך פרטים להגדרת סיסמא חדשה."
 
-#: communities/templates/registration/password_reset_form.html:16
+#: templates/registration/password_reset_form.html:16
 msgid "An invitation has been sent to this email account"
 msgstr ""
 
-#: communities/templates/registration/password_reset_form.html:17
+#: templates/registration/password_reset_form.html:17
 msgid "Please approve the invitation in order to choose a password"
 msgstr ""
 
-#: communities/templates/registration/password_reset_form.html:23
+#: templates/registration/password_reset_form.html:23
 msgid "Email address:"
 msgstr "כתובת אימייל:"
 
-#: communities/templates/registration/password_reset_form.html:26
+#: templates/registration/password_reset_form.html:26
 msgid "Reset my password"
 msgstr "אפס את הסיסמא שלי"
 
-#: communities/templates/search/search.html:29
+#: templates/search/search.html:29
 msgid "Results for"
 msgstr "תוצאות עבור"
 
-#: communities/templates/search/search.html:33
+#: templates/search/search.html:33
 msgid "of"
 msgstr "מתוך"
 
-#: communities/templates/search/search.html:35
+#: templates/search/search.html:35
 msgid "No Results for"
 msgstr "לא נמצאו תוצאות."
 
-#: communities/templatetags/community_tags.py:14
+#: templatetags/community_tags.py:14
 msgid "--/--/--"
 msgstr "--/--/--"
 
-#: communities/templatetags/community_tags.py:38
+#: templatetags/community_tags.py:38
 msgid "Started"
 msgstr "התחילה"
 
-#: communities/templatetags/community_tags.py:53
+#: templatetags/community_tags.py:53
 msgid "Straw vote ended"
 msgstr "הצבעה נסגרה"
 
-#: communities/templatetags/community_tags.py:55
+#: templatetags/community_tags.py:55
 msgid "Active straw vote"
 msgstr "הצבעה פעילה"
 
-#: communities/templatetags/community_tags.py:58
+#: templatetags/community_tags.py:58
 msgid "Published"
 msgstr "פורסם"
 
-#: communities/views.py:235
+#: views.py:235
 #, python-format
 msgid "Sending to %d users"
 msgstr "שולח ל-%d משתמשים"
 
-#: communities/views.py:348
+#: views.py:348
 msgid "Not a valid number for page."
 msgstr "מספר עמוד לא תקין"
 
-#: communities/views.py:351
+#: views.py:351
 msgid "Pages should be 1 or greater."
 msgstr "מספר עמוד צריך להיות 1 או יותר."
 
-#: communities/views.py:360
+#: views.py:360
 msgid "No such page!"
 msgstr "דף לא קיים!"
 
-#: communities/views.py:491
+#: views.py:491
 msgid "Oops. Something went wrong. Please try again."
 msgstr ""
+
+#~ msgid "Issues & Decisions"
+#~ msgstr "נושאים והתייחסות"
 
 #~ msgid "For"
 #~ msgstr "בעד"
@@ -1321,9 +1296,6 @@ msgstr ""
 
 #~ msgid "Meeting location"
 #~ msgstr "מיקום הפגישה"
-
-#~ msgid "Discussion Summary"
-#~ msgstr "סיכום הדיון"
 
 #~ msgid "Actions"
 #~ msgstr "פעולות"

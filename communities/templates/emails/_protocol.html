@@ -135,7 +135,13 @@
                         <h4>{% trans 'Issue discussion summary' %}</h4>
                         {% for c in a.issue.active_comments.all %}
                             <p style="padding:0; margin: 3px;">
-                                {{ c.content|safe }}
+                                {{ c.content|safe|truncatechars:1000 }}
+                                {% if c.content|length > 1000 %}
+                                    <br>
+                                    <a href="{{ base_url }}{{ a.issue.get_absolute_url }}?uid={{ recipient.uid }}" target="_blank">
+                                        {% trans 'Read more' %}
+                                    </a>
+                                {% endif %}
                                 {% comment %}
                             <i style="font-size: smaller">
                                 ({{c.created_by}} {% trans "at" %} {{c.created_at}})
@@ -253,7 +259,7 @@
             </div>
         {% endif %}
     </div>
-    <img src="{% url 'email_pixel' 'pixel' %}?uid={{ recipient.id }}" />
+    <img src="{{ base_url }}{% url 'email_pixel' 'pixel' %}?uid={{ recipient.id }}" />
 </div>
 
 <style>
