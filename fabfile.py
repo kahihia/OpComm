@@ -23,7 +23,7 @@ env.port = 22
 env.app_name = "oc"
 
 env.venv_name = env.app_name
-env.venvs = f"/home/{env.app_name}/.virtualenvs/"
+env.venvs = f"/home/{env.user}/.virtualenvs/"
 env.venv_path = f"{env.venvs}{env.venv_name}/"
 env.venv_command = f"source {env.venv_path}/bin/activate"
 
@@ -258,12 +258,14 @@ def kill_supervisor_pid():
 def qa():
     env.instance = 'oc_qa'
     env.webuser = "oc_qa"
+    env.user = "oc_qa"
 
 
 @task
 def sviva():
     env.instance = 'oc_sviva'
     env.webuser = "oc_sviva"
+    env.user = "oc_sviva"
 
 
 @task

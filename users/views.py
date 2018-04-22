@@ -394,7 +394,14 @@ class EmailPixelView(View):
     def get(self, request, pixel):
         # Track record of user who opened email
         user_id = request.GET.get('uid')
-        if user_id:
-            EmailPixelUser.objects.create(user_id=int(user_id))
+        t = request.GET.get('type')
+        meeting_id = request.GET.get('meeting')
+        if user_id and t:
+            o = EmailPixelUser()
+            o.user_id = int(user_id)
+            o.subject = t
+            if meeting_id:
+                o.meeting_id = int(meeting_id)
+            o.save()
         pixel_image = b'\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x80\x00\x00\xff\xff\xff\x00\x00\x00\x21\xf9\x04\x01\x00\x00\x00\x00\x2c\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02\x44\x01\x00\x3b'
         return HttpResponse(pixel_image, content_type='image/gif')

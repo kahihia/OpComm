@@ -259,7 +259,7 @@
             </div>
         {% endif %}
     </div>
-    <img src="{{ base_url }}{% url 'email_pixel' 'pixel' %}?uid={{ recipient.id }}" />
+    <img src="{{ base_url }}{% url 'email_pixel' 'pixel' %}?uid={{ recipient.id }}&type=protocol&meeting={{ meeting.id }}" />
 </div>
 
 <style>
