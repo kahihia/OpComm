@@ -391,7 +391,7 @@ class OCPasswordResetConfirmView(PasswordResetConfirmView):
 
 class EmailPixelView(View):
     @cache_control(must_revalidate=True, max_age=60)
-    def get(self, request, pixel):
+    def get(self, request, *args, **kwargs):
         # Track record of user who opened email
         user_id = request.GET.get('uid')
         t = request.GET.get('type')
