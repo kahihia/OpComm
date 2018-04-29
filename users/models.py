@@ -351,6 +351,9 @@ class EmailPixelUser(models.Model):
     user = models.ForeignKey(OCUser, verbose_name=_("User"), related_name='emailpixels', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
     subject = models.CharField(_("Subject"), max_length=100, blank=True)
+    m_id = models.IntegerField(_("Meeting ID"), default=0)
+    community = models.ForeignKey('communities.Community', verbose_name=_("Community"), related_name='emailpixels',
+                                  on_delete=models.SET_NULL, null=True, blank=True)
     meeting = models.ForeignKey(Meeting, verbose_name=_("Meeting"), related_name='emailpixels',
                                 on_delete=models.SET_NULL, null=True, blank=True)
 

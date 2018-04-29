@@ -117,7 +117,7 @@ class UnsubscribeUserAdmin(admin.ModelAdmin):
 
 
 class EmailPixelUserAdmin(admin.ModelAdmin):
-    list_display = ('user', 'created_at')
+    list_display = ('user', 'created_at', 'm_id')
 
 
 admin.site.register(Invitation, InvitationAdmin)

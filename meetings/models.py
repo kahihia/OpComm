@@ -155,6 +155,9 @@ class Meeting(UIDMixin):
 
         return meeting_participants
 
+    def get_email_pixels_count(self):
+        return self.emailpixels.filter(subject='protocol').count()
+
     @models.permalink
     def get_absolute_url(self):
         return ("meeting", (str(self.community.pk), str(self.pk),))

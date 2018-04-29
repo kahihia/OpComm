@@ -47,7 +47,9 @@
                             {{ community.upcoming_meeting_title|default:_("Upcoming Meeting") }}
                         {% endif %}
                         {% if community.upcoming_meeting_scheduled_at %}<br/>
-                            <span style="font-size: 11px;">{{ community.upcoming_meeting_scheduled_at|date:"d F, Y" }}</span>{% endif %}
+                            <span style="font-size: 11px;">{{ community.upcoming_meeting_scheduled_at|date:"d F, Y" }}</span>
+                        {% endif %}
+                        {% if community.get_email_pixels_count %} - ({{ community.get_email_pixels_count }} {% trans 'emails opened' %}){% endif %}
                     </a>
                 </li>
             {% endif %}
@@ -58,7 +60,7 @@
                             <div class="pull-right" style="width: 15px;"><span class="active_meeting pull-right"></span>
                             </div>{% endif %}
                         <a href="{{ i.get_absolute_url }}">
-                            {{ i.get_title_or_shortdate }}
+                            {{ i.get_title_or_shortdate }}{% if i.get_email_pixels_count %} - ({{ i.get_email_pixels_count }} {% trans 'emails opened' %}){% endif %}
                             {% if i.title and i.held_at %}<br/>
                                 <span style="font-size: 11px;">{{ i.held_at|date:"d F, Y" }}</span>{% endif %}
                         </a>
