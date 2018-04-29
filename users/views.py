@@ -393,6 +393,7 @@ class EmailPixelView(View):
     @cache_control(must_revalidate=True, max_age=60)
     def get(self, request, *args, **kwargs):
         # Track record of user who opened email
+        community_id = request.GET.get('community')
         user_id = request.GET.get('uid')
         t = request.GET.get('type')
         meeting_id = request.GET.get('meeting')
@@ -400,8 +401,14 @@ class EmailPixelView(View):
             o = EmailPixelUser()
             o.user_id = int(user_id)
             o.subject = t
+            if community_id:
+                o.community_id = int(community_id)
             if meeting_id:
                 o.meeting_id = int(meeting_id)
+                o.m_id = int(meeting_id)
+            else:
+                from meetings.models import Meeting
+                o.m_id = Meeting.objects.order_by('id').last().id + 1
             o.save()
         pixel_image = b'\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x80\x00\x00\xff\xff\xff\x00\x00\x00\x21\xf9\x04\x01\x00\x00\x00\x00\x2c\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02\x44\x01\x00\x3b'
         return HttpResponse(pixel_image, content_type='image/gif')

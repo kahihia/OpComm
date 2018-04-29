@@ -149,6 +149,9 @@ class Community(UIDMixin):
             rv = None
         return rv
 
+    def get_email_pixels_count(self):
+        return self.emailpixels.filter(subject='agenda', meeting__isnull=True).count()
+
     def available_issues(self, user=None, community=None):
         if self.issues.all():
             rv = self.issues.object_access_control(

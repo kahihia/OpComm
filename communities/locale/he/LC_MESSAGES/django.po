@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-22 11:02+0300\n"
-"PO-Revision-Date: 2018-04-22 11:02+0300\n"
+"POT-Creation-Date: 2018-04-29 15:45+0300\n"
+"PO-Revision-Date: 2018-04-29 15:46+0300\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Scheduled at"
 msgstr "מועד"
 
-#: forms.py:35 models.py:482
+#: forms.py:35 models.py:485
 msgid "Title"
 msgstr "כותרת"
 
@@ -87,7 +87,7 @@ msgstr "למשתתפים בפגישה בלבד"
 msgid "All members"
 msgstr "לכל חברי הועדה"
 
-#: models.py:44 models.py:561 templates/communities/participants_form.html:90
+#: models.py:44 models.py:564 templates/communities/participants_form.html:90
 msgid "Name"
 msgstr "שם"
 
@@ -155,7 +155,7 @@ msgstr "סיכום הפגישה הקרובה"
 msgid "Board name"
 msgstr "שם הועד"
 
-#: models.py:85 models.py:185 templates/communities/participants_form.html:23
+#: models.py:85 models.py:188 templates/communities/participants_form.html:23
 msgid "Board"
 msgstr "ועד"
 
@@ -215,33 +215,33 @@ msgstr "קהילה"
 msgid "Communities"
 msgstr "קהילות"
 
-#: models.py:481
+#: models.py:484
 msgid "File"
 msgstr "קובץ"
 
-#: models.py:485
+#: models.py:488
 msgid "File created at"
 msgstr "נוצר ב"
 
-#: models.py:487
+#: models.py:490
 msgid "Created by"
 msgstr "נוצר על ידי"
 
-#: models.py:549
+#: models.py:552
 msgid "Confidential Reason"
 msgstr "סיבה עבור נושא חסוי"
 
-#: models.py:550
+#: models.py:553
 msgid "Confidential Reasons"
 msgstr "סיבות עבור נושאים חסויים"
 
-#: models.py:557
+#: models.py:560
 msgid ""
 "A reason that can be used for marking items as confidential in your "
 "community."
 msgstr "הגדרת סיבה עבור נושאים חסויים"
 
-#: models.py:563
+#: models.py:566
 msgid "The title to give this reason."
 msgstr "כותרת עבור סיבה זו"
 
@@ -434,6 +434,11 @@ msgstr "הפגישה הקרובה"
 msgid "Upcoming Meeting"
 msgstr "הפגישה הקרובה"
 
+#: templates/communities/base_meeting.html:53
+#: templates/communities/base_meeting.html:64
+msgid "emails opened"
+msgstr "אימיילים נקראו"
+
 #: templates/communities/community_list.html:17
 msgid "My communities"
 msgstr "ועדות במעקב"
@@ -468,12 +473,12 @@ msgid "Results"
 msgstr "תוצאות"
 
 #: templates/communities/community_search.html:33
-#: templates/emails/_protocol.html:212 templates/search/search.html:48
+#: templates/emails/_protocol.html:218 templates/search/search.html:48
 msgid "Assigned to"
 msgstr "אחראי"
 
 #: templates/communities/community_search.html:36
-#: templates/emails/_protocol.html:216 templates/search/search.html:51
+#: templates/emails/_protocol.html:222 templates/search/search.html:51
 msgid "Due by"
 msgstr "יעד"
 
@@ -972,14 +977,14 @@ msgstr "טרם נקבע"
 msgid "Location"
 msgstr "מיקום"
 
-#: templates/emails/_protocol.html:57 templates/emails/_protocol.html:174
+#: templates/emails/_protocol.html:57 templates/emails/_protocol.html:180
 #: templates/emails/agenda.html:73 templates/emails/agenda.html:146
 msgid "Related files"
 msgstr "קבצים קשורים"
 
 #: templates/emails/_protocol.html:127 templates/emails/_protocol.html:131
-#: templates/emails/_protocol.html:203 templates/emails/_protocol.html:208
-#: templates/emails/_protocol.html:237 templates/emails/_protocol.html:242
+#: templates/emails/_protocol.html:209 templates/emails/_protocol.html:214
+#: templates/emails/_protocol.html:243 templates/emails/_protocol.html:248
 #: templates/emails/agenda.html:107
 msgid "Confidential"
 msgstr "חסוי"
@@ -990,7 +995,7 @@ msgstr "חסוי"
 msgid "Issue discussion summary"
 msgstr "סיכום הדיון"
 
-#: templates/emails/_protocol.html:144
+#: templates/emails/_protocol.html:144 templates/emails/_protocol.html:165
 msgid "Read more"
 msgstr "קרא עוד..."
 
@@ -1000,15 +1005,15 @@ msgstr "קרא עוד..."
 msgid "Reference summary"
 msgstr "משאל התחיל"
 
-#: templates/emails/_protocol.html:192
+#: templates/emails/_protocol.html:198
 msgid "Accepted proposals"
 msgstr "התייחסויות שהתקבלו"
 
-#: templates/emails/_protocol.html:229
+#: templates/emails/_protocol.html:235
 msgid "Rejected proposals"
 msgstr "התייחסויות שנדחו"
 
-#: templates/emails/_protocol.html:261 templates/emails/agenda.html:212
+#: templates/emails/_protocol.html:267 templates/emails/agenda.html:212
 msgid "Unsubscribe from mailing list"
 msgstr "הסר מרשימת תפוצה"
 
