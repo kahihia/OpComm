@@ -6,7 +6,7 @@ from django.template.loader import render_to_string
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from issues.models import Proposal, ProposalVoteValue, ProposalStatus
-from meetings.models import MeetingParticipant
+from meetings.models import MeetingParticipant, Meeting
 from ocd.utilities import create_uuid
 from users.default_roles import DefaultGroups
 import datetime
@@ -28,7 +28,7 @@ class OCUserManager(BaseUserManager):
     def get_by_natural_key(self, username):
         return self.get(email__iexact=username)
 
-    def create_user(self, email, display_name=None, password=None, **kwargs):
+    def create_user(self, email, display_name=None, bio='', password=None, **kwargs):
         """
         Creates and saves a User with the given email, display name and
         password.
@@ -42,6 +42,7 @@ class OCUserManager(BaseUserManager):
         user = self.model(
             email=OCUserManager.normalize_email(email),
             display_name=display_name,
+            bio=bio,
             **kwargs
         )
 
@@ -68,6 +69,7 @@ class OCUser(AbstractBaseUser, PermissionsMixin):
     uid = models.CharField(max_length=32, unique=True, default=create_uuid)
     email = models.EmailField(_('email address'), max_length=255, unique=True, db_index=True)
     display_name = models.CharField(_("Your name"), max_length=200)
+    bio = models.CharField(_("Bio"), max_length=200, blank=True)
     opt_in = models.BooleanField(_('Allow emails?'), default=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(_('staff status'), default=False,
@@ -339,3 +341,25 @@ class UnsubscribeUser(models.Model):
 
     def __str__(self):
         return "%s: %s" % (self.created_at, self.user.display_name)
+
+    class Meta:
+        verbose_name = _("Unsubscriber")
+        verbose_name_plural = _("Unsubscribers")
+
+
+class EmailPixelUser(models.Model):
+    user = models.ForeignKey(OCUser, verbose_name=_("User"), related_name='emailpixels', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    subject = models.CharField(_("Subject"), max_length=100, blank=True)
+    m_id = models.IntegerField(_("Meeting ID"), default=0)
+    community = models.ForeignKey('communities.Community', verbose_name=_("Community"), related_name='emailpixels',
+                                  on_delete=models.SET_NULL, null=True, blank=True)
+    meeting = models.ForeignKey(Meeting, verbose_name=_("Meeting"), related_name='emailpixels',
+                                on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.created_at}: {self.user.display_name} - {self.subject}"
+
+    class Meta:
+        verbose_name = _("Email pixel")
+        verbose_name_plural = _("Email pixels")

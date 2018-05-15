@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.models import Group
-from users.models import OCUser, Membership, Invitation
+from users.models import OCUser, Membership, Invitation, UnsubscribeUser, EmailPixelUser
 
 
 class UserCreationForm(forms.ModelForm):
@@ -80,11 +80,11 @@ class OCUserAdmin(UserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('email', 'display_name', 'is_staff', 'is_superuser')
+    list_display = ('email', 'display_name', 'bio', 'is_staff', 'is_superuser')
     list_filter = ('is_staff', 'is_superuser',)
     fieldsets = (
         (None, {'fields': ('email', 'password', 'is_active', 'opt_in')}),
-        ('Personal info', {'fields': ('display_name', 'uid')}),
+        ('Personal info', {'fields': ('display_name', 'bio', 'uid')}),
         ('Permissions', {'fields': ('is_superuser', 'is_staff')}),
         ('Important dates', {'fields': ('last_login',)}),
     )
@@ -112,4 +112,14 @@ class InvitationAdmin(admin.ModelAdmin):
     ordering = ('community', 'last_sent_at')
 
 
+class UnsubscribeUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'created_at')
+
+
+class EmailPixelUserAdmin(admin.ModelAdmin):
+    list_display = ('user', 'created_at', 'm_id')
+
+
 admin.site.register(Invitation, InvitationAdmin)
+admin.site.register(UnsubscribeUser, UnsubscribeUserAdmin)
+admin.site.register(EmailPixelUser, EmailPixelUserAdmin)

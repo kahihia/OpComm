@@ -3,9 +3,9 @@
 
 {% block page_header %}
     {% if LANGUAGE_CODE == 'he' and community.no_meetings_community %}
-    {% trans "Close update" %}
+        {% trans "Close update" %}
     {% else %}
-    {% trans "Close meeting" %}
+        {% trans "Close meeting" %}
     {% endif %}
 {% endblock %}
 
@@ -21,47 +21,47 @@
         {{ form }}
     {% endwith %}
 
-     <div class="alerts">
+    <div class="alerts">
         <p><b>{% trans "Please note, editing the meeting's information is not possible after close" %}!</b></p>
-     </div>
+    </div>
 {% endblock %}
 
 {% block nofooter %}
-<div class="modal-footer">
-	<button type="button" class="btn btn-info pull-left" data-toggle="collapse" data-target="#protocolPreview">
-        {% if LANGUAGE_CODE == 'he' and community.no_meetings_community %}
-        {% trans "Preview details" %}
-        {% else %}
-        {% trans "Preview protocol" %}
-        {% endif %}
-	</button>
-    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Cancel" %}</button>
-    {% if LANGUAGE_CODE == 'he' and community.no_meetings_community %}
-    <input type="submit" class="btn btn-oc" value="{% trans 'Close update' %}">
-    {% else %}
-    <input type="submit" class="btn btn-oc" value="{% trans 'Close meeting' %}">
-    {% endif %}
-	<div id="protocolPreview" class="collapse">
-		<button type="button" class="btn btn-default hidden-print protocol-print-btn" onclick="printProtocol();">
-  			<span class="glyphicon glyphicon-print"></span>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info pull-left" data-toggle="collapse" data-target="#protocolPreview">
             {% if LANGUAGE_CODE == 'he' and community.no_meetings_community %}
-            {% trans "Print details" %}
+                {% trans "Preview details" %}
             {% else %}
-            {% trans "Print protocol" %}
+                {% trans "Preview protocol" %}
             {% endif %}
-		</button>
-		<div id="protocolPreviewContent"></div>
-	</div>
-</div>
+        </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Cancel" %}</button>
+        {% if LANGUAGE_CODE == 'he' and community.no_meetings_community %}
+            <input type="submit" class="btn btn-oc" value="{% trans 'Close update' %}">
+        {% else %}
+            <input type="submit" class="btn btn-oc" value="{% trans 'Close meeting' %}">
+        {% endif %}
+        <div id="protocolPreview" class="collapse">
+            <button type="button" class="btn btn-default hidden-print protocol-print-btn" onclick="printProtocol();">
+                <span class="glyphicon glyphicon-print"></span>
+                {% if LANGUAGE_CODE == 'he' and community.no_meetings_community %}
+                    {% trans "Print details" %}
+                {% else %}
+                    {% trans "Print protocol" %}
+                {% endif %}
+            </button>
+            <div id="protocolPreviewContent"></div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block page_scripts %}
-<script>
-	$.ajax({
-		url : "protocol-preview/",
-		success : function(result) {
-			$("#protocolPreviewContent").html(result);
-		}
-	});
-</script>
+    <script>
+        $.ajax({
+            url: "protocol-preview/",
+            success: function (result) {
+                $("#protocolPreviewContent").html(result);
+            }
+        });
+    </script>
 {% endblock %}

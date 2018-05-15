@@ -19,20 +19,20 @@
 			<span data-strict="{{i.length_in_minutes|minutes_strict}}">{{i.length_in_minutes|minutes|default:'--:--'}}</span>
         </div>
         {% endcomment %}
-        {% if i.is_upcoming %}
+        {% comment %}{% if i.is_upcoming %}{% endcomment %}
             <div class="user_votes_on_issue">
                 {% user_votes_on_issue %}
             </div>
-        {% endif %}
+        {% comment %}{% endif %}{% endcomment %}
         <div class="icon-plus-minus agenda_plus_minus">
             <a href="#" class="addremove"></a>
         </div>
     {% else %}
-        {% if i.is_upcoming %}
+        {% comment %}{% if i.is_upcoming %}{% endcomment %}
             <div class="user_votes_on_issue">
                 {% user_votes_on_issue %}
             </div>
-        {% endif %}
+        {% comment %}{% endif %}{% endcomment %}
         {% comment %}
         {% if object.upcoming_meeting_started %}
             <div class="agenda_plus_minus

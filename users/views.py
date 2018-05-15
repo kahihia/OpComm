@@ -15,6 +15,7 @@ from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views import View
+from django.views.decorators.cache import cache_control
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import FormView
 from django.views.generic.detail import DetailView
@@ -25,7 +26,7 @@ from ocd.base_views import CommunityMixin
 from users import models
 from .default_roles import DefaultGroups
 from users.forms import InvitationForm, QuickSignupForm, ImportInvitationsForm, OCPasswordResetConfirmForm
-from users.models import Invitation, OCUser, Membership, UnsubscribeUser
+from users.models import Invitation, OCUser, Membership, UnsubscribeUser, EmailPixelUser
 
 
 def cmp_to_key(mycmp):
@@ -283,7 +284,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
     def form_valid(self, form):
         uploaded_file = self.request.FILES['csv_file']
         uploaded_csvfile = csv.DictReader(codecs.iterdecode(uploaded_file, 'utf-8'),
-                                          fieldnames=['name', 'email', 'role', 'firstname', 'lastname'])
+                                          fieldnames=['name', 'email', 'role', 'firstname', 'lastname', 'bio'])
         roles = dict(DefaultGroups.CHOICES)
         sent = 0
         for row in uploaded_csvfile:
@@ -291,6 +292,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
             name = row['name']
             firstname = row['firstname']
             lastname = row['lastname']
+            bio = row['bio'] or ''
             email = row['email']
             if not email:
                 continue
@@ -312,6 +314,7 @@ class ImportInvitationsView(MembershipMixin, FormView):
             user = OCUser.objects.create_user(
                 email=email.lower(),
                 display_name=fullname,
+                bio=bio,
                 password='opcomm'
             )
             membership = Membership.objects.create(
@@ -384,3 +387,28 @@ def oc_password_reset(request, is_admin_site=False,
 
 class OCPasswordResetConfirmView(PasswordResetConfirmView):
     form_class = OCPasswordResetConfirmForm
+
+
+class EmailPixelView(View):
+    @cache_control(must_revalidate=True, max_age=60)
+    def get(self, request, *args, **kwargs):
+        # Track record of user who opened email
+        community_id = request.GET.get('community')
+        user_id = request.GET.get('uid')
+        t = request.GET.get('type')
+        meeting_id = request.GET.get('meeting')
+        if user_id and t:
+            o = EmailPixelUser()
+            o.user_id = int(user_id)
+            o.subject = t
+            if community_id:
+                o.community_id = int(community_id)
+            if meeting_id:
+                o.meeting_id = int(meeting_id)
+                o.m_id = int(meeting_id)
+            else:
+                from meetings.models import Meeting
+                o.m_id = Meeting.objects.order_by('id').last().id + 1
+            o.save()
+        pixel_image = b'\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x80\x00\x00\xff\xff\xff\x00\x00\x00\x21\xf9\x04\x01\x00\x00\x00\x00\x2c\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02\x44\x01\x00\x3b'
+        return HttpResponse(pixel_image, content_type='image/gif')
