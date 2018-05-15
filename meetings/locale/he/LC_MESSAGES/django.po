@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 13:50+0200\n"
+"POT-Creation-Date: 2018-03-18 09:47+0200\n"
 "PO-Revision-Date: 2014-10-26 11:04+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,260 +18,261 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.10\n"
 
-#: forms.py:18
+#: meetings/forms.py:19
 msgid "Send to"
 msgstr "שלח אל"
 
-#: forms.py:21
+#: meetings/forms.py:22
 msgid "The selected issues will be archived"
 msgstr "הנושאים המסומנים יועברו לארכיון"
 
-#: forms.py:26 models.py:71
+#: meetings/forms.py:27 meetings/models.py:71
 msgid "Held at"
 msgstr "מועד קיום הפגישה"
 
-#: forms.py:50
+#: meetings/forms.py:51
 msgid "Issue was not modified in this meeting"
 msgstr "לא התבצעו שינויים בנושא זה במהלך הפגישה"
 
-#: forms.py:53
+#: meetings/forms.py:54
 msgid "Undecided proposals"
 msgstr "התייחסויות ללא החלטה"
 
-#: models.py:20 models.py:95 models.py:169 models.py:197
+#: meetings/models.py:20 meetings/models.py:95 meetings/models.py:171
+#: meetings/models.py:199
 msgid "Meeting"
 msgstr "פגישה"
 
-#: models.py:22
+#: meetings/models.py:22
 msgid "Issue"
 msgstr "נושא"
 
-#: models.py:24
+#: meetings/models.py:24
 msgid "Background"
 msgstr "רקע"
 
-#: models.py:25
+#: meetings/models.py:25
 msgid "Order"
 msgstr "סדר"
 
-#: models.py:26
+#: meetings/models.py:26
 msgid "Closed"
 msgstr "סגור"
 
-#: models.py:30
+#: meetings/models.py:30
 msgid "Agenda Item"
 msgstr "פריט על סדר היום"
 
-#: models.py:31
+#: meetings/models.py:31
 msgid "Agenda Items"
 msgstr "פריטים על סדר היום"
 
-#: models.py:65
+#: meetings/models.py:65
 msgid "Community"
 msgstr "קהילה"
 
-#: models.py:67
+#: meetings/models.py:67
 msgid "Created at"
 msgstr "נוצר ב"
 
-#: models.py:69
+#: meetings/models.py:69
 msgid "Created by"
 msgstr "נוצר על ידי"
 
-#: models.py:73
+#: meetings/models.py:73
 msgid "Title"
 msgstr "כותרת"
 
-#: models.py:74
+#: meetings/models.py:74
 msgid "Scheduled at"
 msgstr "מועד"
 
-#: models.py:76
+#: meetings/models.py:76
 msgid "Location"
 msgstr "מקום"
 
-#: models.py:77
+#: meetings/models.py:77
 msgid "Comments"
 msgstr "הערות"
 
-#: models.py:79 templates/meetings/meeting_detail.html:8
-#: templates/meetings/meeting_detail.html:50
+#: meetings/models.py:79 meetings/templates/meetings/meeting_detail.html:5
+#: meetings/templates/meetings/meeting_detail.html:47
 msgid "Summary"
 msgstr "סיכום הפגישה"
 
-#: models.py:84
+#: meetings/models.py:84
 msgid "Agenda items"
 msgstr "סדר יום"
 
-#: models.py:88 templates/meetings/meeting_detail.html:133
+#: meetings/models.py:88 meetings/templates/meetings/meeting_detail.html:147
 msgid "Participants"
 msgstr "משתתפים"
 
-#: models.py:91
+#: meetings/models.py:91
 msgid "Guests"
 msgstr "אורחים"
 
-#: models.py:92
+#: meetings/models.py:92
 msgid "Enter each guest in a separate line"
 msgstr "רשום כל אורח בשורה נפקדת"
 
-#: models.py:96 templates/meetings/meeting_list.html:9
+#: meetings/models.py:96 meetings/templates/meetings/meeting_list.html:9
 msgid "Meetings"
 msgstr "פגישות"
 
-#: models.py:175 models.py:198
+#: meetings/models.py:177 meetings/models.py:200
 msgid "Name"
 msgstr "שם"
 
-#: models.py:176
+#: meetings/models.py:178
 msgid "Group"
 msgstr "קבוצה"
 
-#: models.py:179
+#: meetings/models.py:181
 msgid "Is Absent"
 msgstr "נעדר"
 
-#: models.py:183
+#: meetings/models.py:185
 msgid "Meeting Participant"
 msgstr "משתתף בפגישה"
 
-#: models.py:184
+#: meetings/models.py:186
 msgid "Meeting Participants"
 msgstr "משתתפים בפגישה"
 
-#: models.py:201
+#: meetings/models.py:203
 msgid "Meeting External Participant"
 msgstr "משתתף חיצוני"
 
-#: models.py:202
+#: meetings/models.py:204
 msgid "Meeting External Participants"
 msgstr "משתתפים חיצוניים"
 
-#: templates/meetings/meeting_close.html:6
-#: templates/meetings/meeting_close.html:40
+#: meetings/templates/meetings/meeting_close.html:6
+#: meetings/templates/meetings/meeting_close.html:40
 msgid "Close update"
 msgstr "סגור עדכון"
 
-#: templates/meetings/meeting_close.html:8
-#: templates/meetings/meeting_close.html:42
+#: meetings/templates/meetings/meeting_close.html:8
+#: meetings/templates/meetings/meeting_close.html:42
 msgid "Close meeting"
 msgstr "סגור פגישה"
 
-#: templates/meetings/meeting_close.html:16
+#: meetings/templates/meetings/meeting_close.html:16
 msgid "No participants selected for meeting"
 msgstr "לא נבחרו משתתפים לפגישה"
 
-#: templates/meetings/meeting_close.html:25
+#: meetings/templates/meetings/meeting_close.html:25
 msgid ""
 "Please note, editing the meeting's information is not possible after close"
 msgstr "שים לב, לא תתאפשר עריכת מידע בנוגע לפגישה לאחר סגירתה"
 
-#: templates/meetings/meeting_close.html:33
+#: meetings/templates/meetings/meeting_close.html:33
 msgid "Preview details"
 msgstr "הצגת פירוט"
 
-#: templates/meetings/meeting_close.html:35
+#: meetings/templates/meetings/meeting_close.html:35
 msgid "Preview protocol"
 msgstr "פרוטוקול הפגישה"
 
-#: templates/meetings/meeting_close.html:38
+#: meetings/templates/meetings/meeting_close.html:38
 msgid "Cancel"
 msgstr "ביטול"
 
-#: templates/meetings/meeting_close.html:48
+#: meetings/templates/meetings/meeting_close.html:48
 msgid "Print details"
 msgstr "הדפס פירוט"
 
-#: templates/meetings/meeting_close.html:50
-#: templates/meetings/meeting_detail.html:163
+#: meetings/templates/meetings/meeting_close.html:50
+#: meetings/templates/meetings/meeting_detail.html:177
 msgid "Print protocol"
 msgstr "הדפסת פרוטוקול הפגישה"
 
-#: templates/meetings/meeting_detail.html:22
+#: meetings/templates/meetings/meeting_detail.html:19
 msgid "All Meetings"
 msgstr "כל הפגישות"
 
-#: templates/meetings/meeting_detail.html:30
+#: meetings/templates/meetings/meeting_detail.html:27
 msgid "Upcoming meeting"
 msgstr "פגישה קרובה"
 
-#: templates/meetings/meeting_detail.html:32
+#: meetings/templates/meetings/meeting_detail.html:29
 msgid "Not set yet"
 msgstr "טרם נקבע"
 
-#: templates/meetings/meeting_detail.html:73
+#: meetings/templates/meetings/meeting_detail.html:70
 msgid "Protocol"
 msgstr "פרוטוקול"
 
-#: templates/meetings/meeting_detail.html:103
+#: meetings/templates/meetings/meeting_detail.html:117
 msgid "Assigned to"
 msgstr "אחראי"
 
-#: templates/meetings/meeting_detail.html:106
+#: meetings/templates/meetings/meeting_detail.html:120
 msgid "Due by"
 msgstr "יעד"
 
-#: templates/meetings/meeting_detail.html:159
+#: meetings/templates/meetings/meeting_detail.html:173
 msgid "Meeting protocol"
 msgstr "פרוטוקול הפגישה"
 
-#: templates/meetings/meeting_detail.html:168
+#: meetings/templates/meetings/meeting_detail.html:182
 msgid "Close"
 msgstr "סגור"
 
-#: templates/meetings/meeting_form.html:5
+#: meetings/templates/meetings/meeting_form.html:5
 msgid "Communities"
 msgstr "קהילות"
 
-#: templates/meetings/meeting_form.html:8
+#: meetings/templates/meetings/meeting_form.html:8
 msgid "New issue"
 msgstr "נושא חדש"
 
-#: templates/meetings/meeting_list.html:35
+#: meetings/templates/meetings/meeting_list.html:35
 msgid "This community did not conduct any meeting yet."
 msgstr "אין עדיין פגישות לצפיה"
 
-#: templatetags/letter_tag.py:4
+#: meetings/templatetags/letter_tag.py:4
 msgid "a"
 msgstr "א"
 
-#: templatetags/letter_tag.py:4
+#: meetings/templatetags/letter_tag.py:4
 msgid "b"
 msgstr "ב"
 
-#: templatetags/letter_tag.py:4
+#: meetings/templatetags/letter_tag.py:4
 msgid "c"
 msgstr "ג"
 
-#: templatetags/letter_tag.py:4
+#: meetings/templatetags/letter_tag.py:4
 msgid "d"
 msgstr "ד"
 
-#: templatetags/letter_tag.py:4
+#: meetings/templatetags/letter_tag.py:4
 msgid "e"
 msgstr "ה"
 
-#: templatetags/letter_tag.py:5
+#: meetings/templatetags/letter_tag.py:5
 msgid "f"
 msgstr "ו"
 
-#: templatetags/letter_tag.py:5
+#: meetings/templatetags/letter_tag.py:5
 msgid "g"
 msgstr "ז"
 
-#: templatetags/letter_tag.py:5
+#: meetings/templatetags/letter_tag.py:5
 msgid "h"
 msgstr "ח"
 
-#: templatetags/letter_tag.py:5
+#: meetings/templatetags/letter_tag.py:5
 msgid "i"
 msgstr "ט"
 
-#: templatetags/letter_tag.py:5
+#: meetings/templatetags/letter_tag.py:5
 msgid "j"
 msgstr "י"
 
-#: views.py:110
+#: meetings/views.py:116
 #, python-format
 msgid "Sending to %d users"
 msgstr "שולח ל-%d משתמשים"

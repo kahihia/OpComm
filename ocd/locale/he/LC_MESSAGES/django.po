@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 13:51+0200\n"
+"POT-Creation-Date: 2018-03-18 09:47+0200\n"
 "PO-Revision-Date: 2015-04-08 23:19+0200\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
@@ -17,33 +17,138 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.7.5\n"
 
-#: base_models.py:13
+#: oc_util/templatetags/opencommunity.py:39
+msgid "year"
+msgid_plural "years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:40
+msgid "month"
+msgid_plural "months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:41
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:42
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:43
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:44
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:60
+#: oc_util/templatetags/opencommunity.py:157
+msgid "minutes"
+msgstr ""
+
+#: oc_util/templatetags/opencommunity.py:65
+#, python-format
+msgid "%(number)d %(type)s"
+msgstr ""
+
+#: oc_util/templatetags/opencommunity.py:91
+#, python-format
+msgctxt "naturaltime"
+msgid "%(delta)s ago"
+msgstr ""
+
+#: oc_util/templatetags/opencommunity.py:94
+#: oc_util/templatetags/opencommunity.py:116
+msgid "now"
+msgstr ""
+
+#: oc_util/templatetags/opencommunity.py:97
+#, python-format
+msgid "a second ago"
+msgid_plural "%(count)s seconds ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:102
+#, python-format
+msgid "a minute ago"
+msgid_plural "%(count)s minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:107
+#, python-format
+msgid "an hour ago"
+msgid_plural "%(count)s hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:113
+#, python-format
+msgctxt "naturaltime"
+msgid "%(delta)s from now"
+msgstr ""
+
+#: oc_util/templatetags/opencommunity.py:119
+#, python-format
+msgid "a second from now"
+msgid_plural "%(count)s seconds from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:124
+#, python-format
+msgid "a minute from now"
+msgid_plural "%(count)s minutes from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc_util/templatetags/opencommunity.py:129
+#, python-format
+msgid "an hour from now"
+msgid_plural "%(count)s hours from now"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ocd/base_models.py:13
 msgid "HTML content"
 msgstr "תוכן HTML"
 
-#: base_models.py:69 base_models.py:91
+#: ocd/base_models.py:69 ocd/base_models.py:91
 msgid "Is Confidential"
 msgstr "חסוי"
 
-#: base_models.py:99
+#: ocd/base_models.py:99
 msgid ""
 "Models with ConfidentialByRelationMixin must declare a valid field which can "
 "pass onconfidentiality."
 msgstr ""
 
-#: settings.py:213
+#: ocd/settings.py:215
 msgid "Privacy"
 msgstr "פרטיות"
 
-#: settings.py:214
+#: ocd/settings.py:216
 msgid "Commercial"
 msgstr "מסחרי"
 
-#: settings.py:215
+#: ocd/settings.py:217
 msgid "Security"
 msgstr "ביטחון"
 
-#: settings.py:216
+#: ocd/settings.py:218
 msgid "Legal"
 msgstr "משפטי"
 

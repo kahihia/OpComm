@@ -42,6 +42,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('django-rq/', include('django_rq.urls')),
     path('jsi18n/', JavaScriptCatalog.as_view(packages=['issues', 'communities']), name='javascript-catalog'),
+    # E-Mail Pixel code
+    path('pixel/opcomm.gif/', users.views.EmailPixelView.as_view(), name='email_pixel'),
 ]
 
 if settings.DEBUG:

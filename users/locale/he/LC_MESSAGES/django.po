@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Community\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-07 21:48+0200\n"
-"PO-Revision-Date: 2018-03-07 21:49+0200\n"
+"POT-Creation-Date: 2018-04-22 10:14+0300\n"
+"PO-Revision-Date: 2018-04-22 10:14+0300\n"
 "Last-Translator: Yaniv Mirel <yanivmirel@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -106,7 +106,7 @@ msgstr "משתמשים"
 msgid "Community"
 msgstr "קהילה"
 
-#: models.py:125 models.py:279 models.py:339
+#: models.py:125 models.py:279 models.py:339 models.py:351
 msgid "User"
 msgstr "משתמש"
 
@@ -114,7 +114,7 @@ msgstr "משתמש"
 msgid "Group"
 msgstr "קבוצה"
 
-#: models.py:131 models.py:267 models.py:340
+#: models.py:131 models.py:267 models.py:340 models.py:352
 msgid "Created at"
 msgstr "נוצר בתאריך"
 
@@ -210,6 +210,14 @@ msgstr "ביטול מרשימת תפוצה"
 #: models.py:347
 msgid "Unsubscribers"
 msgstr "ביטולים מרשימת תפוצה"
+
+#: models.py:358
+msgid "Email pixel"
+msgstr "אימייל פיקסל"
+
+#: models.py:359
+msgid "Email pixels"
+msgstr "אימייל פיקסלים"
 
 #: templates/emails/invitation.txt:2
 msgid "Hello"
@@ -408,31 +416,31 @@ msgstr "הזמן"
 msgid "Open invitations"
 msgstr "הזמנות פתוחות"
 
-#: tests/invitation_test.py:80 views.py:111
+#: tests/invitation_test.py:80 views.py:112
 msgid "Form error. Please supply a valid email."
 msgstr "יש בעיה בטופס. אנא בדוק את כתובת האימייל"
 
-#: tests/invitation_test.py:89 views.py:86
+#: tests/invitation_test.py:89 views.py:87
 msgid "This user is already invited to this community."
 msgstr "משתמש זה כבר הוזמן לקהילה"
 
-#: tests/invitation_test.py:99 views.py:81
+#: tests/invitation_test.py:99 views.py:82
 msgid "This user already a member of this community."
 msgstr "משתמש זה כבר חבר בקהילה"
 
-#: views.py:97
+#: views.py:98
 msgid "The board"
 msgstr "הועדה"
 
-#: views.py:156
+#: views.py:157
 msgid "Email address [{}] has been successfully removed from out list"
 msgstr "כתובת מייל [{}] הוסרה בהצלחה מרשימת התפוצה שלנו"
 
-#: views.py:223
+#: views.py:224
 msgid "Oops. Something went wrong. Please try again."
 msgstr "אופס. משהו השתבש. אנה נסה שוב."
 
-#: views.py:327
+#: views.py:328
 #, python-format
 msgid "%d Invitations sent"
 msgstr "%d הזמנות נשלחו"
