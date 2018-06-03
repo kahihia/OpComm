@@ -13,6 +13,7 @@ from meetings import models
 from meetings.forms import CloseMeetingForm
 from ocd.base_views import AjaxFormView
 from communities.notifications import send_mail
+from users.models import EmailPixelUser
 
 
 class MeetingMixin(CommunityMixin):
@@ -105,6 +106,8 @@ class MeetingCreateView(AjaxFormView, MeetingMixin, CreateView):
     def form_valid(self, form):
         # archive selected issues
         m = self.community.close_meeting(form.instance, self.request.user, self.community)
+        # Update email pixels with meeting obj
+        EmailPixelUser.objects.filter(m_id=m.id, subject='agenda', meeting__isnull=True).update(meeting=m)
         # Assign meeting to attachments
         attachments = MeetingAttachment.objects.filter(meeting__isnull=True)
         if attachments:

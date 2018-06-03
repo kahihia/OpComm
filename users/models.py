@@ -363,3 +363,30 @@ class EmailPixelUser(models.Model):
     class Meta:
         verbose_name = _("Email pixel")
         verbose_name_plural = _("Email pixels")
+
+
+class EmailNotificationType(object):
+    AGENDA = "agenda"
+    PROTOCOL = "protocol"
+    PROTOCOL_DRAFT = "protocol_draft"
+
+    CHOICES = (
+        (AGENDA, _("agenda")),
+        (PROTOCOL, _("protocol")),
+        (PROTOCOL_DRAFT, _("protocol draft")),
+    )
+
+
+class EmailLog(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created at"))
+    notification_type = models.CharField(_("Notification type"), max_length=100, choices=EmailNotificationType.CHOICES)
+    subject = models.CharField(_("Subject"), max_length=100, blank=True)
+    recipients = models.TextField(_("Recipients"), blank=True, null=True)
+    html = models.TextField(_("HTML Content"))
+
+    def __str__(self):
+        return f"{self.created_at}: {self.get_notification_type_display()} - {self.subject}"
+
+    class Meta:
+        verbose_name = _("Email log")
+        verbose_name_plural = _("Email logs")

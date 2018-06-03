@@ -61,6 +61,8 @@
                                         <a href="{{ base_url }}{{ att.file.url }}" class="file_ext">
                                             <img height="16" src="
 
+
+
                                                     {{ base_url }}{{ STATIC_URL }}images/icons/{{ att.get_icon }}.png"/> {{ att.title }}
                                         </a>
                                     </li>
@@ -134,40 +136,46 @@
                     {% if a.issue.active_comments.count %}
                         <h4>{% trans 'Issue discussion summary' %}</h4>
                         {% for c in a.issue.active_comments.all %}
-                            <p style="padding:0; margin: 3px;">
-                                {{ c.content|safe|truncatechars:1000 }}
-                                {% if c.content|length > 1000 %}
-                                    <br>
-                                    <a href="{{ base_url }}{{ a.issue.get_absolute_url }}?uid={{ recipient.uid }}" target="_blank">
-                                        {% trans 'Read more' %}
-                                    </a>
-                                {% endif %}
-                                {% comment %}
-                            <i style="font-size: smaller">
-                                ({{c.created_by}} {% trans "at" %} {{c.created_at}})
-                            </i>
-                            {% endcomment %}
-                            </p>
+                            {% if c.active %}
+                                <p style="padding:0; margin: 3px;">
+                                    {{ c.content|safe|truncatechars:1000 }}
+                                    {% if c.content|length > 1000 %}
+                                        <br>
+                                        <a href="{{ base_url }}{{ a.issue.get_absolute_url }}?uid={{ recipient.uid }}"
+                                           target="_blank">
+                                            {% trans 'Read more' %}
+                                        </a>
+                                    {% endif %}
+                                    {% comment %}
+                                        <i style="font-size: smaller">
+                                            ({{c.created_by}} {% trans "at" %} {{c.created_at}})
+                                        </i>
+                                    {% endcomment %}
+                                </p>
+                            {% endif %}
                         {% endfor %}
                     {% endif %}
 
                     {% if a.issue.active_references.count %}
                         <h4>{% trans 'Reference summary' %}</h4>
                         {% for c in a.issue.active_references %}
-                            <p style="padding:0; margin: 3px;">
-                                {{ c.reference|safe|truncatechars:1000 }}
-                                {% if c.reference|length > 1000 %}
-                                    <br>
-                                    <a href="{{ base_url }}{{ a.issue.get_absolute_url }}?uid={{ recipient.uid }}" target="_blank">
-                                        {% trans 'Read more' %}
-                                    </a>
-                                {% endif %}
-                                {% comment %}
-                            <i style="font-size: smaller">
-                                ({{c.created_by}} {% trans "at" %} {{c.created_at}})
-                            </i>
-                            {% endcomment %}
-                            </p>
+                            {% if c.active %}
+                                <p style="padding:0; margin: 3px;">
+                                    {{ c.reference|safe|truncatechars:1000 }}
+                                    {% if c.reference|length > 1000 %}
+                                        <br>
+                                        <a href="{{ base_url }}{{ a.issue.get_absolute_url }}?uid={{ recipient.uid }}"
+                                           target="_blank">
+                                            {% trans 'Read more' %}
+                                        </a>
+                                    {% endif %}
+                                    {% comment %}
+                                        <i style="font-size: smaller">
+                                            ({{c.created_by}} {% trans "at" %} {{c.created_at}})
+                                        </i>
+                                    {% endcomment %}
+                                </p>
+                            {% endif %}
                         {% endfor %}
                     {% endif %}
 
@@ -179,6 +187,8 @@
                                     <li>
                                         <a href="{{ base_url }}{{ att.file.url }}" class="file_ext">
                                             <img height="16" src="
+
+
 
                                                     {{ base_url }}{{ STATIC_URL }}images/icons/{{ att.get_icon }}.png"/> {{ att.title }}
                                         </a>
@@ -265,7 +275,9 @@
             </div>
         {% endif %}
     </div>
-    <img src="{{ base_url }}{% url 'email_pixel' %}?uid={{ recipient.id }}&type=protocol&meeting={{ meeting.id }}&community={{ community.id }}" />
+    <img src="
+
+            {{ base_url }}{% url 'email_pixel' %}?uid={{ recipient.id }}&type=protocol&meeting={{ meeting.id }}&community={{ community.id }}"/>
 </div>
 
 <style>

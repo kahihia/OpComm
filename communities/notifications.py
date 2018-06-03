@@ -12,6 +12,7 @@ from django.utils import translation
 from communities.models import SendToOption
 from issues.models import IssueStatus
 from users.default_roles import DefaultGroups
+from users.models import EmailLog
 
 logger = logging.getLogger(__name__)
 
@@ -235,6 +236,17 @@ def _base_send_mail(community, notification_type, sender, send_to, data=None,
         message.attach_alternative(as_html, 'text/html')
         message.send(fail_silently=True)
 
+    # Create Email log for future usage
+    try:
+        # todo: deal with recipient uid before resending.
+        e = EmailLog()
+        e.notification_type = notification_type
+        e.subject = render_to_string("emails/{0}_title.txt".format(notification_type), d).strip()
+        e.recipients = ",".join([x.email for x in recipients])
+        e.html = render_to_string("emails/{0}.txt".format(notification_type), d)
+        e.save()
+    except:
+        pass
     return len(recipients)
 
 
