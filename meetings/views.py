@@ -107,8 +107,11 @@ class MeetingCreateView(AjaxFormView, MeetingMixin, CreateView):
         # archive selected issues
         m = self.community.close_meeting(form.instance, self.request.user, self.community)
         # Update email pixels with meeting obj
-        EmailPixelUser.objects.filter(community=self.community, subject='agenda', meeting__isnull=True).update(
-            {'meeting': m, 'm_id': m.id})
+        ep = EmailPixelUser.objects.filter(community=self.community, subject='agenda', meeting__isnull=True)
+        for e in ep:
+            e.meeting = m
+            e.m_id = m.id
+            e.save()
         # Assign meeting to attachments
         attachments = MeetingAttachment.objects.filter(meeting__isnull=True)
         if attachments:
