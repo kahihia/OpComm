@@ -322,10 +322,10 @@ class ImportInvitationsView(MembershipMixin, FormView):
                 )
             membership, created = Membership.objects.get_or_create(
                 community=self.community,
-                user=user,
-                default_group_name=role
+                user=user
             )
             if created:
+                membership.default_group_name = role
                 membership.invited_by = self.request.user
                 membership.save()
                 sent += 1
