@@ -181,8 +181,32 @@ class ProposalAdmin(admin.ModelAdmin):
     community.short_description = _("Community")
 
 
+class ProposalCommentAdmin(admin.ModelAdmin):
+    list_display = (
+        'created_at',
+        'created_by',
+        'get_issue',
+        'comment',
+    )
+    list_filter = (
+        'created_at',
+        'created_by',
+        'comment',
+    )
+    search_fields = (
+        'created_by',
+    )
+    date_hierarchy = 'created_at'
+
+    def get_issue(self, instance):
+        return instance.proposal.issue
+
+    get_issue.short_description = _('Issue')
+
+
 site.register(models.Issue, IssueAdmin)
 site.register(models.Proposal, ProposalAdmin)
+site.register(models.ProposalComment, ProposalCommentAdmin)
 
 
 class ProposalVoteAdmin(admin.ModelAdmin):

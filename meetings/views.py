@@ -13,6 +13,7 @@ from meetings import models
 from meetings.forms import CloseMeetingForm
 from ocd.base_views import AjaxFormView
 from communities.notifications import send_mail
+from users.models import EmailPixelUser
 
 
 class MeetingMixin(CommunityMixin):
@@ -31,7 +32,7 @@ class MeetingList(MeetingMixin, RedirectView):
             return o.get_absolute_url()
 
     def get_context_data(self, **kwargs):
-        context = super(MeetingDetailView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         return context
 
@@ -82,7 +83,7 @@ class MeetingCreateView(AjaxFormView, MeetingMixin, CreateView):
     form_class = CloseMeetingForm
 
     def get_initial(self):
-        d = super(MeetingCreateView, self).get_initial()
+        d = super().get_initial()
         dt = self.community.upcoming_meeting_scheduled_at
         if not dt or dt > timezone.now():
             dt = timezone.now().replace(second=0)
@@ -90,7 +91,7 @@ class MeetingCreateView(AjaxFormView, MeetingMixin, CreateView):
         return d
 
     def get_context_data(self, **kwargs):
-        d = super(MeetingCreateView, self).get_context_data(**kwargs)
+        d = super().get_context_data(**kwargs)
         participants = self.community.upcoming_meeting_participants.all()
         d['no_participants'] = True if not participants else False
         d['issues_ready_to_close'] = self.community.issues_ready_to_close(
@@ -98,13 +99,19 @@ class MeetingCreateView(AjaxFormView, MeetingMixin, CreateView):
         return d
 
     def get_form_kwargs(self):
-        kwargs = super(MeetingCreateView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         kwargs['issues'] = self.community.upcoming_issues(user=self.request.user, community=self.community)
         return kwargs
 
     def form_valid(self, form):
         # archive selected issues
         m = self.community.close_meeting(form.instance, self.request.user, self.community)
+        # Update email pixels with meeting obj
+        ep = EmailPixelUser.objects.filter(community=self.community, subject='agenda', meeting__isnull=True)
+        for e in ep:
+            e.meeting = m
+            e.m_id = m.id
+            e.save()
         # Assign meeting to attachments
         attachments = MeetingAttachment.objects.filter(meeting__isnull=True)
         if attachments:

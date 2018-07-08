@@ -304,26 +304,31 @@ class ImportInvitationsView(MembershipMixin, FormView):
             except:
                 role = list(roles.keys())[0]
 
-            if OCUser.objects.filter(email=email.lower()).exists():
-                continue
+            try:
+                user = OCUser.objects.filter(email=email.lower()).first()
+            except OCUser.DoesNotExist:
+                user = None
 
-            if name:
-                fullname = name
-            else:
-                fullname = u'{}{}'.format(firstname, u' {}'.format(lastname) if lastname else '')
-            user = OCUser.objects.create_user(
-                email=email.lower(),
-                display_name=fullname,
-                bio=bio,
-                password='opcomm'
-            )
-            membership = Membership.objects.create(
+            if not user:
+                if name:
+                    fullname = name
+                else:
+                    fullname = u'{}{}'.format(firstname, u' {}'.format(lastname) if lastname else '')
+                user = OCUser.objects.create_user(
+                    email=email.lower(),
+                    display_name=fullname,
+                    bio=bio,
+                    password='opcomm'
+                )
+            membership, created = Membership.objects.get_or_create(
                 community=self.community,
                 user=user,
-                default_group_name=role,
-                invited_by=self.request.user
+                default_group_name=role
             )
-            sent += 1
+            if created:
+                membership.invited_by = self.request.user
+                membership.save()
+                sent += 1
 
         messages.success(self.request, _('%d Invitations sent') % (sent,))
         return redirect(reverse('members', kwargs={'community_id': self.community.id}))
@@ -408,7 +413,8 @@ class EmailPixelView(View):
                 o.m_id = int(meeting_id)
             else:
                 from meetings.models import Meeting
-                o.m_id = Meeting.objects.order_by('id').last().id + 1
+                o.m_id = 0
+                # o.m_id = Meeting.objects.order_by('id').last().id + 1
             o.save()
         pixel_image = b'\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x80\x00\x00\xff\xff\xff\x00\x00\x00\x21\xf9\x04\x01\x00\x00\x00\x00\x2c\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02\x44\x01\x00\x3b'
         return HttpResponse(pixel_image, content_type='image/gif')
